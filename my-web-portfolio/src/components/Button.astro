@@ -1,0 +1,35 @@
+---
+interface Props {
+    title?: string;
+    link?: string;
+    primary?: boolean;
+}
+
+const {title="Button", link="/", primary=true} = Astro.props;
+
+---
+
+<button type="button" class=`btn ${primary ? 'btn--primary' : 'btn--accent'}`>
+    <a href={link}>
+        {title}
+    </a>
+</button>
+
+<style>
+    .btn {
+        color: black;
+        background-color: white;
+        border-radius: 17.5px;
+        padding: 0.65em 2.85em;
+        font-size: 0.75rem;
+    }
+    .btn--primary {
+        color: white;
+        background-color: rgb(var(--light-blue));
+        font-weight: 600;
+        transition: all 0.2s ease;
+    }
+    .btn--primary:hover {
+        background-color: rgba(var(--light-blue), 0.7);
+    }
+</style>
