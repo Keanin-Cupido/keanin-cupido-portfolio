@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 
 import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -24,6 +25,10 @@ import Navbar from '../components/Navbar.astro';
 			linksNames={["/", "/projects", "/about"]}
 		/>
 		<slot />
+		<Footer
+			links={["Home", "Projects", "About", "Contact"]},
+			linksNames={["/", "/projects", "/about", "/contact"]}
+		/>
 	</body>
 </html>
 <style is:global>
@@ -62,7 +67,7 @@ import Navbar from '../components/Navbar.astro';
 		font-size: 1rem;
 		color: white;
 		background: var(--bg-blue-gradient);
-		padding: 2.25em 2em;
+		padding: 2.25em 0em;
 	}
 	code {
 		font-family:

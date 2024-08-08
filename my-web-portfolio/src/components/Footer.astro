@@ -1,0 +1,87 @@
+---
+interface Props {
+    links?: string[];
+    linksNames?: string[];
+}
+
+const {links=["Home", "Projects", "About", "Contact"], linksNames=["/", "/projects", "/about", "/contact"]} = Astro.props;
+
+import Image from 'astro/components/Image.astro';
+
+// Images
+import KeaninCupidoLogo from '../../public/logo.svg';
+---
+<footer class="footer">
+    <div class="circle_image">
+        <a href={'/'}>
+            <Image 
+                src={KeaninCupidoLogo}
+                alt={"logo"}
+                width={45}
+                height={45}
+            />
+        </a>
+    </div>
+
+    <p class="footer_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
+
+    <ul class="links">
+        {
+            links.map((link, key) => (
+                <li>
+                    <a href={linksNames[key]}>
+                        {link}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</footer>
+
+<style>
+    .footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        margin: 0 auto;
+        padding: 5em 0em;
+        text-align: center;
+    }
+    .footer .circle_image {
+        transition: all 0.2s ease;
+    }
+    .footer .circle_image:hover {
+        opacity: 0.5;
+        transform: scale(0.99);
+    }
+    .footer .footer_summary {
+        font-size: 0.75rem;
+        color: rgb(var(--very-light-blue));
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer .footer_summary .link {
+        transition: all 0.2s ease;
+    }
+    .footer .footer_summary .link:hover {
+        color: white;
+    }
+    .footer .links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5em;
+        font-size: 0.75rem;
+    }
+    .footer .links li {
+        transition: all 0.2s ease;
+    }
+    .footer .links li:hover {
+        transform: translateY(-2px);
+        color: rgb(var(--very-light-blue));
+    }
+</style>
