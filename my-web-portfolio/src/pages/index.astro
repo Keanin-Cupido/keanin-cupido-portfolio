@@ -5,7 +5,30 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
 	<main class="main--home">
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<header class="header">
+			<h2 class="title--one">Hi, I'm</h2>
+			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
+			<h2 class="title--three">WEB DEVELOPER</h2>
+			<p class="header_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
+			<div class="socials">
+				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer">
+					<!-- Github -->
+					<i class="fa-brands fa-github"></i>
+				</a>
+				<a href="http://" target="_blank" rel="noopener noreferrer">
+					<!-- Twitter -->
+					<i class="fa-brands fa-x-twitter"></i>
+				</a>
+				<a href="http://" target="_blank" rel="noopener noreferrer">
+					<!-- CodePen -->
+					<i class="fa-brands fa-codepen"></i>
+				</a>
+				<a href="http://" target="_blank" rel="noopener noreferrer">
+					<!-- LinkedIn -->
+					<i class="fa-brands fa-linkedin"></i>            
+				</a>
+			</div>
+		</header>
 	</main>
 </Layout>
 
@@ -13,6 +36,53 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 	.main--home {
 		width: 100%;
 		max-width: 1000px;
+		margin: 5em auto;
+	}
+	.main--home .header {
+		width: 100%;
+		text-align: center;
+		line-height: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: .5em;
+	}
+    .main--home .header .header_summary .link:hover {
+        color: white;
+    }
+	.main--home .header h2.title--one {
+		font-size: 0.75rem;
+		font-weight: 500;
+	}
+	.main--home .header h2.title--two {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+	.main--home .header h2.title--three {
+		font-size: 5.25rem;
+		font-weight: 700;
+	}
+	.main--home .header .header_summary {
+        font-size: 1.25rem;
+        color: rgb(var(--very-light-blue));
+        width: 100%;
+		max-width: 584px;
 		margin: 0 auto;
+		line-height: 1.4;
+    }
+    .main--home .header .header_summary .link {
+        transition: all 0.2s ease;
+    }
+	.main--home .header .socials {
+		margin-top: 2em;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 1.25em;
+	}
+	.main--home .header .socials i {
+		font-size: 1.25rem;
 	}
 </style>
