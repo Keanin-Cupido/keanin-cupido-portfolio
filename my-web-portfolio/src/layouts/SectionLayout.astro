@@ -3,22 +3,14 @@ import Image from "astro/components/Image.astro";
 
 interface Props {
 	heading: string;
-	subheading: string;
-	picture: boolean;
-	picSrc: string;
-	picAlt: string;
-	picW: number;
-	picH: number;
+	subheading?: string
 }
 
-const {heading, subheading, picture=false, picSrc="", picAlt="", picW=0, picH=0} = Astro.props;
+const {heading, subheading} = Astro.props;
 ---
 
 <section>
 	<h2>{heading}</h2>
-	{
-		picture ? <Image src={picSrc} alt={picAlt} width={picW} height={picH} /> : null
-	}
 	<p>{subheading}</p>
 	<slot />
 </section>

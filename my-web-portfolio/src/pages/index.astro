@@ -1,6 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Divider from '../components/Divider.astro';
 import SectionLayout from '../layouts/SectionLayout.astro';
+import Image from 'astro/components/Image.astro';
+// Images
+import logo from '../../public/logo.svg';
+import frontendLogo from '../../public/frontend.svg';
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
@@ -8,7 +13,16 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 		<header class="header">
 			<h2 class="title--one">Hi, I'm</h2>
 			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
-			<h2 class="title--three">WEB DEVELOPER</h2>
+			<h2 class="title--three">
+				<Image 
+					src={frontendLogo}
+					alt={"logo"}
+					width={77.24}
+					height={51.57}
+					class={"frontend_logo"}
+				/>
+				WEB DEVELOPER
+			</h2>
 			<p class="header_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
 			<div class="socials">
 				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer">
@@ -29,6 +43,57 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 				</a>
 			</div>
 		</header>
+
+		<Divider />
+
+		<!-- About Summary -->
+		 <section class="about_summary">
+			<p>As a web developer specializing in frontend technologies, I excel in creating dynamic and engaging user interfaces. My expertise in React and deep understanding of JavaScript allow me to build responsive and efficient applications.</p>
+
+			<p>I am passionate about crafting seamless user experiences and constantly staying updated with the latest trends and best practices in frontend development.</p>
+		 </section>
+
+		<Divider />
+
+		<!-- Featured Work -->
+		 <SectionLayout
+		 	heading='Featured Work'
+			subheading='Discover my featured projects showcasing the best of my work in web development. Each project highlights my skills in React, JavaScript, and creating intuitive user interfaces.'
+			picture={false}
+		 >
+			<!-- Slot -->
+		 </SectionLayout>
+
+		<Divider />
+
+		<!-- About Me -->
+		<SectionLayout
+			heading='About Me'
+			subheading=''
+		>
+			<Image src={logo} alt="logo" width={45} height={45} />
+		</SectionLayout>
+
+		<Divider />
+
+		<!-- My Techstack -->
+		 <SectionLayout
+		 	heading='My Techstack'
+			subheading='My tech stack focuses on frontend technologies like React, TypeScript, Next.js, and Astro.js, with strong skills in HTML, CSS, and Sass. I also develop mobile apps using React Native and have experience with Python, Java, and am currently learning Rust.'
+		 >
+			<!-- Slot -->
+		 </SectionLayout>
+
+		<Divider />
+
+		<!-- Contact -->
+		<SectionLayout
+			heading='Contact'
+			subheading="I'd love to hear from you! Whether you have a project in mind, a question, or just want to connect, feel free to reach out. You can contact me via email or through the contact form below."
+		>
+			<!-- Slot -->
+		</SectionLayout>
+		
 	</main>
 </Layout>
 
@@ -60,8 +125,17 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 		font-weight: 600;
 	}
 	.main--home .header h2.title--three {
+		position: relative;
 		font-size: 5.25rem;
 		font-weight: 700;
+		background: -webkit-linear-gradient(#EFEFEF 48%, #A3CDFF 100%);
+  		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
+	}
+	.main--home .header h2.title--three .frontend_logo {
+		position: absolute;
+		top: -0.25em;
+		left: -1em;
 	}
 	.main--home .header .header_summary {
         font-size: 1.25rem;
@@ -80,9 +154,14 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
-		gap: 1.25em;
+		gap: 1.5em;
 	}
 	.main--home .header .socials i {
+		cursor: pointer;
 		font-size: 1.25rem;
+		transition: all 0.2s ease;
+	}
+	.main--home .header .socials i:hover {
+		transform: translateY(-3px);
 	}
 </style>

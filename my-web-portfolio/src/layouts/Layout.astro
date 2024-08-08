@@ -5,8 +5,16 @@ interface Props {
 
 const { title } = Astro.props;
 
+import Image from 'astro/components/Image.astro';
+
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+
+// Image
+import line_topright from '../../public/line_topright.svg';
+import line_center1 from '../../public/line_center1.svg';
+import line_center2 from '../../public/line_center2.svg';
+
 ---
 
 <!doctype html>
@@ -22,10 +30,13 @@ import Footer from '../components/Footer.astro';
 		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 	</head>
 	<body>
+		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} />
 		<Navbar 
 			links={["Home", "Projects", "About"]},
 			linksNames={["/", "/projects", "/about"]}
 		/>
+		<Image class={"line_center1"} src={line_center1} alt={"line_center1"} width={1556} height={388.24} />
+		<Image class={"line_center2"} src={line_center2} alt={"line_center2"} width={1492} height={153} />
 		<slot />
 		<Footer
 			links={["Home", "Projects", "About", "Contact"]},
@@ -33,6 +44,7 @@ import Footer from '../components/Footer.astro';
 		/>
 	</body>
 </html>
+
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 	
@@ -70,16 +82,27 @@ import Footer from '../components/Footer.astro';
 		color: white;
 		background: var(--bg-blue-gradient);
 		padding: 2.25em 0em;
+		overflow-x: hidden;
+		position: relative;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+
+	/* Background Lines */
+	body .line_topright {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 0;
+	}
+	body .line_center1,
+	body .line_center2 {
+		width: 100%;
+		position: absolute;
+		z-index: -1;
+	}
+	body .line_center1 {
+		top: 14em;
+	}
+	body .line_center2 {
+		top: 21.5em;
 	}
 </style>
