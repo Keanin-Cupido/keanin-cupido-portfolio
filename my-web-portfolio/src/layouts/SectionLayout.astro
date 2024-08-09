@@ -6,15 +6,40 @@ interface Props {
 	subheading?: string
 }
 
-const {heading, subheading} = Astro.props;
+const {heading, subheading=""} = Astro.props;
 ---
 
-<section>
-	<h2>{heading}</h2>
-	<p>{subheading}</p>
+<section class="section_layout">
+	<h2 class="heading">{heading}</h2>
+	{
+		subheading === "" ? null : <p class="subheading">{subheading}</p>
+	}
 	<slot />
 </section>
 
 <style>	
-
+	section.section_layout {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+		text-align: center;
+		padding: 0em 2em;
+	}
+	section.section_layout > h2.heading {
+		font-size: 1.75rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		background: -webkit-linear-gradient(#EFEFEF 48%, #7eb8ff 100%);
+  		-webkit-background-clip: text;
+  		-webkit-text-fill-color: transparent;
+	}
+	section.section_layout > p.subheading {
+		width: 100%;
+		max-width: 750px;
+		font-size: 1rem;
+		font-weight: 300;
+		color: rgb(var(--very-light-blue));
+	}
 </style>

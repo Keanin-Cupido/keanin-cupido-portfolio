@@ -2,10 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Divider from '../components/Divider.astro';
 import SectionLayout from '../layouts/SectionLayout.astro';
+import CardProject from '../components/CardProject.astro';
 import Image from 'astro/components/Image.astro';
+import Button from '../components/Button.astro';
+import CardTechStack from '../components/CardTechStack.astro';
+import { Icon } from 'astro-icon/components'
+
 // Images
-import logo from '../../public/logo.svg';
 import frontendLogo from '../../public/frontend.svg';
+
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
@@ -26,20 +31,16 @@ import frontendLogo from '../../public/frontend.svg';
 			<p class="header_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
 			<div class="socials">
 				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer">
-					<!-- Github -->
-					<i class="fa-brands fa-github"></i>
+					<Icon name="mdi:github" />
 				</a>
 				<a href="http://" target="_blank" rel="noopener noreferrer">
-					<!-- Twitter -->
-					<i class="fa-brands fa-x-twitter"></i>
+					<Icon name="mdi:twitter" />
 				</a>
 				<a href="http://" target="_blank" rel="noopener noreferrer">
-					<!-- CodePen -->
-					<i class="fa-brands fa-codepen"></i>
+					<Icon name="mdi:codepen" />
 				</a>
 				<a href="http://" target="_blank" rel="noopener noreferrer">
-					<!-- LinkedIn -->
-					<i class="fa-brands fa-linkedin"></i>            
+					<Icon name="mdi:linkedin" />           
 				</a>
 			</div>
 		</header>
@@ -48,7 +49,7 @@ import frontendLogo from '../../public/frontend.svg';
 
 		<!-- About Summary -->
 		 <section class="about_summary">
-			<p>As a web developer specializing in frontend technologies, I excel in creating dynamic and engaging user interfaces. My expertise in React and deep understanding of JavaScript allow me to build responsive and efficient applications.</p>
+			<p>As a web developer specializing in <u>frontend technologies</u>, I excel in creating dynamic and engaging user interfaces. My expertise in <u>React</u> and deep understanding of <u>JavaScript</u> allow me to build responsive and efficient applications.</p>
 
 			<p>I am passionate about crafting seamless user experiences and constantly staying updated with the latest trends and best practices in frontend development.</p>
 		 </section>
@@ -59,9 +60,11 @@ import frontendLogo from '../../public/frontend.svg';
 		 <SectionLayout
 		 	heading='Featured Work'
 			subheading='Discover my featured projects showcasing the best of my work in web development. Each project highlights my skills in React, JavaScript, and creating intuitive user interfaces.'
-			picture={false}
 		 >
-			<!-- Slot -->
+			 <CardProject />
+			 <CardProject />
+			 <CardProject />
+			 <Button title="View More" link="/projects" primary newTab={false}/>
 		 </SectionLayout>
 
 		<Divider />
@@ -71,7 +74,14 @@ import frontendLogo from '../../public/frontend.svg';
 			heading='About Me'
 			subheading=''
 		>
-			<Image src={logo} alt="logo" width={45} height={45} />
+		 	<div class="about_me_section">
+				<p>I'm a web developer specializing in frontend technologies with strong skills in <b>React</b> and <b>JavaScript</b>. I focus on creating intuitive, responsive websites and staying updated with the latest web development trends and best practices.
+				</p>
+				<p>I also have a keen interest in mobile app development using <b>React Native</b>. This enables me to create versatile mobile applications alongside my web projects, bridging the gap between web and mobile experiences.
+				</p>
+				<p>I studied computer science at the University of the Western Cape, where I completed modules in <b>Human-Computer Interaction</b>, <b>Data Structures and Algorithms</b>, <b>Databases</b>, and <b>Software Engineering</b>. Additionally, I have experience with languages like <b>Python</b> and <b>Java</b>, and I am currently learning the <b>Rust</b> programming language.</p>
+			</div>
+			<Button title="Download CV" link="" primary newTab={false}/>
 		</SectionLayout>
 
 		<Divider />
@@ -81,7 +91,7 @@ import frontendLogo from '../../public/frontend.svg';
 		 	heading='My Techstack'
 			subheading='My tech stack focuses on frontend technologies like React, TypeScript, Next.js, and Astro.js, with strong skills in HTML, CSS, and Sass. I also develop mobile apps using React Native and have experience with Python, Java, and am currently learning Rust.'
 		 >
-			<!-- Slot -->
+			<CardTechStack />
 		 </SectionLayout>
 
 		<Divider />
@@ -93,7 +103,6 @@ import frontendLogo from '../../public/frontend.svg';
 		>
 			<!-- Slot -->
 		</SectionLayout>
-		
 	</main>
 </Layout>
 
@@ -101,7 +110,7 @@ import frontendLogo from '../../public/frontend.svg';
 	.main--home {
 		width: 100%;
 		max-width: 1000px;
-		margin: 5em auto;
+		margin: 6em auto;
 	}
 	.main--home .header {
 		width: 100%;
@@ -121,12 +130,12 @@ import frontendLogo from '../../public/frontend.svg';
 		font-weight: 500;
 	}
 	.main--home .header h2.title--two {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-weight: 600;
 	}
 	.main--home .header h2.title--three {
 		position: relative;
-		font-size: 5.25rem;
+		font-size: 4.25rem;
 		font-weight: 700;
 		background: -webkit-linear-gradient(#EFEFEF 48%, #A3CDFF 100%);
   		-webkit-background-clip: text;
@@ -134,14 +143,14 @@ import frontendLogo from '../../public/frontend.svg';
 	}
 	.main--home .header h2.title--three .frontend_logo {
 		position: absolute;
-		top: -0.25em;
-		left: -1em;
+		top: -0.35em;
+		left: -1.25em;
 	}
 	.main--home .header .header_summary {
-        font-size: 1.25rem;
+        font-size: 1rem;
         color: rgb(var(--very-light-blue));
         width: 100%;
-		max-width: 584px;
+		max-width: 500px;
 		margin: 0 auto;
 		line-height: 1.4;
     }
@@ -156,12 +165,49 @@ import frontendLogo from '../../public/frontend.svg';
 		justify-content: center;
 		gap: 1.5em;
 	}
-	.main--home .header .socials i {
+	.main--home .header .socials > a > :first-child {
 		cursor: pointer;
 		font-size: 1.25rem;
 		transition: all 0.2s ease;
+		color: white;
 	}
-	.main--home .header .socials i:hover {
+	.main--home .header .socials > a > :first-child:hover {
 		transform: translateY(-3px);
+	}
+
+	/* About Summary */
+	.main--home .about_summary {
+		width: 100%;
+		max-width: 700px;
+		margin: 0 auto;
+		font-weight: 600;
+		font-size: 1rem;
+		text-align: center;
+		color: rgb(var(--very-light-blue));
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+	}
+
+	/* About Me */
+	.main--home .about_me_section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1em;
+		width: 100%;
+		max-width: 650px;
+		text-align: center;
+	}
+	.main--home .about_me_section > p {
+		font-size: 1rem;
+		font-weight: 300;
+		color: rgb(var(--very-light-blue));
+	}
+	.main--home .about_me_section > p > b {
+		font-weight: 700;
 	}
 </style>

@@ -1,0 +1,186 @@
+---
+interface Props {
+    title?: string;
+    summary?: string;
+    techStack?: string[];
+    projectImgName?: string;
+    projectImgAlt?: string;
+    projectImgW?: number;
+    projectImgH?: number;
+    githubLink?: string;
+    liveLink?: string;
+    featured?: boolean;
+}
+
+const {
+    title="Content Writing Website", 
+    summary="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
+    techStack=["react", "supabase", "tailwindcss"],
+    projectImgName="default.jpg",
+    projectImgAlt="project",
+    projectImgW=475,
+    projectImgH=156,
+    githubLink="https://github.com/Keanin-Cupido",
+    liveLink="https://github.com/Keanin-Cupido",
+    featured=true,
+} = Astro.props;
+
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components'
+
+// Images
+const projectImageLocation = `/projectImages/${projectImgName}`;
+
+---
+
+<article class=`card_project ${featured ? 'card_project--featured' : 'card_project--portfolio'}`>
+    <div class="top">
+        <div class="info">
+            <h3 class="title">{title}</h3>
+            <p class="summary">{summary}</p>
+        </div>
+        <div class="image">
+            <img src={projectImageLocation} alt={projectImgAlt} width={projectImgW} height={projectImgH} />
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="tech_stack">
+            {
+                techStack.map(tech => (
+                    <a href="javascript:void(0)">
+                        <Icon class="icon" name=`devicon:${tech}` />
+                    </a>
+                ))
+            }
+        </div>
+        <div class="links">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+                <i class=`fa-brands fa-github`></i>
+            </a>
+            <Button
+                title='Visit Live'
+                link={liveLink}
+                primary
+            />
+        </div>
+    </div>
+</article>
+
+<style>
+    .card_project {
+        width: 100%;
+        max-width: 1000px;
+        height: 100%;
+        max-height: 350px;
+        background: rgba(71, 120, 183, 0.1);
+        border-top: 1px solid rgba(var(--light-blue));
+        border-radius: 40px;
+        padding: 3em 3.5em;
+        transition: all 0.3s ease-in-out;
+        
+        & .top .image {
+            transition: all 0.3s ease-in-out;
+            width: 475px;
+            height: 180px;
+            opacity: 0.5;
+            -webkit-filter: (80%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(80%);
+        }
+    }
+    .card_project:hover {
+        transform: scale(1.015);
+        background: rgba(71, 120, 183, 0.2);
+        & .top .image {
+            opacity: 1;
+            -webkit-filter: (0%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(0%);
+        }
+    }
+    .card_project .top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5em;
+    }
+    .card_project .top .info {
+        text-align: left;
+    }
+    .card_project .bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5em;
+    }
+    .card_project .bottom .tech_stack {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 1em;
+    }
+    .card_project .bottom .tech_stack > a {
+        font-size: 1.25em;
+    }
+    .card_project .bottom .links {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 1em;
+    }
+    .card_project .bottom .links > a {
+        font-size: 1.25em;
+    }
+
+    /* Featured Card */
+    .card_project--featured {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+    }
+    .card_project--featured .info {
+        width: 100%;
+        max-width: 342px;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5em;
+    }
+    .card_project--featured .info h3.title {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+    .card_project--featured .info p.summary {
+        font-weight: 200;
+        font-size: 1rem;
+    }
+    .card_project--featured .top {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5em;
+    }
+    .card_project--featured .top .image > img {
+        border-radius: 27px;
+        width: 100%;
+        height: 100%;
+        object-position: top;
+        object-fit: cover;
+    }
+
+    /* Projects Card */
+
+
+    .card_project .bottom .tech_stack a {
+        cursor: default;
+    }
+</style>

@@ -8,6 +8,9 @@ const {links=["Home", "Projects", "About", "Contact"], linksNames=["/", "/projec
 
 import Image from 'astro/components/Image.astro';
 
+const date = new Date();
+const currentYear = date.getUTCFullYear();
+
 // Images
 import KeaninCupidoLogo from '../../public/logo.svg';
 ---
@@ -38,7 +41,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     </ul>
 
     <div class="bottom">
-        <p class="copyright">Copyright © 2024 Keanin Cupido</p>
+        <p class="copyright">Copyright © {currentYear} Keanin Cupido</p>
         <p>|</p>
         <div class="socials">
             <a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer">
