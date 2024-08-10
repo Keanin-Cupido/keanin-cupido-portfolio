@@ -11,7 +11,6 @@ import { Icon } from 'astro-icon/components'
 
 // Images
 import frontendLogo from '../../public/frontend.svg';
-
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
@@ -62,10 +61,10 @@ import frontendLogo from '../../public/frontend.svg';
 		 	heading='Featured Work'
 			subheading='Discover my featured projects showcasing the best of my work in web development. Each project highlights my skills in React, JavaScript, and creating intuitive user interfaces.'
 		 >
-			 <CardProject />
-			 <CardProject />
-			 <CardProject />
-			 <Button title="View More" link="/projects" primary newTab={false}/>
+			<CardProject />
+			<CardProject />
+			<CardProject />
+			<Button title="View More" link="/projects" primary newTab={false}/>
 		 </SectionLayout>
 
 		<Divider />
@@ -113,7 +112,44 @@ import frontendLogo from '../../public/frontend.svg';
 			heading='Contact'
 			subheading="I'd love to hear from you! Whether you have a project in mind, a question, or just want to connect, feel free to reach out. You can contact me via email or through the contact form below."
 		>
-			<!-- Slot -->
+			<div class="contact-container">
+				<span class="email">
+					<p>keanin16@gmail.com</p>
+					<Icon name="mdi:email" />
+				</span>
+				<form class="form">
+					<!-- Top -->
+					<div class="top">
+						<div class="input">
+							<label for="name">Name</label>
+							<input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required />
+						</div>
+						<div class="input">
+							<label for="email">Email</label>
+							<input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required />
+						</div>
+					</div>
+					<!-- Middle -->
+					<div class="middle">
+						<div class="input">
+							<label for="phone">Phone</label>
+							<input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required />
+						</div>
+						<div class="input">
+							<label for="subject">Subject</label>
+							<input type="text" maxlength="256" name="subject" id="subject" placeholder="How can I help?" required />
+						</div>				
+					</div>
+					<!-- Bottom -->
+					<div class="bottom">
+						<div class="input">
+							<label for="subject">Message</label>
+							<textarea name="subject" maxlength="5000" id="subject" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
+						</div>	
+						<button type="submit">Send Message <Icon name="mdi:arrow-top-right" /></button>
+					</div>
+				</form>
+			</div>
 		</SectionLayout>
 	</main>
 </Layout>
@@ -232,5 +268,136 @@ import frontendLogo from '../../public/frontend.svg';
 		align-items: flex-start;
 		justify-content: space-between;
 		row-gap: 1em;
+	}
+
+	/* Contact */
+	.main--home .contact-container {
+		width: 100%;
+		max-width: 1000px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+	}
+	.main--home .contact-container .email {
+		width: 100%;
+		max-width: fit-content;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+		opacity: 0.85;
+		font-size: 0.9rem;
+		font-weight: 300;
+	}
+	.main--home .contact-container .form {
+		width: 100%;
+		max-width: 674px;
+		padding: 4em 4em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2em;
+		border-radius: 15px;
+		background-color: rgba(var(--very-light-blue), 0.015);
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background-color: rgba(var(--very-light-blue), 0.05);
+		}
+
+		& .input {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 1.5em;
+			text-align: left;
+		}
+
+		& input[type="number"]::-webkit-outer-spin-button, 
+		& input[type="number"]::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		& input[type="number"] {
+			-moz-appearance: textfield;
+		}
+
+		& input {
+			font-family: inherit;
+			font-weight: 200;
+			width: 100%;
+			max-width: 280px;
+			padding: 0.5em 0em 0.5em 0em;
+			background: transparent;
+			border: none;
+			outline: none;
+			border-bottom: 2px solid rgba(var(--very-light-blue), 0.025);
+			transition: all 0.3s ease-in-out;
+
+			&:focus, &:valid {
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+			}
+
+			&:-webkit-autofill,
+			&:-webkit-autofill:focus {
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+				transition: background-color 0s 600000s, color 0s 600000s !important;
+			}
+		}
+		& textarea {
+			font-family: inherit;
+			width: 100%;
+			min-height: 150px;
+			max-height: 500px;
+			padding: 0.5em 0em 0.5em 0em;
+			font-weight: 200;
+			background: transparent;
+			border: none;
+			outline: none;
+			border-bottom: 2px solid rgba(var(--very-light-blue), 0.025);
+
+			&:focus, &:valid {
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+			}
+		}
+
+		& .top, & .middle {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: 1.5em;
+		}
+		& .bottom {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 2em;
+			& > button {
+				text-align: left;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5em;
+				&:hover {
+					opacity: 0.5;
+					& :first-child() {
+						transition: all 0.3s ease-in-out;
+						transform: translate(3px, -3px);
+					}
+				}
+			}
+		}
 	}
 </style>
