@@ -3,7 +3,7 @@ interface Props {
     icon?: string;
     name?: string;
     description?: string;
-    btnInfo?: string[];
+    btnInfo?: (string | boolean)[];
 }
 
 const {
@@ -16,19 +16,77 @@ const {
 import { Icon } from 'astro-icon/components';
 import Button from './Button.astro';
 
+const bgLG = 'linear-gradient(180deg, rgba(59,148,255, 0.1) 0%, rgba(59,148,255,0) 100%)'
+
 ---
 
 <article class="card_techstack">
-    <Icon name=`devicon:${icon}` />
-    {name}
-    {description}
+    <Icon class="icon" name=`devicon:${icon}` />
+    <h4 class="name">{name}</h4>
+    <p class="description">{description}</p>
     <Button 
-        title=btnInfo[0]
-        link=btnInfo[1]
-
+        title={btnInfo[0] as string}
+        link={btnInfo[1] as string}
     />
 </article>
 
 <style>
+    .card_techstack {
+        width: 100%;
+        max-width: 225px;
+        height: 316px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+        justify-content: space-between;
+        background-color: rgba(2, 16, 36, 1);
+        padding: 1.75em 1.5em;
+        border-radius: 15px;
+        border: 1px solid rgba(237, 237, 237, 0.1);
+        box-shadow: 0 15px 8.8px -6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: all 0.2s ease-in-out;
 
+        &:hover {
+            transform: scale(1.015);
+            & .icon {
+                transform: rotate(360deg);
+            }
+            &::before {
+                height: 180px;
+                background: rgb(59,148,255);
+                background: linear-gradient(180deg, rgba(59,148,255, 0.15) 0%, rgba(59,148,255,0) 100%);    
+            }
+        }
+    }
+    .card_techstack::before {
+        content: "";
+        display: inline-block;
+        width: 223px;
+        height: 150px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+        background: rgb(59,148,255);
+        background: linear-gradient(180deg, rgba(59,148,255, 0.1) 0%, rgba(59,148,255,0) 100%);    
+    }
+    .card_techstack > .icon {
+        z-index: 1;
+        transition: all 0.3s ease-in;
+        font-size: 2em;
+    }
+    .card_techstack .name {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    .card_techstack .description {
+        width: 100%;
+        font-size: 0.7rem;
+        font-weight: 300;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.7);
+    }
 </style>

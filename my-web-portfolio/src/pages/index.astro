@@ -6,6 +6,7 @@ import CardProject from '../components/CardProject.astro';
 import Image from 'astro/components/Image.astro';
 import Button from '../components/Button.astro';
 import CardTechStack from '../components/CardTechStack.astro';
+import techStack from '../data/techStack';
 import { Icon } from 'astro-icon/components'
 
 // Images
@@ -91,7 +92,18 @@ import frontendLogo from '../../public/frontend.svg';
 		 	heading='My Techstack'
 			subheading='My tech stack focuses on frontend technologies like React, TypeScript, Next.js, and Astro.js, with strong skills in HTML, CSS, and Sass. I also develop mobile apps using React Native and have experience with Python, Java, and am currently learning Rust.'
 		 >
-			<CardTechStack />
+		 	<div class="techStack-container">
+				{
+					techStack.map(tech => (
+						<CardTechStack 
+							icon={tech.icon},
+							name={tech.name},
+							description={tech.description},
+							btnInfo={tech.btnInfo}
+						/>
+					))
+				}
+			</div>
 		 </SectionLayout>
 
 		<Divider />
@@ -209,5 +221,16 @@ import frontendLogo from '../../public/frontend.svg';
 	}
 	.main--home .about_me_section > p > b {
 		font-weight: 700;
+	}
+
+	/* TechStack */
+	.main--home .techStack-container {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: space-between;
+		row-gap: 1em;
 	}
 </style>
