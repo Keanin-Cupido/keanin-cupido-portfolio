@@ -29,7 +29,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     <ul class="links">
         {
             links.map((link, key) => (
-                <li class=`${currentPath.includes(linksNames[key]) ? 'highlighted_page' : ''}`>
+                <li class=`${currentPath.endsWith(linksNames[key]) ? 'highlighted_page' : ''}`>
                     <a href={linksNames[key]}>
                         {link}
                     </a>
@@ -56,6 +56,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         justify-content: space-between;
         margin: 0 auto;
         background-color: rgba(59, 148, 255, 0.05);
+        box-shadow: inset -15px -20px 70px -22px rgba(59, 148, 255, 0.075);
         border-radius: 50px;
         padding: 1em 1.25em;
     }
@@ -76,7 +77,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     }
     .navbar .links li.highlighted_page {
         font-weight: 600;
-        color: rgb(var(--light-blue));
+        color: rgb(var(--light-blue-navbar));
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -99,7 +100,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         display: inline-block;
         width: 50px;
         height: 2px;
-        background: linear-gradient(90deg, rgba(59, 148, 255, 0) 0%, rgba(48, 120, 207, 1) 50%, rgba(59, 148, 255, 0) 100%);
+        background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
         position: absolute;
         bottom: -0.563em;
     }

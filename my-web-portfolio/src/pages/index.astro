@@ -169,60 +169,59 @@ import frontendLogo from '../../public/frontend.svg';
 		align-items: center;
 		justify-content: center;
 		gap: .5em;
-	}
-    .main--home .header .header_summary .link:hover {
-        color: white;
-    }
-	.main--home .header h2.title--one {
+		& .header_summary .link:hover {
+        	color: white;
+    	}
+		& h2.title--one {
 		font-size: 0.75rem;
 		font-weight: 500;
+		}
+		& h2.title--two {
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+		& h2.title--three {
+			position: relative;
+			font-size: 4.25rem;
+			font-weight: 700;
+			background: -webkit-linear-gradient(#EFEFEF 48%, #A3CDFF 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+		& h2.title--three .frontend_logo {
+			position: absolute;
+			top: -0.35em;
+			left: -1.25em;
+		}
+		& .header_summary {
+			font-size: 1rem;
+			color: rgb(var(--very-light-blue));
+			width: 100%;
+			max-width: 500px;
+			margin: 0 auto;
+			line-height: 1.4;
+		}
+		& .header_summary .link {
+			transition: all 0.2s ease;
+		}
+		& .socials {
+			margin-top: 2em;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 1.5em;
+		}
+		& .socials > a > :first-child {
+			cursor: pointer;
+			font-size: 1.25rem;
+			transition: all 0.2s ease;
+			color: white;
+		}
+		& .socials > a > :first-child:hover {
+			transform: translateY(-3px);
+		}
 	}
-	.main--home .header h2.title--two {
-		font-size: 1.5rem;
-		font-weight: 600;
-	}
-	.main--home .header h2.title--three {
-		position: relative;
-		font-size: 4.25rem;
-		font-weight: 700;
-		background: -webkit-linear-gradient(#EFEFEF 48%, #A3CDFF 100%);
-  		-webkit-background-clip: text;
-  		-webkit-text-fill-color: transparent;
-	}
-	.main--home .header h2.title--three .frontend_logo {
-		position: absolute;
-		top: -0.35em;
-		left: -1.25em;
-	}
-	.main--home .header .header_summary {
-        font-size: 1rem;
-        color: rgb(var(--very-light-blue));
-        width: 100%;
-		max-width: 500px;
-		margin: 0 auto;
-		line-height: 1.4;
-    }
-    .main--home .header .header_summary .link {
-        transition: all 0.2s ease;
-    }
-	.main--home .header .socials {
-		margin-top: 2em;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5em;
-	}
-	.main--home .header .socials > a > :first-child {
-		cursor: pointer;
-		font-size: 1.25rem;
-		transition: all 0.2s ease;
-		color: white;
-	}
-	.main--home .header .socials > a > :first-child:hover {
-		transform: translateY(-3px);
-	}
-
 	/* About Summary */
 	.main--home .about_summary {
 		width: 100%;
@@ -238,7 +237,6 @@ import frontendLogo from '../../public/frontend.svg';
 		justify-content: center;
 		gap: 2em;
 	}
-
 	/* About Me */
 	.main--home .about_me_section {
 		display: flex;
@@ -249,16 +247,15 @@ import frontendLogo from '../../public/frontend.svg';
 		width: 100%;
 		max-width: 650px;
 		text-align: center;
+		& > p {
+			font-size: 1rem;
+			font-weight: 300;
+			color: rgb(var(--very-light-blue));
+		}
+		& > p > b {
+			font-weight: 700;
+		}
 	}
-	.main--home .about_me_section > p {
-		font-size: 1rem;
-		font-weight: 300;
-		color: rgb(var(--very-light-blue));
-	}
-	.main--home .about_me_section > p > b {
-		font-weight: 700;
-	}
-
 	/* TechStack */
 	.main--home .techStack-container {
 		width: 100%;
@@ -269,7 +266,6 @@ import frontendLogo from '../../public/frontend.svg';
 		justify-content: space-between;
 		row-gap: 1em;
 	}
-
 	/* Contact */
 	.main--home .contact-container {
 		width: 100%;
@@ -280,8 +276,7 @@ import frontendLogo from '../../public/frontend.svg';
 		align-items: center;
 		justify-content: center;
 		gap: 2em;
-	}
-	.main--home .contact-container .email {
+		& .email {
 		width: 100%;
 		max-width: fit-content;
 		margin: 0 auto;
@@ -294,110 +289,112 @@ import frontendLogo from '../../public/frontend.svg';
 		font-size: 0.9rem;
 		font-weight: 300;
 	}
-	.main--home .contact-container .form {
-		width: 100%;
-		max-width: 674px;
-		padding: 4em 4em;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 2em;
-		border-radius: 15px;
-		background-color: rgba(var(--very-light-blue), 0.015);
-		transition: all 0.3s ease-in-out;
-		&:hover {
-			background-color: rgba(var(--very-light-blue), 0.05);
-		}
-
-		& .input {
+		& .form {
 			width: 100%;
+			max-width: 674px;
+			padding: 4em 4em;
 			display: flex;
 			flex-direction: column;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: 1.5em;
-			text-align: left;
-		}
-
-		& input[type="number"]::-webkit-outer-spin-button, 
-		& input[type="number"]::-webkit-inner-spin-button {
-			-webkit-appearance: none;
-			margin: 0;
-		}
-		& input[type="number"] {
-			-moz-appearance: textfield;
-		}
-
-		& input {
-			font-family: inherit;
-			font-weight: 200;
-			width: 100%;
-			max-width: 280px;
-			padding: 0.5em 0em 0.5em 0em;
-			background: transparent;
-			border: none;
-			outline: none;
-			border-bottom: 2px solid rgba(var(--very-light-blue), 0.025);
-			transition: all 0.3s ease-in-out;
-
-			&:focus, &:valid {
-				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
-			}
-
-			&:-webkit-autofill,
-			&:-webkit-autofill:focus {
-				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
-				transition: background-color 0s 600000s, color 0s 600000s !important;
-			}
-		}
-		& textarea {
-			font-family: inherit;
-			width: 100%;
-			min-height: 150px;
-			max-height: 500px;
-			padding: 0.5em 0em 0.5em 0em;
-			font-weight: 200;
-			background: transparent;
-			border: none;
-			outline: none;
-			border-bottom: 2px solid rgba(var(--very-light-blue), 0.025);
-
-			&:focus, &:valid {
-				border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
-			}
-		}
-
-		& .top, & .middle {
-			width: 100%;
-			display: flex;
-			flex-direction: row;
 			align-items: center;
-			justify-content: space-between;
-			gap: 1.5em;
-		}
-		& .bottom {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			align-items: flex-start;
-			justify-content: space-between;
+			justify-content: center;
 			gap: 2em;
-			& > button {
+			border-radius: 15px;
+			background-color: rgba(var(--very-light-blue), 0.015);
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				background-color: rgba(var(--very-light-blue), 0.05);
+			}
+			& .input {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 1.5em;
 				text-align: left;
+				& label {
+					font-size: 1.15rem;
+				}
+			}
+			& input[type="number"]::-webkit-outer-spin-button, 
+			& input[type="number"]::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			& input[type="number"] {
+				-moz-appearance: textfield;
+			}
+			& input {
+				font-family: inherit;
+				font-weight: 200;
+				width: 100%;
+				max-width: 280px;
+				padding: 0.5em 0em 0.5em 0em;
+				background: transparent;
+				border: none;
+				outline: none;
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.075);
+				transition: all 0.3s ease-in-out;
+
+				&:focus, &:valid {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+				}
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:focus {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+					transition: background-color 0s 600000s, color 0s 600000s !important;
+				}
+			}
+			& textarea {
+				font-family: inherit;
+				width: 100%;
+				min-height: 150px;
+				max-height: 500px;
+				padding: 0.5em 0em 0.5em 0em;
+				font-weight: 200;
+				background: transparent;
+				border: none;
+				outline: none;
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.075);
+				transition: all 0.3s ease-in-out;
+
+				&:focus, &:valid {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+				}
+			}
+			& .top, & .middle {
+				width: 100%;
 				display: flex;
 				flex-direction: row;
 				align-items: center;
-				justify-content: center;
-				gap: 0.5em;
-				&:hover {
-					opacity: 0.5;
-					& :first-child() {
-						transition: all 0.3s ease-in-out;
-						transform: translate(3px, -3px);
+				justify-content: space-between;
+				gap: 1.5em;
+			}
+			& .bottom {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 2em;
+				& > button {
+					text-align: left;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					gap: 0.5em;
+					&:hover {
+						opacity: 0.5;
+						& :first-child() {
+							transition: all 0.3s ease-in-out;
+							transform: translate(3px, -3px);
+						}
 					}
 				}
 			}
 		}
 	}
+
 </style>

@@ -14,6 +14,9 @@ import Footer from '../components/Footer.astro';
 import line_topright from '../../public/line_topright.svg';
 import line_center1 from '../../public/line_center1.svg';
 import line_center2 from '../../public/line_center2.svg';
+import line_middle_left from '../../public/line_middle_left.svg';
+import line_middle_right from '../../public/line_middle_right.svg';
+import line_bottom1 from '../../public/line_bottom1.svg';
 
 ---
 
@@ -23,7 +26,10 @@ import line_center2 from '../../public/line_center2.svg';
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<!-- Icons -->
@@ -31,13 +37,22 @@ import line_center2 from '../../public/line_center2.svg';
 	</head>
 	<body>
 		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} />
+
 		<Navbar 
 			links={["Home", "Projects", "About"]},
 			linksNames={["/", "/projects", "/about"]}
 		/>
+		
 		<Image class={"line_center1"} src={line_center1} alt={"line_center1"} width={1556} height={388.24} />
 		<Image class={"line_center2"} src={line_center2} alt={"line_center2"} width={1492} height={153} />
+
+		<Image class={"line_middle_left"} src={line_middle_left} alt={"line_middle_left"} width={132} height={608} />
+		<Image class={"line_middle_right"} src={line_middle_right} alt={"line_middle_right"} width={218} height={280} />
+		
+		<Image class={"line_bottom1"} src={line_bottom1} alt={"line_bottom1"} width={1492} height={153} />
+
 		<slot />
+
 		<Footer
 			links={["Home", "Projects", "About", "Contact"]},
 			linksNames={["/", "/projects", "/about", "/contact"]}
@@ -50,6 +65,7 @@ import line_center2 from '../../public/line_center2.svg';
 	
 	:root {
 		--light-blue: 59, 148, 255;
+		--light-blue-navbar: 100, 170, 255;
 		--very-light-blue: 158, 181, 210;
 
 		--very-dark-blue: 0, 12, 26;
@@ -80,6 +96,7 @@ import line_center2 from '../../public/line_center2.svg';
 		font-style: normal;
 		font-size: 1rem;
 		color: white;
+		background: rgb(var(--very-dark-blue));
 		background: var(--bg-blue-gradient);
 		padding: 2.25em 0em;
 		overflow-x: hidden;
@@ -94,8 +111,15 @@ import line_center2 from '../../public/line_center2.svg';
 		z-index: 0;
 	}
 	body .line_center1,
-	body .line_center2 {
+	body .line_center2,
+	body .line_bottom1 {
 		width: 100%;
+		position: absolute;
+		z-index: -1;
+	}
+	body .line_middle_left,
+	body .line_middle_right {
+		/* height: 100%; */
 		position: absolute;
 		z-index: -1;
 	}
@@ -104,5 +128,18 @@ import line_center2 from '../../public/line_center2.svg';
 	}
 	body .line_center2 {
 		top: 21.5em;
+	}
+
+	body .line_middle_left {
+		height: 90%;
+		left: 0;
+	}
+	body .line_middle_right {
+		height: 90%;
+		right: 0;
+	}
+
+	body .line_bottom1 {
+		bottom: 14em;
 	}
 </style>
