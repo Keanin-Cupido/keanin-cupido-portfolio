@@ -7,15 +7,15 @@ import Image from 'astro/components/Image.astro';
 import Button from '../components/Button.astro';
 import CardTechStack from '../components/CardTechStack.astro';
 import techStack from '../data/techStack';
-import { Icon } from 'astro-icon/components'
+import { Icon } from 'astro-icon/components';
 
 // Images
 import frontendLogo from '../../public/frontend.svg';
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
-	<main class="main--home">
-		<header class="header">
+	<main class="main--home min-h-screen">
+		<header class="header" transition:animate="slide">
 			<h2 class="title--one">Hi, I'm</h2>
 			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
 			<h2 class="title--three">
