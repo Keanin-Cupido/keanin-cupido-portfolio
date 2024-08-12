@@ -4,9 +4,13 @@ interface Props {
     linksNames?: string[];
 }
 
-const {links=["Home", "Projects", "About"], linksNames=["/", "/projects", "/about"]} = Astro.props;
+const {
+    links=["Home", "Projects", "About"], 
+    linksNames=["/", "/projects", "/about"]
+} = Astro.props;
 
-const currentPath = Astro.url.pathname;
+const currentPath = new URL(Astro.request.url).pathname;
+console.log(currentPath);
 
 import Image from 'astro/components/Image.astro';
 import Button from './Button.astro';
@@ -21,15 +25,17 @@ import KeaninCupidoLogo from '../../public/logo.svg';
             <Image 
                 src={KeaninCupidoLogo}
                 alt={"logo"}
-                width={45}
-                height={45}
+                width={25}
+                height={25}
             />
+            <p class="font-bold">K. Cupido</p>
         </a>
     </div>
     <ul class="links">
         {
             links.map((link, key) => (
-                <li class=`${currentPath.endsWith(linksNames[key]) ? 'highlighted_page' : ''}`>
+                // currentPath == link.href ? "active" : ""
+                <li class=`${currentPath === linksNames[key] ? 'highlighted_page' : ''}`>
                     <a href={linksNames[key]}>
                         {link}
                     </a>
@@ -48,7 +54,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
 <style>
     .navbar {
         width: 100%;
-        max-width: 600px;
+        max-width: 800px;
         max-height: 85px;
         display: flex;
         flex-direction: row;
@@ -58,10 +64,24 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         background-color: rgba(59, 148, 255, 0.05);
         box-shadow: inset -15px -20px 70px -22px rgba(59, 148, 255, 0.075);
         border-radius: 50px;
-        padding: 1em 1.25em;
+        padding: 1em 2.25em;
+        position: relative;
+        z-index: 100;
     }
     .navbar .circle_image {
         transition: all 0.2s ease;
+        & > a {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 1em;
+            & > p {
+                font-weight: 400;
+                color: rgb(var(--very-light-blue));
+                font-size: 0.75rem;
+            }
+        }
     }
     .navbar .circle_image:hover {
         opacity: 0.5;

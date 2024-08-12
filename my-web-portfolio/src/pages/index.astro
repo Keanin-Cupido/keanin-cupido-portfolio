@@ -11,11 +11,16 @@ import { Icon } from 'astro-icon/components';
 
 // Images
 import frontendLogo from '../../public/frontend.svg';
+import logo from '../../public/logo.svg';
+
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
 	<main class="main--home min-h-screen">
 		<header class="header" transition:animate="slide">
+
+			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6" />
+
 			<h2 class="title--one">Hi, I'm</h2>
 			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
 			<h2 class="title--three">
@@ -45,7 +50,7 @@ import frontendLogo from '../../public/frontend.svg';
 			</div>
 		</header>
 
-		<Divider />
+		<!-- <Divider /> -->
 
 		<!-- About Summary -->
 		 <section class="about_summary">
@@ -76,8 +81,7 @@ import frontendLogo from '../../public/frontend.svg';
 		>
 		 	<div class="about_me_section">
 				<p>I'm a web developer specializing in frontend technologies with strong skills in <b>React</b> and <b>JavaScript</b>. I focus on creating intuitive, responsive websites and staying updated with the latest web development trends and best practices.
-				</p>
-				<p>I also have a keen interest in mobile app development using <b>React Native</b>. This enables me to create versatile mobile applications alongside my web projects, bridging the gap between web and mobile experiences.
+				I also have a keen interest in mobile app development using <b>React Native</b>. This enables me to create versatile mobile applications alongside my web projects, bridging the gap between web and mobile experiences.
 				</p>
 				<p>I studied computer science at the University of the Western Cape, where I completed modules in <b>Human-Computer Interaction</b>, <b>Data Structures and Algorithms</b>, <b>Databases</b>, and <b>Software Engineering</b>. Additionally, I have experience with languages like <b>Python</b> and <b>Java</b>, and I am currently learning the <b>Rust</b> programming language.</p>
 			</div>
@@ -158,7 +162,7 @@ import frontendLogo from '../../public/frontend.svg';
 	.main--home {
 		width: 100%;
 		max-width: 1000px;
-		margin: 6em auto;
+		margin: 4.25em auto;
 	}
 	.main--home .header {
 		width: 100%;
@@ -173,8 +177,8 @@ import frontendLogo from '../../public/frontend.svg';
         	color: white;
     	}
 		& h2.title--one {
-		font-size: 0.75rem;
-		font-weight: 500;
+			font-size: 0.75rem;
+			font-weight: 500;
 		}
 		& h2.title--two {
 			font-size: 1.5rem;
@@ -214,7 +218,7 @@ import frontendLogo from '../../public/frontend.svg';
 		}
 		& .socials > a > :first-child {
 			cursor: pointer;
-			font-size: 1.25rem;
+			font-size: 1.35rem;
 			transition: all 0.2s ease;
 			color: white;
 		}
@@ -226,7 +230,7 @@ import frontendLogo from '../../public/frontend.svg';
 	.main--home .about_summary {
 		width: 100%;
 		max-width: 700px;
-		margin: 0 auto;
+		margin: 10em auto;
 		font-weight: 600;
 		font-size: 1rem;
 		text-align: center;
@@ -240,13 +244,12 @@ import frontendLogo from '../../public/frontend.svg';
 	/* About Me */
 	.main--home .about_me_section {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		gap: 1em;
 		width: 100%;
-		max-width: 650px;
-		text-align: center;
+		text-align: left;
 		& > p {
 			font-size: 1rem;
 			font-weight: 300;
@@ -273,25 +276,24 @@ import frontendLogo from '../../public/frontend.svg';
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		align-items: flex-start;
+		justify-content: flex-start;
 		gap: 2em;
 		& .email {
-		width: 100%;
-		max-width: fit-content;
-		margin: 0 auto;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5em;
-		opacity: 0.85;
-		font-size: 0.9rem;
-		font-weight: 300;
-	}
+			width: 100%;
+			max-width: fit-content;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5em;
+			opacity: 0.85;
+			font-size: 0.9rem;
+			font-weight: 300;
+		}
 		& .form {
 			width: 100%;
-			max-width: 674px;
+			/* max-width: 674px; */
 			padding: 4em 4em;
 			display: flex;
 			flex-direction: column;
@@ -328,7 +330,7 @@ import frontendLogo from '../../public/frontend.svg';
 				font-family: inherit;
 				font-weight: 200;
 				width: 100%;
-				max-width: 280px;
+				max-width: 350px;
 				padding: 0.5em 0em 0.5em 0em;
 				background: transparent;
 				border: none;
@@ -349,8 +351,7 @@ import frontendLogo from '../../public/frontend.svg';
 			& textarea {
 				font-family: inherit;
 				width: 100%;
-				min-height: 150px;
-				max-height: 500px;
+				height: 250px;
 				padding: 0.5em 0em 0.5em 0em;
 				font-weight: 200;
 				background: transparent;
