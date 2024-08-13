@@ -401,7 +401,7 @@ import logo from '../../public/logo.svg';
 	}
 
 	/* <= 320px */
-	@media (width <= 320px) {
+	@media (0px <= width <= 320px) {
 		.main--home .header {
 			& h2.title--two {
 				font-size: 1rem;
@@ -419,15 +419,16 @@ import logo from '../../public/logo.svg';
 				width: 80%;
 				max-width: 300px;
 			}
-			& .about_summary {
-				width: 80%;
-				max-width: 700px;
-			}
+		}
+		.main--home .about_summary {
+			width: 80%;
+			max-width: 700px;
+			font-size: 0.7rem;
 		}
     }
 
     /* <= 375px */
-    @media (width <= 375px) {
+    @media (321px <= width <= 375px) {
 		.main--home .header {
 			& h2.title--two {
 				font-size: 1.15rem;
@@ -449,7 +450,7 @@ import logo from '../../public/logo.svg';
     }
 
     /* <= 425px */
-    @media (width <= 425px) {
+    @media (376px <= width <= 425px) {
 		.main--home .header {
 			& h2.title--two {
 				font-size: 1.5rem;
@@ -471,7 +472,7 @@ import logo from '../../public/logo.svg';
     }
 
     /* <= 768px */
-    @media (width <= 768px) {
+    @media (426px <= width <= 768px) {
 		.main--home .header {
 			& h2.title--two {
 				font-size: 1.5rem;
@@ -493,7 +494,7 @@ import logo from '../../public/logo.svg';
     }
 
     /* <= 1024px */
-    @media (width <= 1024px) {
+    @media (769px <= width <= 1024px) {
 
     }
 

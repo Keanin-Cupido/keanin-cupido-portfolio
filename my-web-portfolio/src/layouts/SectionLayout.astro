@@ -43,4 +43,34 @@ const {heading, subheading=""} = Astro.props;
 		font-weight: 400;
 		color: rgb(var(--very-light-blue));
 	}
+
+	/* === Media Queries === */
+
+	@media (0px <= width <= 320px) {
+		section.section_layout {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 2em;
+			text-align: center;
+		}
+		section.section_layout > h2.heading {
+			font-size: 1.5rem;
+		}
+		section.section_layout > p.subheading {
+			width: 90%;
+			font-size: 0.9rem;
+		}
+    }
+    @media (321px <= width <= 375px) {
+
+    }
+    @media (376px <= width <= 425px) {
+
+    }
+    @media (426px <= width <= 768px) {
+
+    }
 </style>
