@@ -1,9 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionLayout from '../layouts/SectionLayout.astro';
+import FilterProjects from '../components/FilterProjects.astro';
 ---
 
-<Layout title="Keanin Cupido - Web Dev Portfolio">
-    <p>Projects</p>
+<Layout title="Keanin Cupido - Projects">
+    <main class="main--projects">
+        <SectionLayout heading="Projects" subheading='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend eget in vel tristique. Aenean urna, nulla massa mauris.'>
+
+        </SectionLayout>
+
+        <!-- Filtering Section -->
+         <FilterProjects />
+    </main>
 </Layout>
 
-<style></style>
+<style>
+	.main--projects {
+		width: 100%;
+		max-width: 1000px;
+		margin: 4.25em auto;
+	}
+</style>

@@ -1,0 +1,75 @@
+---
+// Components
+import Button from "./Button.astro"
+import Divider from "./Divider.astro"
+---
+
+<div class="filter_nav-container">
+    <nav class="filter_nav">
+        <ul class="links">
+            <li><a href="">Static</a></li>
+            <li><a href="">React</a></li>
+            <li><a href="">NextJS</a></li>
+            <li><a href="">Astro</a></li>
+            <li><a href="">Mobile</a></li>
+        </ul>
+        <div class="dropdown">
+            <Button 
+                title="Sort"
+                link=""
+                primary
+                newTab={false}
+            />
+        </div>
+    </nav>
+    <hr class="divider" />
+</div>
+
+<style>
+    .filter_nav-container {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3em 0em;
+        & .filter_nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            font-size: 1rem;
+            padding: 2em 1.5em;
+            & .links {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.5em;
+                & li {
+                    transition: all 0.2s ease-in-out;
+                    &:hover {
+                        text-decoration: underline;
+                        opacity: 0.5;
+                    }
+                }
+            }
+            & .dropdown {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+        & > hr.divider {
+            width: 100%;
+            max-width: 1000px;
+            height: 1px;
+            padding: 0em 1.5em;
+            border: none;
+            background: rgba(var(--light-blue), 0.1);
+        }
+    }
+</style>

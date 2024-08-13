@@ -14,6 +14,7 @@ console.log(currentPath);
 
 import Image from 'astro/components/Image.astro';
 import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
 
 // Images
 import KeaninCupidoLogo from '../../public/logo.svg';
@@ -28,7 +29,6 @@ import KeaninCupidoLogo from '../../public/logo.svg';
                 width={25}
                 height={25}
             />
-            <p class="font-bold">K. Cupido</p>
         </a>
     </div>
     <ul class="links">
@@ -43,49 +43,53 @@ import KeaninCupidoLogo from '../../public/logo.svg';
             ))
         }
     </ul>
-    <Button 
-        title="Contact"
-        link="/contact"
-        primary
-        newTab={false}
-    />
+    <div class="contact-button">
+        <Button 
+            title="Contact"
+            link="/contact"
+            primary
+            newTab={false}
+        />
+    </div>
+
+    <!-- ===== Mobile Menu =====-->
+    <div class="mobile-menu">
+        <button type="button" class="btn-mobile-menu">
+            <Icon class="icon" name=`mdi:menu` />
+        </button>
+    </div>
 </nav>
 
 <style>
     .navbar {
         width: 100%;
-        max-width: 800px;
+        max-width: 1000px;
         max-height: 85px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
-        background-color: rgba(59, 148, 255, 0.05);
+        background-color: rgba(59, 148, 255, 0.015);
         box-shadow: inset -15px -20px 70px -22px rgba(59, 148, 255, 0.075);
         border-radius: 50px;
         padding: 1em 2.25em;
         position: relative;
         z-index: 100;
-    }
-    .navbar .circle_image {
-        transition: all 0.2s ease;
-        & > a {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 1em;
-            & > p {
-                font-weight: 400;
-                color: rgb(var(--very-light-blue));
-                font-size: 0.75rem;
+        & .circle_image {
+            transition: all 0.2s ease;
+            & > a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1em;
+            }
+            &:hover {
+                opacity: 0.5;
+                transform: scale(0.99);
             }
         }
-    }
-    .navbar .circle_image:hover {
-        opacity: 0.5;
-        transform: scale(0.99);
     }
     .navbar .links {
         display: flex;
@@ -94,34 +98,113 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         justify-content: center;
         gap: 2.5em;
         font-size: 0.75rem;
+        & li.highlighted_page {
+            font-weight: 600;
+            color: rgb(var(--light-blue-navbar));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.2s ease;
+            &:hover {
+                opacity: 0.8;
+            }
+            &:not(.highlighted_page) {
+                transition: all 0.2s ease;
+                &:hover {
+                    transform: translateY(-2px);
+                    color: rgb(var(--very-light-blue));
+                }
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    width: 50px;
+                    height: 2px;
+                    background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
+                    position: absolute;
+                    bottom: -0.563em;
+                }
+            }
+        }
     }
-    .navbar .links li.highlighted_page {
-        font-weight: 600;
-        color: rgb(var(--light-blue-navbar));
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        transition: all 0.2s ease;
+    /* ===== Mobile Menu ===== */
+    .navbar {
+        & .mobile-menu {
+            display: none;
+        }
     }
-    .navbar .links li:hover {
-        opacity: 0.8;
+
+    /* ======================== Media Queries ======================== */
+
+    /* <= 320px */
+    @media (width <= 320px) {
+        .navbar {
+            width: 90%;
+        }
+        .navbar .links {
+            display: none;
+        }
+        .navbar .contact-button {
+            display: none;
+        }
+        /* ===== Mobile Menu ===== */
+        .navbar {
+            & .mobile-menu {
+                display: block;
+            }
+        }
     }
-    .navbar .links li:not(.highlighted_page) {
-        transition: all 0.2s ease;
+
+    /* <= 375px */
+    @media (width <= 375px) {
+        .navbar {
+            width: 90%;
+        }
+        .navbar .links {
+            display: none;
+        }
+        .navbar .contact-button {
+            display: none;
+        }
+        /* ===== Mobile Menu ===== */
+        .navbar {
+            & .mobile-menu {
+                display: block;
+            }
+        }
     }
-    .navbar .links li:not(.highlighted_page):hover {
-        transform: translateY(-2px);
-        color: rgb(var(--very-light-blue));
+
+    /* <= 425px */
+    @media (width <= 425px) {
+        .navbar {
+            width: 90%;
+        }
+        .navbar .links {
+            display: none;
+        }
+        .navbar .contact-button {
+            display: none;
+        }
+        /* ===== Mobile Menu ===== */
+        .navbar {
+            & .mobile-menu {
+                display: block;
+            }
+        }
     }
-    .navbar .links li.highlighted_page:after {
-        content: "";
-        display: inline-block;
-        width: 50px;
-        height: 2px;
-        background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
-        position: absolute;
-        bottom: -0.563em;
+
+    /* <= 768px */
+    @media (width <= 768px) {
+        .navbar {
+            width: 90%;
+        }
+    }
+
+    /* <= 1024px */
+    @media (width <= 1024px) {
+        .navbar {
+            width: 90%;
+        }
     }
 </style>

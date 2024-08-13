@@ -301,6 +301,7 @@ import logo from '../../public/logo.svg';
 			justify-content: center;
 			gap: 2em;
 			border-radius: 15px;
+			border-top: 1px solid rgba(47, 179, 255, 0.25);
 			background-color: rgba(var(--very-light-blue), 0.015);
 			transition: all 0.3s ease-in-out;
 			&:hover {
@@ -351,7 +352,8 @@ import logo from '../../public/logo.svg';
 			& textarea {
 				font-family: inherit;
 				width: 100%;
-				height: 250px;
+				height: 150px;
+				max-height: 300px;
 				padding: 0.5em 0em 0.5em 0em;
 				font-weight: 200;
 				background: transparent;
@@ -397,5 +399,102 @@ import logo from '../../public/logo.svg';
 			}
 		}
 	}
+
+	/* <= 320px */
+	@media (width <= 320px) {
+		.main--home .header {
+			& h2.title--two {
+				font-size: 1rem;
+			}
+			& h2.title--three {
+				font-size: 2rem;
+			}
+			& h2.title--three .frontend_logo {
+				transform: scale(0.5) rotate(20deg);
+				top: -1.5em;
+				left: -0.75em;
+			}
+			& .header_summary {
+				font-size: 0.8rem;
+				width: 80%;
+				max-width: 300px;
+			}
+			& .about_summary {
+				width: 80%;
+				max-width: 700px;
+			}
+		}
+    }
+
+    /* <= 375px */
+    @media (width <= 375px) {
+		.main--home .header {
+			& h2.title--two {
+				font-size: 1.15rem;
+			}
+			& h2.title--three {
+				font-size: 2.15rem;
+			}
+			& h2.title--three .frontend_logo {
+				transform: scale(0.5) rotate(20deg);
+				top: -1.5em;
+				left: -1em;
+			}
+			& .header_summary {
+				font-size: 0.825rem;
+				width: 80%;
+				max-width: 300px;
+			}
+		}
+    }
+
+    /* <= 425px */
+    @media (width <= 425px) {
+		.main--home .header {
+			& h2.title--two {
+				font-size: 1.5rem;
+			}
+			& h2.title--three {
+				font-size: 2.5rem;
+			}
+			& h2.title--three .frontend_logo {
+				transform: scale(0.65) rotate(20deg);
+				top: -1.5em;
+				left: -1.05em;
+			}
+			& .header_summary {
+				font-size: 0.85rem;
+				width: 80%;
+				max-width: 300px;
+			}
+		}
+    }
+
+    /* <= 768px */
+    @media (width <= 768px) {
+		.main--home .header {
+			& h2.title--two {
+				font-size: 1.5rem;
+			}
+			& h2.title--three {
+				font-size: 3.5rem;
+			}
+			& h2.title--three .frontend_logo {
+				transform: scale(0.75) rotate(5deg);
+				top: -0.5em;
+				left: -1.35em;
+			}
+			& .header_summary {
+				font-size: 0.9rem;
+				width: 80%;
+				max-width: 400px;
+			}
+		}
+    }
+
+    /* <= 1024px */
+    @media (width <= 1024px) {
+
+    }
 
 </style>
