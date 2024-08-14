@@ -139,4 +139,34 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     .footer .bottom i:hover {
         color: rgba(var(--very-light-blue), 1);
     }
+
+    /* === Media Queries === */
+	@media (0px <= width <= 320px) {
+        .footer {
+            width: 90%;
+        }
+        .footer .links {
+            flex-direction: column;
+            gap: 1em;
+        }
+        .footer .bottom {
+            flex-direction: column;
+            gap: 1em;
+        }
+    }
+
+    /* <= 375px */
+    @media (321px <= width <= 375px) {
+        .footer {
+            width: 90%;
+        }
+        .footer .links {
+            flex-direction: column;
+            gap: 1em;
+        }
+        .footer .bottom {
+            flex-direction: column;
+            gap: 1em;
+        }
+    }
 </style>

@@ -425,6 +425,31 @@ import logo from '../../public/logo.svg';
 			max-width: 700px;
 			font-size: 0.7rem;
 		}
+		.main--home .techStack-container {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.main--home .about_me_section {
+			width: 90%;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.main--home .contact-container {
+			& .email {
+				max-width: none;
+			}
+		}
+		.main--home .contact-container {
+			& .form {
+				padding: 2em 1.5em;
+				& .top, & .middle {
+					flex-direction: column;
+				}
+			}
+		}
     }
 
     /* <= 375px */
@@ -445,6 +470,36 @@ import logo from '../../public/logo.svg';
 				font-size: 0.825rem;
 				width: 80%;
 				max-width: 300px;
+			}
+		}
+		.main--home .about_summary {
+			width: 80%;
+			max-width: 700px;
+			font-size: 0.7rem;
+		}
+		.main--home .techStack-container {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.main--home .about_me_section {
+			width: 90%;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.main--home .contact-container {
+			& .email {
+				max-width: none;
+			}
+		}
+		.main--home .contact-container {
+			& .form {
+				padding: 2em 1.5em;
+				& .top, & .middle {
+					flex-direction: column;
+				}
 			}
 		}
     }
@@ -469,6 +524,36 @@ import logo from '../../public/logo.svg';
 				max-width: 300px;
 			}
 		}
+		.main--home .about_summary {
+			width: 80%;
+			max-width: 700px;
+			font-size: 0.7rem;
+		}
+		.main--home .techStack-container {
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.main--home .about_me_section {
+			width: 90%;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.main--home .contact-container {
+			& .email {
+				max-width: none;
+			}
+		}
+		.main--home .contact-container {
+			& .form {
+				padding: 2.5em 2em;
+				& .top, & .middle {
+					flex-direction: column;
+				}
+			}
+		}
     }
 
     /* <= 768px */
@@ -491,11 +576,41 @@ import logo from '../../public/logo.svg';
 				max-width: 400px;
 			}
 		}
+		.main--home .about_summary {
+			width: 80%;
+			max-width: 700px;
+			font-size: 0.7rem;
+		}
+		.main--home .techStack-container {
+			width: 80%;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 2em;
+		}
+		.main--home .about_me_section {
+			width: 90%;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+		}
+		.main--home .contact-container {
+			& .email {
+				max-width: none;
+			}
+		}
     }
 
     /* <= 1024px */
     @media (769px <= width <= 1024px) {
-
+		.main--home .about_me_section {
+			width: 90%;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: left;
+		}
     }
 
 </style>
