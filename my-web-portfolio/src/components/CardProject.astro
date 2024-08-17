@@ -20,7 +20,7 @@ const {
     title="Content Writing Website", 
     summary="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
     techStack=["react", "supabase", "tailwindcss"],
-    projectImgName="default.jpg",
+    projectImgName="/src/assets/projectImages/default.jpg",
     projectImgAlt="project",
     projectImgW=475,
     projectImgH=156,
@@ -30,11 +30,13 @@ const {
     projectsPage=true,
 } = Astro.props;
 
+import Image from 'astro/components/Image.astro';
+import type { ImageMetadata } from 'astro';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components'
 
-// Images
-const projectImageLocation = `/projectImages/${projectImgName}`;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projectImages/*.{jpeg,jpg,png,gif}');
+if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist in glob: "/src/assets/projectImages/*.{jpeg,jpg,png,gif}"`);
 ---
 
 <article class=`card_project ${ Astro.url.pathname.split("/")[1] === "projects" ? 'card_project--portfolio' : 'card_project--featured'}`>
@@ -50,7 +52,7 @@ const projectImageLocation = `/projectImages/${projectImgName}`;
             />
         </div>
         <div class="image">
-            <img src={projectImageLocation} alt={projectImgAlt} width={projectImgW} height={projectImgH} />
+            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} />
         </div>
     </div>
     <div class="bottom">
