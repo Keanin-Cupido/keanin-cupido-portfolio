@@ -20,7 +20,8 @@ import CardProject from '../components/CardProject.astro';
             {
 				projectsData.map(project => {
 					return (
-                        <CardProject 
+                        <CardProject
+                            id={project.id}
 							title={project.title} 
 							summary={project.summary}
 							techStack={project.techStack}
@@ -44,5 +45,13 @@ import CardProject from '../components/CardProject.astro';
 		width: 100%;
 		max-width: 1000px;
 		margin: 4.25em auto;
+
+        & .projects {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1em;
+        }
 	}
 </style>

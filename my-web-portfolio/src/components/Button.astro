@@ -24,6 +24,16 @@ const {title="Button", link="/", primary=true, newTab=true} = Astro.props;
         padding: 0.65em 2.75em;
         font-size: 0.75rem;
         letter-spacing: 0.5px;
+        z-index: 1;
+    }
+    .btn--accent {
+        background: none;
+        border: 1px solid white;
+        color: white;
+    }
+    .btn--accent:hover {
+        background-color: rgba(var(--light-blue), 0.5);
+        color: white;
     }
     .btn--primary {
         color: white;
