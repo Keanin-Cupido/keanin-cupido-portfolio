@@ -4,6 +4,7 @@ import type { ImageMetadata } from 'astro';
 import Button from '../components/Button.astro';
 import InfoSnippet from '../components/InfoSnippet.astro';
 import Divider from '../components/Divider.astro';
+import { Icon } from 'astro-icon/components';
 
 interface Props {
     id?: number;
@@ -71,6 +72,11 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
             <InfoSnippet title='Date' info="Jan 2021 - Feb 2021" />
             <InfoSnippet title='Services' info="Website Marketing Strategy" />
             <InfoSnippet title='Client' info="Business" />
+            <InfoSnippet title='Tech' info="Technologies used to build this project.">
+                <Icon name={'devicon:react'} />
+                <Icon name={'devicon:tailwindcss'} />
+                <Icon name={'devicon:supabase'} />
+            </InfoSnippet>
         </div>
     </header>
 
@@ -78,14 +84,21 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
 
     <!-- Overview Section -->
     <section class="overview">
-
+        <h3>Project Overview</h3>
+        <p></p>
     </section>
 
     <!-- Execution Section -->
-    <section class="execution"></section>
+    <section class="execution">
+        <h3>Project Execution</h3>
+        <p></p>
+    </section>
 
     <!-- Results Section -->
-    <section class="results"></section>
+    <section class="results">
+        <h3>Results</h3>
+        <p></p>
+    </section>
 
     <!-- Other Suggested (Similar) Projects -->
     <section class="other"></section>
@@ -120,6 +133,7 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
                 }
             }
             & .middle {
+                margin-top: 2em;
                 width: 80%;
                 display: flex;
                 flex-direction: column;
@@ -146,7 +160,7 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
 
         /* === Overview === */
         .overview {
-            
+
         }
     }
 </style>
