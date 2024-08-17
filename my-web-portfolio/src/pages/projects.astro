@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import SectionLayout from '../layouts/SectionLayout.astro';
 import FilterProjects from '../components/FilterProjects.astro';
+import projectsData from '../data/projectsData';
+import CardProject from '../components/CardProject.astro';
 ---
 
 <Layout title="Keanin Cupido - Projects">
@@ -12,6 +14,28 @@ import FilterProjects from '../components/FilterProjects.astro';
 
         <!-- Filtering Section -->
          <FilterProjects />
+
+        <!-- Projects -->
+        <section class="projects">
+            {
+				projectsData.map(project => {
+					return (
+                        <CardProject 
+							title={project.title} 
+							summary={project.summary}
+							techStack={project.techStack}
+							projectImgName={project.projectImgName}
+							projectImgAlt={project.projectImgAlt}
+							projectImgW={project.projectImgW}
+							projectImgH={project.projectImgH}
+							githubLink={project.githubLink}
+							liveLink={project.liveLink}
+							featured={project.featured}
+						  /> 
+					)
+				})
+			}
+        </section>
     </main>
 </Layout>
 

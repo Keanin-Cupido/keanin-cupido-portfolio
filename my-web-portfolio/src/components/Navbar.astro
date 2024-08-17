@@ -5,12 +5,9 @@ interface Props {
 }
 
 const {
-    links=["Home", "Projects", "About"], 
-    linksNames=["/", "/projects", "/about"]
+    links=["", "Projects", "About"], 
+    linksNames=["/", "projects", "about"]
 } = Astro.props;
-
-const currentPath = new URL(Astro.request.url).pathname;
-console.log(currentPath);
 
 import Image from 'astro/components/Image.astro';
 import Button from './Button.astro';
@@ -34,10 +31,9 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     <ul class="links">
         {
             links.map((link, key) => (
-                // currentPath == link.href ? "active" : ""
-                <li class=`${currentPath === linksNames[key] ? 'highlighted_page' : ''}`>
+                <li class=`${Astro.url.pathname.split("/")[1] == link.toLowerCase() ? 'highlighted_page' : ''}`>
                     <a href={linksNames[key]}>
-                        {link}
+                        {link === "" ? "Home" : link}
                     </a>
                 </li>
             ))
@@ -116,7 +112,8 @@ import KeaninCupidoLogo from '../../public/logo.svg';
                     transform: translateY(-2px);
                     color: rgb(var(--very-light-blue));
                 }
-                &:after {
+            }
+            &:after {
                     content: "";
                     display: inline-block;
                     width: 50px;
@@ -124,7 +121,6 @@ import KeaninCupidoLogo from '../../public/logo.svg';
                     background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
                     position: absolute;
                     bottom: -0.563em;
-                }
             }
         }
     }

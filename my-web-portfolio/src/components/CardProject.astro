@@ -10,6 +10,7 @@ interface Props {
     githubLink?: string;
     liveLink?: string;
     featured?: boolean;
+    projectsPage?: boolean;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
     githubLink="https://github.com/Keanin-Cupido",
     liveLink="https://github.com/Keanin-Cupido",
     featured=true,
+    projectsPage=true,
 } = Astro.props;
 
 import Button from './Button.astro';
@@ -30,10 +32,9 @@ import { Icon } from 'astro-icon/components'
 
 // Images
 const projectImageLocation = `/projectImages/${projectImgName}`;
-
 ---
 
-<article class=`card_project ${featured ? 'card_project--featured' : 'card_project--portfolio'}`>
+<article class=`card_project ${ Astro.url.pathname.split("/")[1] === "projects" ? 'card_project--portfolio' : 'card_project--featured'}`>
     <div class="top">
         <div class="info">
             <h3 class="title">{title}</h3>
@@ -77,6 +78,15 @@ const projectImageLocation = `/projectImages/${projectImgName}`;
         border-radius: 40px;
         padding: 3em 3.5em;
         transition: all 0.3s ease-in-out;
+        &:hover {
+        transform: scale(1.015);
+        background: rgba(71, 120, 183, 0.2);
+            & .top .image {
+                opacity: 1;
+                -webkit-filter: (0%); /* Safari 6.0 - 9.0 */
+                filter: grayscale(0%);
+                }
+        }
         
         & .top .image {
             transition: all 0.3s ease-in-out;
@@ -85,15 +95,6 @@ const projectImageLocation = `/projectImages/${projectImgName}`;
             opacity: 0.5;
             -webkit-filter: (80%); /* Safari 6.0 - 9.0 */
             filter: grayscale(80%);
-        }
-    }
-    .card_project:hover {
-        transform: scale(1.015);
-        background: rgba(71, 120, 183, 0.2);
-        & .top .image {
-            opacity: 1;
-            -webkit-filter: (0%); /* Safari 6.0 - 9.0 */
-            filter: grayscale(0%);
         }
     }
     .card_project .top {
@@ -143,42 +144,92 @@ const projectImageLocation = `/projectImages/${projectImgName}`;
         align-items: center;
         justify-content: space-between;
         gap: 1em;
+        
+        & .info {
+            width: 100%;
+            max-width: 342px;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.5em;
+        }
+        & .info h3.title {
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        & .info p.summary {
+            font-weight: 200;
+            font-size: 1rem;
+        }
+        & .top {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5em;
+        }
+        & .top .image > img {
+            border-radius: 27px;
+            width: 100%;
+            height: 100%;
+            object-position: top;
+            object-fit: cover;
+        }
     }
-    .card_project--featured .info {
+
+    /* Projects Card */
+    .card_project--portfolio {
+        max-width: 400px;
+        height: 100%;
+        min-height: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
+    }
+    .card_project--portfolio .info {
         width: 100%;
         max-width: 342px;
-        min-height: 180px;
+        min-height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
         gap: 0.5em;
     }
-    .card_project--featured .info h3.title {
+    .card_project--portfolio .info h3.title {
         font-weight: 600;
         font-size: 1.5rem;
     }
-    .card_project--featured .info p.summary {
+    .card_project--portfolio .info p.summary {
         font-weight: 200;
         font-size: 1rem;
     }
-    .card_project--featured .top {
+    .card_project--portfolio .top {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column-reverse;
         align-items: center;
         justify-content: space-between;
         gap: 0.5em;
     }
-    .card_project--featured .top .image > img {
+    .card_project--portfolio .top .image {
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+    }
+    .card_project--portfolio .top .image > img {
         border-radius: 27px;
         width: 100%;
         height: 100%;
         object-position: top;
         object-fit: cover;
     }
-
-    /* Projects Card */
-
 
     .card_project .bottom .tech_stack a {
         cursor: default;

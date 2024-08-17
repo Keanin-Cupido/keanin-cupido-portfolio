@@ -13,6 +13,9 @@ import { Icon } from 'astro-icon/components';
 import frontendLogo from '../../public/frontend.svg';
 import logo from '../../public/logo.svg';
 
+// Data
+import projectsData from '../data/projectsData';
+
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
@@ -66,9 +69,25 @@ import logo from '../../public/logo.svg';
 		 	heading='Featured Work'
 			subheading='Discover my featured projects showcasing the best of my work in web development. Each project highlights my skills in React, JavaScript, and creating intuitive user interfaces.'
 		 >
-			<CardProject />
-			<CardProject />
-			<CardProject />
+		 	{
+				projectsData.map(project => {
+					return (project.featured === true
+						? <CardProject 
+							title={project.title} 
+							summary={project.summary}
+							techStack={project.techStack}
+							projectImgName={project.projectImgName}
+							projectImgAlt={project.projectImgAlt}
+							projectImgW={project.projectImgW}
+							projectImgH={project.projectImgH}
+							githubLink={project.githubLink}
+							liveLink={project.liveLink}
+							featured={project.featured}
+						  /> 
+						: null
+					)
+				})
+			}
 			<Button title="View More" link="/projects" primary newTab={false}/>
 		 </SectionLayout>
 
