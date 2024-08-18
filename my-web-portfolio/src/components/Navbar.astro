@@ -50,10 +50,32 @@ import KeaninCupidoLogo from '../../public/logo.svg';
 
     <!-- ===== Mobile Menu =====-->
     <div class="mobile-menu">
-        <button type="button" class="btn-mobile-menu text-[1.15rem]">
-            <Icon class="icon" name=`mdi:menu` />
+        <button id="openBtn" type="button" class="btn-mobile-menu text-[2rem]">
+            <Icon class="icon hover:opacity-60" name=`system-uicons:drag` />
         </button>
     </div>
+
+    <nav class="mobile-menu-slide" id="mobile-menu-slide">
+        <button id="closeBtn" type="button" class="btn-mobile-menu text-[2rem]">
+            <Icon class="icon hover:opacity-60" name=`system-uicons:close` />
+        </button>
+        <div class="mobile-links">
+            <ul>
+                <li>
+                    <a data-name="mobile-link" id="mobile-link" href="/">Home</a>
+                </li>
+                <li>
+                    <a data-name="mobile-link" id="mobile-link" href="/projects">Projects</a>
+                </li>
+                <li>
+                    <a data-name="mobile-link" id="mobile-link" href="/about">About</a>
+                </li>
+                <li>
+                    <a data-name="mobile-link" id="mobile-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </nav>
 
 <style>
@@ -72,6 +94,50 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         padding: 1em 2.25em;
         position: relative;
         z-index: 100;
+
+        /* Mobile */
+        & .mobile-menu-slide {
+            position: fixed;
+            width: 100vw;
+            height: 0%;
+            background-color: rgb(0, 32, 72);
+            padding: 0em;
+            color: white;
+            font-size: 3rem;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: 101;
+            line-height: 1em;
+            will-change: transform;
+            transition: all 0.6s ease;
+            padding-left: 42px;
+            padding-right: 52px;
+
+            & .mobile-links {
+                margin-top: 2em;
+                & > ul {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 0.5em;
+                }
+                & #mobile-link {
+                    font-size: 3rem;
+                    font-weight: bold;
+                }
+            }
+
+            & .btn-mobile-menu {
+                position: relative;
+                display: flex;
+                width: 100%;
+                align-items: flex-end;
+                justify-content: flex-end;
+            }
+        }
+
         & .circle_image {
             width: 100%;
             max-width: 53px;
@@ -173,8 +239,14 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         }
     }
 
-    /* <= 425px */
-    @media (width <= 425px) {
+    /* <= 430px */
+    @media (width <= 430px) {
+
+    }
+
+    /* === Tablet === */
+    /* <= 768px */
+    @media (width <= 768px) {
         .navbar {
             width: 90%;
         }
@@ -187,16 +259,8 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         /* ===== Mobile Menu ===== */
         .navbar {
             & .mobile-menu {
-                display: block;
+                display: flex;
             }
-        }
-    }
-
-    /* === Tablet === */
-    /* <= 768px */
-    @media (width <= 768px) {
-        .navbar {
-            width: 90%;
         }
     }
 
@@ -207,3 +271,28 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         }
     }
 </style>
+
+<script>
+    const openMobileBtn = document.getElementById('openBtn');
+    const closeMobileBtn = document.getElementById('closeBtn');
+    const mobileMenuSlide = document.getElementById('mobile-menu-slide');
+    const mobileLinks = document.querySelectorAll(`[data-name="mobile-link"]`);
+    
+    mobileLinks.forEach(element => {
+        element.addEventListener('click', () => preventDefault());
+    });
+
+    openMobileBtn?.addEventListener('click', () => openMobile());
+    closeMobileBtn?.addEventListener('click', () => closeMobile());
+
+    // Functions
+    function openMobile() {
+        mobileMenuSlide.style.height = '100%';
+        mobileMenuSlide.style.paddingTop = '54px';
+    }
+    function closeMobile() {
+        mobileMenuSlide.style.height = '0%';
+        mobileMenuSlide.style.paddingTop = '0px';
+        return false;
+    }
+</script>
