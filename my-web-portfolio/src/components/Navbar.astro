@@ -279,7 +279,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     const mobileLinks = document.querySelectorAll(`[data-name="mobile-link"]`);
     
     mobileLinks.forEach(element => {
-        element.addEventListener('click', () => preventDefault());
+        element.addEventListener('click', () => closeMobile());
     });
 
     openMobileBtn?.addEventListener('click', () => openMobile());
