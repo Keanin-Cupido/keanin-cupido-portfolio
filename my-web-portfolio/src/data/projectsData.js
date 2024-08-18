@@ -89,6 +89,51 @@ const projectsData = [
         featured: false,
         projectsPage: true,
     },
+    {
+        id: 6,
+        title: "X Clone",
+        summary:
+            "Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
+        techStack: ["react", "supabase", "tailwindcss"],
+        projectImgName: "/src/assets/projectImages/default.jpg",
+        projectImgAlt: "project",
+        projectImgW: 475,
+        projectImgH: 156,
+        githubLink: "https://github.com/Keanin-Cupido",
+        liveLink: "https://github.com/Keanin-Cupido",
+        featured: false,
+        projectsPage: true,
+    },
+    {
+        id: 7,
+        title: "School Website",
+        summary:
+            "Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
+        techStack: ["react", "supabase", "tailwindcss"],
+        projectImgName: "/src/assets/projectImages/default.jpg",
+        projectImgAlt: "project",
+        projectImgW: 475,
+        projectImgH: 156,
+        githubLink: "https://github.com/Keanin-Cupido",
+        liveLink: "https://github.com/Keanin-Cupido",
+        featured: false,
+        projectsPage: true,
+    },
+    {
+        id: 8,
+        title: "Video Streaming Platform",
+        summary:
+            "Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
+        techStack: ["react", "supabase", "tailwindcss"],
+        projectImgName: "/src/assets/projectImages/default.jpg",
+        projectImgAlt: "project",
+        projectImgW: 475,
+        projectImgH: 156,
+        githubLink: "https://github.com/Keanin-Cupido",
+        liveLink: "https://github.com/Keanin-Cupido",
+        featured: false,
+        projectsPage: true,
+    },
 ];
 
 export default projectsData;

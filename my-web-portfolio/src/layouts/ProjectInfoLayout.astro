@@ -62,6 +62,13 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
 
         <!-- Middle -->
         <div class="middle">
+            <div class="tech">
+                {
+                    techStack.map(tech => (
+                        <Icon name={`devicon:${tech}`} />
+                    ))
+                }
+            </div>
             <h2>{title}</h2>
             <p>{summary}</p>
         </div>
@@ -72,11 +79,6 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
             <InfoSnippet title='Date' info="Jan 2021 - Feb 2021" />
             <InfoSnippet title='Services' info="Website Marketing Strategy" />
             <InfoSnippet title='Client' info="Business" />
-            <InfoSnippet title='Tech' info="Technologies used to build this project.">
-                <Icon name={'devicon:react'} />
-                <Icon name={'devicon:tailwindcss'} />
-                <Icon name={'devicon:supabase'} />
-            </InfoSnippet>
         </div>
     </header>
 
@@ -139,6 +141,14 @@ if (!logos['/src/assets/projectLogos/logo.svg']) throw new Error(`"${projectImgN
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
+                gap: 1em;
+                & .tech {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 1em;
+                    font-size: 2rem;
+                }
                 & > h2 {
                     font-size: 2rem;
                     font-weight: 600;
