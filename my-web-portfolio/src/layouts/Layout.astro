@@ -1,13 +1,8 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
 import Image from 'astro/components/Image.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
-import { ViewTransitions } from "astro:transitions";
+import Head from './Head.astro';
 
 // Image
 import line_topright from '../../public/line_topright.svg';
@@ -16,24 +11,19 @@ import line_center2 from '../../public/line_center2.svg';
 import line_middle_left from '../../public/line_middle_left.svg';
 import line_middle_right from '../../public/line_middle_right.svg';
 import line_bottom1 from '../../public/line_bottom1.svg';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<ViewTransitions />
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<!-- Icons -->
-		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-		</head>
+
+	<Head title={title} />
+
 	<body class="relative antialiased">
 		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} />
 

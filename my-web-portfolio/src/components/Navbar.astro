@@ -56,8 +56,8 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     </div>
 
     <nav class="mobile-menu-slide" id="mobile-menu-slide">
-        <button id="closeBtn" type="button" class="btn-mobile-menu text-[2rem]">
-            <Icon class="icon hover:opacity-60" name=`system-uicons:close` />
+        <button id="closeBtn" type="button" class="btn-mobile-menu text-[3rem]">
+            <Icon class="icon  hover:opacity-60" name=`system-uicons:close` />
         </button>
         <div class="mobile-links">
             <ul>
@@ -113,9 +113,10 @@ import KeaninCupidoLogo from '../../public/logo.svg';
             transition: all 0.6s ease;
             padding-left: 42px;
             padding-right: 52px;
+            letter-spacing: -0.04em;
 
             & .mobile-links {
-                margin-top: 2em;
+                margin-top: 1em;
                 & > ul {
                     display: flex;
                     flex-direction: column;
@@ -293,6 +294,5 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     function closeMobile() {
         mobileMenuSlide!.style.height = '0%';
         mobileMenuSlide!.style.paddingTop = '0px';
-        return false;
     }
 </script>
