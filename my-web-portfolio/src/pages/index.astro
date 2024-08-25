@@ -22,7 +22,7 @@ import projectsData from '../data/projectsData';
 	<main class="main--home min-h-screen">
 		<header class="header" transition:animate="fade">
 
-			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6" />
+			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6 animate-waving-hand" />
 
 			<h2 class="title--one">Hi, I'm</h2>
 			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
@@ -32,7 +32,7 @@ import projectsData from '../data/projectsData';
 					alt={"logo"}
 					width={77.24}
 					height={51.57}
-					class={"frontend_logo"}
+					class={"frontend_logo animate-pulse"}
 				/>
 				WEB DEVELOPER
 			</h2>
@@ -140,23 +140,23 @@ import projectsData from '../data/projectsData';
 					<p>keanin16@gmail.com</p>
 					<Icon name="mdi:email" />
 				</span>
-				<form class="form">
+				<form class="form" name="contact_form" id="contact_form">
 					<!-- Top -->
 					<div class="top">
 						<div class="input">
 							<label for="name">Name</label>
-							<input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required />
+							<input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required autocomplete="name" />
 						</div>
 						<div class="input">
 							<label for="email">Email</label>
-							<input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required />
+							<input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required autocomplete="email" />
 						</div>
 					</div>
 					<!-- Middle -->
 					<div class="middle">
 						<div class="input">
 							<label for="phone">Phone</label>
-							<input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required />
+							<input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required autocomplete="phone" />
 						</div>
 						<div class="input">
 							<label for="subject">Subject</label>
@@ -167,7 +167,7 @@ import projectsData from '../data/projectsData';
 					<div class="bottom">
 						<div class="input">
 							<label for="subject">Message</label>
-							<textarea name="subject" maxlength="5000" id="subject" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
+							<textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
 						</div>	
 						<button type="submit">Send Message <Icon name="mdi:arrow-top-right" /></button>
 					</div>
@@ -206,10 +206,7 @@ import projectsData from '../data/projectsData';
 		& h2.title--three {
 			position: relative;
 			font-size: 4.25rem;
-			font-weight: 700;
-			background: -webkit-linear-gradient(#EFEFEF 48%, #A3CDFF 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+			font-weight: 900;
 		}
 		& h2.title--three .frontend_logo {
 			position: absolute;

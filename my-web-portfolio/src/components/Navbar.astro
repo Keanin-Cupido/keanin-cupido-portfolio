@@ -260,7 +260,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         /* ===== Mobile Menu ===== */
         .navbar {
             & .mobile-menu {
-                display: flex;
+                display: block;
             }
         }
     }
@@ -277,11 +277,11 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     const openMobileBtn = document.getElementById('openBtn');
     const closeMobileBtn = document.getElementById('closeBtn');
     const mobileMenuSlide = document.getElementById('mobile-menu-slide');
-    const mobileLinks = document.querySelectorAll(`[data-name="mobile-link"]`);
+    // const mobileLinks = document.querySelectorAll(`[data-name="mobile-link"]`);
     
-    mobileLinks.forEach(element => {
-        element.addEventListener('click', () => closeMobile());
-    });
+    // mobileLinks.forEach(element => {
+    //     element.addEventListener('click', () => closeMobile());
+    // });
 
     openMobileBtn?.addEventListener('click', () => openMobile());
     closeMobileBtn?.addEventListener('click', () => closeMobile());

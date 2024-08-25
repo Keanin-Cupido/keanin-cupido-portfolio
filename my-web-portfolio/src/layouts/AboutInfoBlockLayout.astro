@@ -1,0 +1,40 @@
+---
+interface Props {
+    title?: string,
+    subTitleA?: string,
+    subTextA?: string,
+    subTitleB?: string,
+    subTextB?: string,
+    subWidthA?: string,
+    subWidthB?: string,
+}
+const {
+    title="",
+    subTitleA="My story",
+    subTextA="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non volutpat amet ultricies sit amet, consequat elit. Blandit sed mattis pulvinar non vitae consectetur donec. Eu.",
+    subTitleB="My journey",
+    subTextB="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non volutpat amet ultricies sit amet, consequat elit. Blandit sed mattis pulvinar non vitae consectetur donec. Eu.",
+    subWidthA="50%",
+    subWidthB="50%",
+} = Astro.props as Props;
+
+---
+
+<article class="w-full flex flex-col gap-[2.5em] items-start justify-start leading-relaxed">
+    <h3 class=`${title.length === 0 ? 'hidden' : ''} font-black text-[1.75rem] tracking-wide`>{title.length > 0 ? title : null}</h3>
+
+    <div class=`${subTitleA.length === 0 && subTitleB.length === 0 ? 'hidden' : ''} w-full flex items-start justify-start gap-[1rem]`>
+        <div class=`${subTitleA.length === 0 ? 'hidden' : ''} w-full max-w-[${subWidthA}] flex flex-col gap-4 items-start justify-start`>
+            <h4 class=`${title === "" ? 'text-[2rem] font-medium' : 'text-[1.5rem]'}`>{subTitleA.length > 0 ? subTitleA : null}</h4>
+            <p class="text-[1.225rem] text-gray-400">{subTextA.length > 0 ? subTextA : null}</p>
+            <slot name="subA" />
+        </div>
+        <div class=`${subTitleB.length === 0 ? 'hidden' : ''} w-full max-w-[${subWidthB}] flex flex-col gap-4 items-start justify-start`>
+            <h4 class=`${title === "" ? 'text-[2rem] font-medium' : 'text-[1.5rem]'}`>{subTitleB.length > 0 ? subTitleB : null}</h4>
+            <p class="text-[1.225rem] text-gray-400">{subTextB.length > 0 ? subTextB : null}</p>
+            <slot name="subB" />
+        </div>
+    </div>
+
+    <slot />
+</article>
