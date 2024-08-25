@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+    question?: string,
+    answer?: string,
+}
+const {
+    question="Are you open for freelance/contract work?", 
+    answer="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tortor velit morbi integer sed orci, suspendisse quis. Turpis quis id eget feugiat."
+} =  Astro.props as Props;
+---
+
+<article class="w-full flex flex-col gap-4 shadow-md bg-[rgb(var(--very-dark-blue-lightest))] px-[1.75em] py-[1.5em] rounded-xl transition-all">
+    <h4 class="text-2xl font-semibold">{question}</h4>
+    <p class="w-full text-xl text-gray-400 transition-all">{answer}</p>
+</article>
