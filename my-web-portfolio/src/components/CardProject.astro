@@ -52,21 +52,21 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
             />
         </div>
         <div class="image">
-            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} />
+            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading="eager" />
         </div>
     </div>
     <div class="bottom">
         <div class="tech_stack">
             {
                 techStack.map(tech => (
-                    <a href="javascript:void(0)">
+                    <span aria-label=`${tech}`>
                         <Icon class="icon" name=`devicon:${tech}` />
-                    </a>
+                    </span>
                 ))
             }
         </div>
         <div class="links">
-            <a href={githubLink} target="_blank" rel="noopener noreferrer">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer" aria-label="github">
                 <i class=`fa-brands fa-github`></i>
             </a>
             <Button

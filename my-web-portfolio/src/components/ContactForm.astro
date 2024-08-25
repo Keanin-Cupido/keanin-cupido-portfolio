@@ -1,0 +1,147 @@
+---
+import { Icon } from "astro-icon/components";
+
+---
+
+<form class="form" name="contact_form" id="contact_form">
+    <!-- Top -->
+    <div class="top">
+        <div class="input">
+            <label for="name">Name</label>
+            <input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required autocomplete="name" />
+        </div>
+        <div class="input">
+            <label for="email">Email</label>
+            <input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required autocomplete="email" />
+        </div>
+    </div>
+    <!-- Middle -->
+    <div class="middle">
+        <div class="input">
+            <label for="phone">Phone</label>
+            <input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required autocomplete="phone" />
+        </div>
+        <div class="input">
+            <label for="subject">Subject</label>
+            <input type="text" maxlength="256" name="subject" id="subject" placeholder="How can I help?" required />
+        </div>				
+    </div>
+    <!-- Bottom -->
+    <div class="bottom">
+        <div class="input">
+            <label for="subject">Message</label>
+            <textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
+        </div>	
+        <button type="submit" name="submit" id="submit">Send Message <Icon name="mdi:arrow-top-right" /></button>
+    </div>
+</form>
+
+<style>
+		.form {
+			width: 100%;
+			/* max-width: 674px; */
+			padding: 4em 4em;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 2em;
+			border-radius: 15px;
+			border-top: 1px solid rgba(47, 179, 255, 0.25);
+			background-color: rgba(var(--very-light-blue), 0.015);
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				background-color: rgba(var(--very-light-blue), 0.05);
+			}
+			& .input {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 1.5em;
+				text-align: left;
+				& label {
+					font-size: 1.15rem;
+				}
+			}
+			& input[type="number"]::-webkit-outer-spin-button, 
+			& input[type="number"]::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			& input[type="number"] {
+				-moz-appearance: textfield;
+			}
+			& input {
+				font-family: inherit;
+				font-weight: 200;
+				width: 100%;
+				max-width: 350px;
+				padding: 0.5em 0em 0.5em 0em;
+				background: transparent;
+				border: none;
+				outline: none;
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.075);
+				transition: all 0.3s ease-in-out;
+
+				&:focus, &:valid {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+				}
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:focus {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+					transition: background-color 0s 600000s, color 0s 600000s !important;
+				}
+			}
+			& textarea {
+				font-family: inherit;
+				width: 100%;
+				height: 150px;
+				max-height: 300px;
+				padding: 0.5em 0em 0.5em 0em;
+				font-weight: 200;
+				background: transparent;
+				border: none;
+				outline: none;
+				border-bottom: 2px solid rgba(var(--very-light-blue), 0.075);
+				transition: all 0.3s ease-in-out;
+
+				&:focus, &:valid {
+					border-bottom: 2px solid rgba(var(--very-light-blue), 0.5);
+				}
+			}
+			& .top, & .middle {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-between;
+				gap: 1.5em;
+			}
+			& .bottom {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: space-between;
+				gap: 2em;
+				& > button {
+					text-align: left;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					justify-content: center;
+					gap: 0.5em;
+					&:hover {
+						opacity: 0.5;
+						& :first-child() {
+							transition: all 0.3s ease-in-out;
+							transform: translate(3px, -3px);
+						}
+					}
+				}
+			}
+        }
+</style>

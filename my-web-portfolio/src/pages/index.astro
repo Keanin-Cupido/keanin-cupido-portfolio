@@ -15,6 +15,7 @@ import logo from '../../public/logo.svg';
 
 // Data
 import projectsData from '../data/projectsData';
+import ContactForm from '../components/ContactForm.astro';
 
 ---
 
@@ -22,12 +23,13 @@ import projectsData from '../data/projectsData';
 	<main class="main--home min-h-screen">
 		<header class="header" transition:animate="fade">
 
-			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6 animate-waving-hand" />
+			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6 animate-waving-hand" loading="eager" />
 
 			<h2 class="title--one">Hi, I'm</h2>
 			<h2 class="title--two">{'{'}Keanin Cupido{'}'}</h2>
 			<h2 class="title--three">
 				<Image 
+					loading="eager"
 					src={frontendLogo}
 					alt={"logo"}
 					width={77.24}
@@ -38,16 +40,16 @@ import projectsData from '../data/projectsData';
 			</h2>
 			<p class="header_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
 			<div class="socials">
-				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer">
+				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer" aria-label="github">
 					<Icon name="mdi:github" />
 				</a>
-				<a href="http://" target="_blank" rel="noopener noreferrer">
+				<a href="http://" target="_blank" rel="noopener noreferrer" aria-label="twitter/x">
 					<Icon name="mdi:twitter" />
 				</a>
-				<a href="http://" target="_blank" rel="noopener noreferrer">
+				<a href="http://" target="_blank" rel="noopener noreferrer" aria-label="codepen">
 					<Icon name="mdi:codepen" />
 				</a>
-				<a href="http://" target="_blank" rel="noopener noreferrer">
+				<a href="http://" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
 					<Icon name="mdi:linkedin" />           
 				</a>
 			</div>
@@ -104,7 +106,7 @@ import projectsData from '../data/projectsData';
 				</p>
 				<p>I studied computer science at the University of the Western Cape, where I completed modules in <b>Human-Computer Interaction</b>, <b>Data Structures and Algorithms</b>, <b>Databases</b>, and <b>Software Engineering</b>. Additionally, I have experience with languages like <b>Python</b> and <b>Java</b>, and I am currently learning the <b>Rust</b> programming language.</p>
 			</div>
-			<Button title="Download CV" link="" primary newTab={false}/>
+			<Button title="Download CV" link="/" primary newTab={false}/>
 		</SectionLayout>
 
 		<Divider />
@@ -140,38 +142,7 @@ import projectsData from '../data/projectsData';
 					<p>keanin16@gmail.com</p>
 					<Icon name="mdi:email" />
 				</span>
-				<form class="form" name="contact_form" id="contact_form">
-					<!-- Top -->
-					<div class="top">
-						<div class="input">
-							<label for="name">Name</label>
-							<input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required autocomplete="name" />
-						</div>
-						<div class="input">
-							<label for="email">Email</label>
-							<input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required autocomplete="email" />
-						</div>
-					</div>
-					<!-- Middle -->
-					<div class="middle">
-						<div class="input">
-							<label for="phone">Phone</label>
-							<input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required autocomplete="phone" />
-						</div>
-						<div class="input">
-							<label for="subject">Subject</label>
-							<input type="text" maxlength="256" name="subject" id="subject" placeholder="How can I help?" required />
-						</div>				
-					</div>
-					<!-- Bottom -->
-					<div class="bottom">
-						<div class="input">
-							<label for="subject">Message</label>
-							<textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
-						</div>	
-						<button type="submit">Send Message <Icon name="mdi:arrow-top-right" /></button>
-					</div>
-				</form>
+				<ContactForm />
 			</div>
 		</SectionLayout>
 	</main>

@@ -42,7 +42,7 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
     <!-- Image -->
     <div class="aspect-h-3 aspect-w-4 overflow-hidden bg-dark-950 transition-opacity group-hover:opacity-75">
         <a href=`/projects/${id}` class="block h-full w-full object-cover object-center">
-            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} />
+            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading="eager" />
         </a>
     </div>
 
@@ -60,9 +60,9 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
         <div class="-mb-2 -ml-2 flex -space-x-1">
             {
                 techStack.map(tech => (
-                    <a href="javascript:void(0)" class="text-white inline-flex h-12 w-12 items-center justify-center cursor-default	">
+                    <span class="text-white inline-flex h-12 w-12 items-center justify-center cursor-default text-xl" aria-label=`${tech}`>
                         <Icon class="icon" name=`devicon:${tech}` />
-                    </a>
+                    </span>
                 ))
             }
         </div>

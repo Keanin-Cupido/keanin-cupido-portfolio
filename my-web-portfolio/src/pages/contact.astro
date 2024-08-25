@@ -1,13 +1,71 @@
 ---
+import { Icon } from 'astro-icon/components';
+import ContactForm from '../components/ContactForm.astro';
 import Layout from '../layouts/Layout.astro';
 import SectionLayout from '../layouts/SectionLayout.astro';
+import AboutInfoBlockLayout from '../layouts/AboutInfoBlockLayout.astro';
+import Divider from '../components/Divider.astro';
 ---
 
 <Layout title="Keanin Cupido - Contact">
     <main class="main--contact">
-        <SectionLayout heading="Contact" subheading='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend eget in vel tristique. Aenean urna, nulla massa mauris.'>
-
+        <SectionLayout 
+			heading="Contact" 
+			subheading="Ready to bring your web project to life? I’m here to help! With a passion for React and a strong foundation in various frontend technologies, I’m eager to collaborate and create something amazing together. Whether you have a question, need a consultation, or want to discuss a new idea, feel free to reach out."
+		>
+			<div class="contact-container">
+				<span class="email">
+					<p>keanin16@gmail.com</p>
+					<Icon name="mdi:email" />
+				</span>
+				<ContactForm />
+			</div>
         </SectionLayout>
+
+		<Divider />
+
+		<div class="px-8">
+			<AboutInfoBlockLayout
+				title='My Social Profiles'
+				subTitleA=""
+				subTextA=''
+				subTitleB=''
+				subTextB=''
+			>
+				<div class="w-full grid grid-cols-4 gap-8">
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:facebook-box'/>
+						<p>Facebook</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:twitter-box'/>
+						<p>Twitter/X</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:linkedin-box'/>
+						<p>LinkedIn</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:instagram'/>
+						<p>Instagram</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+					<a href="https://github.com/Keanin-Cupido" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:github'/>
+						<p>Github</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg target='_blank' rel='noopener noreferrer' hover:opacity-70">
+						<Icon name='mdi:codepen'/>
+						<p>Codepen</p>
+						<Icon name='mdi:arrow-top-right'/>
+					</a>
+				</div>
+			</AboutInfoBlockLayout>
+		</div>
     </main>
 </Layout>
 
@@ -16,5 +74,28 @@ import SectionLayout from '../layouts/SectionLayout.astro';
 		width: 100%;
 		max-width: 1000px;
 		margin: 4.25em auto;
+
+		& .contact-container {
+			width: 100%;
+			max-width: 1000px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			gap: 2em;
+			& .email {
+				width: 100%;
+				max-width: fit-content;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5em;
+				opacity: 0.85;
+				font-size: 0.9rem;
+				font-weight: 300;
+			}
+		}
 	}
 </style>

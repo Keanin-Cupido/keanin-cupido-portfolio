@@ -25,20 +25,20 @@ const { title } = Astro.props;
 	<Head title={title} />
 
 	<body class="relative antialiased">
-		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} />
+		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} loading="eager" />
 
 		<Navbar 
 			links={["", "Projects", "About"]},
 			linksNames={["/", "/projects", "/about"]}
 		/>
 		
-		<Image class={"line_center1"} src={line_center1} alt={"line_center1"} width={1556} height={388.24} />
-		<Image class={"line_center2"} src={line_center2} alt={"line_center2"} width={1492} height={153} />
+		<Image class={"line_center1"} src={line_center1} alt={"line_center1"} width={1556} height={388.24} loading="eager" />
+		<Image class={"line_center2"} src={line_center2} alt={"line_center2"} width={1492} height={153} loading="eager" />
 
-		<Image class={"line_middle_left"} src={line_middle_left} alt={"line_middle_left"} width={132} height={608} />
-		<Image class={"line_middle_right"} src={line_middle_right} alt={"line_middle_right"} width={218} height={280} />
+		<Image class={"line_middle_left"} src={line_middle_left} alt={"line_middle_left"} width={132} height={608} loading="eager" />
+		<Image class={"line_middle_right"} src={line_middle_right} alt={"line_middle_right"} width={218} height={280} loading="eager" />
 		
-		<Image class={"line_bottom1"} src={line_bottom1} alt={"line_bottom1"} width={1492} height={153} />
+		<Image class={"line_bottom1"} src={line_bottom1} alt={"line_bottom1"} width={1492} height={153} loading="lazy" />
 
 		<slot />
 
