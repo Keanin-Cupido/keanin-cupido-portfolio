@@ -8,10 +8,8 @@ import CardProjectSmall from '../components/CardProjectSmall.astro';
 ---
 
 <Layout title="Keanin Cupido - Projects">
-    <main class="main--projects">
-        <SectionLayout heading="Projects" subheading='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend eget in vel tristique. Aenean urna, nulla massa mauris.'>
-
-        </SectionLayout>
+    <main class="w-full max-w-[1000px] my-[4.25em] mx-auto">
+        <SectionLayout heading="Projects" subheading='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eleifend eget in vel tristique. Aenean urna, nulla massa mauris.' />
 
         <!-- Filtering Section -->
          <FilterProjects />
@@ -33,6 +31,7 @@ import CardProjectSmall from '../components/CardProjectSmall.astro';
 							githubLink={project.githubLink}
 							liveLink={project.liveLink}
 							featured={project.featured}
+							loadingType={project.id > 2 ? "lazy" : "eager"}
 						/> 
 					)
 				})
@@ -41,10 +40,3 @@ import CardProjectSmall from '../components/CardProjectSmall.astro';
     </main>
 </Layout>
 
-<style>
-	.main--projects {
-		width: 100%;
-		max-width: 1000px;
-		margin: 4.25em auto;
-	}
-</style>

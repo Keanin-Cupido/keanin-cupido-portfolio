@@ -17,6 +17,7 @@ interface Props {
     projectInfo?: string;
     featured?: boolean;
     projectsPage?: boolean;
+    loadingType?: string;
 }
 
 const {
@@ -32,6 +33,7 @@ const {
     liveLink="https://github.com/Keanin-Cupido",
     featured=true,
     projectsPage=true,
+    loadingType="eager"
 } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projectImages/*.{jpeg,jpg,png,gif}');
@@ -42,7 +44,7 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
     <!-- Image -->
     <div class="aspect-h-3 aspect-w-4 overflow-hidden bg-dark-950 transition-opacity group-hover:opacity-75">
         <a href=`/projects/${id}` class="block h-full w-full object-cover object-center">
-            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading="eager" />
+            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading={loadingType} />
         </a>
     </div>
 

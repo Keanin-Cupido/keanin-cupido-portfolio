@@ -4,62 +4,127 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Head from './Head.astro';
 
-// Image
-import line_topright from '../../public/line_topright.svg';
-import line_center1 from '../../public/line_center1.svg';
-import line_center2 from '../../public/line_center2.svg';
-import line_middle_left from '../../public/line_middle_left.svg';
-import line_middle_right from '../../public/line_middle_right.svg';
-import line_bottom1 from '../../public/line_bottom1.svg';
+// Images
+import lineTopRight from '../../public/line_topright.svg';
+import lineCenter1 from '../../public/line_center1.svg';
+import lineCenter2 from '../../public/line_center2.svg';
+import lineMiddleLeft from '../../public/line_middle_left.svg';
+import lineMiddleRight from '../../public/line_middle_right.svg';
+import lineBottom1 from '../../public/line_bottom1.svg';
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+
+const navLinks = ["Home", "Projects", "About"];
+const footerLinks = [...navLinks, "Contact"];
+const navLinkNames = ['/', '/projects', '/about'];
+const footerLinkNames = [...navLinkNames, '/contact'];
 ---
 
 <!doctype html>
 <html lang="en">
+	<Head {title} />
+	<body>
+		<Image class="line line-topright" src={lineTopRight} alt="" width={286} height={270} loading="eager" />
 
-	<Head title={title} />
-
-	<body class="relative antialiased">
-		<Image class={"line_topright"} src={line_topright} alt={"line_topright"} width={286} height={270} loading="eager" />
-
-		<Navbar 
-			links={["", "Projects", "About"]},
-			linksNames={["/", "/projects", "/about"]}
-		/>
+		<Navbar links={navLinks} linksNames={navLinkNames}/>
 		
-		<Image class={"line_center1"} src={line_center1} alt={"line_center1"} width={1556} height={388.24} loading="eager" />
-		<Image class={"line_center2"} src={line_center2} alt={"line_center2"} width={1492} height={153} loading="eager" />
-
-		<Image class={"line_middle_left"} src={line_middle_left} alt={"line_middle_left"} width={132} height={608} loading="eager" />
-		<Image class={"line_middle_right"} src={line_middle_right} alt={"line_middle_right"} width={218} height={280} loading="eager" />
-		
-		<Image class={"line_bottom1"} src={line_bottom1} alt={"line_bottom1"} width={1492} height={153} loading="lazy" />
+		<Image class="line line-center1" src={lineCenter1} alt="" width={1556} height={388} loading="eager" />
+		<Image class="line line-center2" src={lineCenter2} alt="" width={1492} height={153} loading="eager" />
+		<Image class="line line-middle-left" src={lineMiddleLeft} alt="" width={132} height={608} loading="eager" />
+		<Image class="line line-middle-right" src={lineMiddleRight} alt="" width={218} height={280} loading="eager" />
+		<Image class="line line-bottom1" src={lineBottom1} alt="" width={1492} height={153} loading="lazy" />
 
 		<slot />
 
-		<Footer
-			links={["Home", "Projects", "About", "Contact"]},
-			linksNames={["/", "/projects", "/about", "/contact"]}
-		/>
+		<Footer links={footerLinks} linksNames={footerLinkNames}/>	
 	</body>
 </html>
 
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-	
-	:root {
-		--light-blue: 59, 148, 255;
-		--light-blue-navbar: 100, 170, 255;
-		--very-light-blue: 158, 181, 210;
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Thin.woff2') format('woff2');
+		font-weight: 100;
+		font-style: normal;
+		font-display: swap;
+	}
 
-		--very-dark-blue: 0, 12, 26;
-		--very-dark-blue-light: 0, 23, 51;
-		--very-dark-blue-lightest: 0, 28, 61;
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-ExtraLight.woff2') format('woff2');
+		font-weight: 200;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Light.woff2') format('woff2');
+		font-weight: 300;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Regular.woff2') format('woff2');
+		font-weight: 400;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Medium.woff2') format('woff2');
+		font-weight: 500;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-SemiBold.woff2') format('woff2');
+		font-weight: 600;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Bold.woff2') format('woff2');
+		font-weight: 700;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-ExtraBold.woff2') format('woff2');
+		font-weight: 800;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	@font-face {
+		font-family: 'Poppins';
+		src: url('/fonts/poppins/Poppins-Black.woff2') format('woff2');
+		font-weight: 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	:root {
+		--light-blue: 59 148 255;
+		--light-blue-navbar: 100 170 255;
+		--very-light-blue: 158 181 210;
+
+		--very-dark-blue: 0 12 26;
+		--very-dark-blue-light: 0 23 51;
+		--very-dark-blue-lightest: 0 28 61;
 
 		--bg-blue-gradient: linear-gradient(
 			180deg,
@@ -69,6 +134,7 @@ const { title } = Astro.props;
 			rgb(var(--very-dark-blue-lightest)) 100%
 		);
 	}
+	
 	*, *::before, *::after {
 		box-sizing: border-box;
 		margin: 0;
@@ -80,54 +146,41 @@ const { title } = Astro.props;
 	body {
 		width: 100%;
 		min-height: 100vh;
-		font-family: "Poppins", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-		font-size: 1rem;
+		padding: 2.25em 0;
+		position: relative;
+		font: 400 1rem/1.5 "Poppins", sans-serif;
 		color: white;
 		background: rgb(var(--very-dark-blue)) var(--bg-blue-gradient);
-		padding: 2.25em 0em;
 		overflow-x: hidden;
-		position: relative;
 	}
 
 	/* Background Lines */
-	body .line_topright {
+	.line {
 		position: absolute;
+		z-index: -1;
+	}
+
+	.line-topright {
 		top: 0;
 		right: 0;
 		z-index: 0;
 	}
-	body .line_center1,
-	body .line_center2,
-	body .line_bottom1 {
+
+	.line-center1,
+	.line-center2,
+	.line-bottom1 {
 		width: 100%;
-		position: absolute;
-		z-index: -1;
-	}
-	body .line_middle_left,
-	body .line_middle_right {
-		/* height: 100%; */
-		position: absolute;
-		z-index: -1;
-	}
-	body .line_center1 {
-		top: 14em;
-	}
-	body .line_center2 {
-		top: 21.5em;
 	}
 
-	body .line_middle_left {
+	.line-center1 { top: 14em; }
+	.line-center2 { top: 21.5em; }
+	.line-bottom1 { bottom: 14em; }
+
+	.line-middle-left,
+	.line-middle-right {
 		height: 90%;
-		left: 0;
-	}
-	body .line_middle_right {
-		height: 90%;
-		right: 0;
 	}
 
-	body .line_bottom1 {
-		bottom: 14em;
-	}
+	.line-middle-left { left: 0; }
+	.line-middle-right { right: 0; }
 </style>
