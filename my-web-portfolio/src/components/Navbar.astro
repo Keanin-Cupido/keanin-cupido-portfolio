@@ -1,4 +1,8 @@
 ---
+import Image from 'astro/components/Image.astro';
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
+
 interface Props {
     links?: string[];
     linksNames?: string[];
@@ -6,15 +10,36 @@ interface Props {
 
 const {
     links=["", "Projects", "About"], 
-    linksNames=["/", "projects", "about"]
-} = Astro.props;
+    linksNames=["/", "/projects", "/about"]
+} = Astro.props as Props;
 
-import Image from 'astro/components/Image.astro';
-import Button from './Button.astro';
-import { Icon } from 'astro-icon/components';
+const mobileLinks = [
+    {
+        dataName: "mobile-link",
+        link: "/",
+        name: "Home"
+    },
+    {
+        dataName: "mobile-link",
+        link: "/projects",
+        name: "Projects"
+    },
+    {
+        dataName: "mobile-link",
+        link: "/about",
+        name: "About"
+    },
+    {
+        dataName: "mobile-link",
+        link: "/contact",
+        name: "Contact"
+    },
+]
 
 // Images
 import KeaninCupidoLogo from '../../public/logo.svg';
+
+const pathName = Astro.url.pathname;
 ---
 
 <nav class="navbar">
@@ -31,11 +56,15 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     </div>
     <ul class="links">
         {
-            links.map((link, key) => (
-                <li class=`${Astro.url.pathname.split("/")[1] == link.toLowerCase() ? 'highlighted_page' : ''}`>
-                    <a href={linksNames[key]}>
-                        {link === "" ? "Home" : link}
-                    </a>
+            // links.map((link, key) => (
+            //     <li class=`${Astro.url.pathname === link.toLowerCase()} ? 'highlighted_page' : ''}`>
+            //         <a href={linksNames[key]}>{link === "" ? "Home" : link}</a>
+            //     </li>
+            // ))
+
+            links.map(link => (
+                <li class=`${pathName.split('/')[1] == link.toLowerCase() || pathName == "" ? 'highlighted_page' : ''}`>
+                    <a href={`/${link.toLowerCase()}`}>{link === "" ? "Home" : link}</a>
                 </li>
             ))
         }
@@ -62,18 +91,15 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         </button>
         <div class="mobile-links">
             <ul>
-                <li>
-                    <a data-name="mobile-link" id="mobile-link" href="/">Home</a>
-                </li>
-                <li>
-                    <a data-name="mobile-link" id="mobile-link" href="/projects">Projects</a>
-                </li>
-                <li>
-                    <a data-name="mobile-link" id="mobile-link" href="/about">About</a>
-                </li>
-                <li>
-                    <a data-name="mobile-link" id="mobile-link" href="/contact">Contact</a>
-                </li>
+                {
+                    mobileLinks.map(link => {
+                        return (
+                            <li>
+                                <a href={link.link} data-name={link.dataName} id={link.dataName}>{link.name}</a>
+                            </li>
+                        )
+                    })
+                }
             </ul>
         </div>
     </nav>
@@ -97,7 +123,7 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         z-index: 100;
 
         /* Mobile */
-        & .mobile-menu-slide {
+        .mobile-menu-slide {
             position: fixed;
             width: 100vw;
             height: 0%;
@@ -116,22 +142,22 @@ import KeaninCupidoLogo from '../../public/logo.svg';
             padding-right: 52px;
             letter-spacing: -0.04em;
 
-            & .mobile-links {
+            .mobile-links {
                 margin-top: 1em;
-                & > ul {
+                ul {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     justify-content: flex-start;
                     gap: 0.5em;
                 }
-                & #mobile-link {
+                #mobile-link {
                     font-size: 3rem;
                     font-weight: bold;
                 }
             }
 
-            & .btn-mobile-menu {
+            .btn-mobile-menu {
                 position: relative;
                 display: flex;
                 width: 100%;
@@ -140,11 +166,11 @@ import KeaninCupidoLogo from '../../public/logo.svg';
             }
         }
 
-        & .circle_image {
+        .circle_image {
             width: 100%;
             max-width: 53px;
             transition: all 0.2s ease;
-            & > a {
+            a {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -196,77 +222,27 @@ import KeaninCupidoLogo from '../../public/logo.svg';
     }
     /* ===== Mobile Menu ===== */
     .navbar {
-        & .mobile-menu {
+        .mobile-menu {
             display: none;
         }
     }
 
     /* ======================== Media Queries ======================== */
-
-    /* <= 320px */
-    @media (width <= 320px) {
-        .navbar {
-            width: 90%;
-        }
-        .navbar .links {
-            display: none;
-        }
-        .navbar .contact-button {
-            display: none;
-        }
-        /* ===== Mobile Menu ===== */
-        .navbar {
-            & .mobile-menu {
-                display: block;
-            }
-        }
-    }
-
-    /* <= 375px */
-    @media (width <= 375px) {
-        .navbar {
-            width: 90%;
-        }
-        .navbar .links {
-            display: none;
-        }
-        .navbar .contact-button {
-            display: none;
-        }
-        /* ===== Mobile Menu ===== */
-        .navbar {
-            & .mobile-menu {
-                display: block;
-            }
-        }
-    }
-
-    /* <= 430px */
-    @media (width <= 430px) {
-
-    }
-
-    /* === Tablet === */
-    /* <= 768px */
     @media (width <= 768px) {
         .navbar {
             width: 90%;
-        }
-        .navbar .links {
-            display: none;
-        }
-        .navbar .contact-button {
-            display: none;
-        }
-        /* ===== Mobile Menu ===== */
-        .navbar {
-            & .mobile-menu {
+            .links {
+                display: none;
+            }
+            .contact-button {
+                display: none;
+            }
+            /* ===== Mobile Menu ===== */
+            .mobile-menu {
                 display: block;
             }
         }
     }
-
-    /* <= 1024px */
     @media (width <= 1024px) {
         .navbar {
             width: 90%;
