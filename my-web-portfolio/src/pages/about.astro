@@ -23,10 +23,12 @@ import { Icon } from 'astro-icon/components';
 			<AboutInfoBlockLayout 
 				title=''
 				subTitleA='My Story'
-				subTextA='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non volutpat amet ultricies sit amet, consequat elit. Blandit sed mattis pulvinar non vitae consectetur donec. Eu.'
+				subTextA="From my early days tinkering with HTML to now crafting complex web applications, my journey in web development has been driven by curiosity and a desire to create. I've honed my skills through various projects and continuous learning, always striving to stay ahead in this fast-paced field."
+
 
 				subTitleB='My Journey'
-				subTextB='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non volutpat amet ultricies sit amet, consequat elit. Blandit sed mattis pulvinar non vitae consectetur donec. Eu.'
+				subTextB="Starting as a self-taught developer, I've grown through hands-on experience, formal education, and collaboration with talented peers. Each project has been a stepping stone, allowing me to refine my skills and expand my technological toolkit."
+
 			/>
 
 			<Divider />
@@ -40,9 +42,9 @@ import { Icon } from 'astro-icon/components';
 			>
 				<Button link='/' title='View Website' newTab slot="subA"/>
 				<ul class="list-disc text-gray-400 ml-4" slot="subB">
-					<li class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
-					<li class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
-					<li class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
+					<li class="mb-2">[Key responsibility or achievement]</li>
+					<li class="mb-2">[Another key responsibility or achievement]</li>
+					<li class="mb-2">[A third key responsibility or achievement]</li>
 				</ul>
 
 				<AboutInfoBlockLayout
@@ -54,9 +56,9 @@ import { Icon } from 'astro-icon/components';
 				>
 					<Button link='/' title='View Website' newTab slot="subA"/>
 					<ul class="list-disc text-gray-400 ml-4" slot="subB">
-						<li class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
-						<li class="mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
-						<li class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Volutpat hac id diam volutpat quis tellus.</li>
+						<li class="mb-2">[Key responsibility or achievement]</li>
+						<li class="mb-2">[Another key responsibility or achievement]</li>
+						<li class="mb-2">[A third key responsibility or achievement]</li>
 					</ul>
 				</AboutInfoBlockLayout>
 			</AboutInfoBlockLayout>
@@ -73,16 +75,16 @@ import { Icon } from 'astro-icon/components';
 				<div class="w-full grid grid-cols-3 gap-8">
 					<AboutInfoBlockLayout
 						title=' '
-						subTitleA="UI Design"
-						subTextA='Vulputate mi sit amet mauris. Praesent tristique magna sit am purus gravida.'
+						subTitleA="React Development"
+						subTextA='Proficient in building scalable and performant applications using React and its ecosystem.'
 						subTitleB=''
 						subTextB=''
 						subWidthA='100%'
 					/>
 					<AboutInfoBlockLayout
 						title=' '
-						subTitleA="UX Design"
-						subTextA='Vulputate mi sit amet mauris. Praesent tristique magna sit am purus gravida.'
+						subTitleA="Frontend Architecture"
+						subTextA='Experienced in designing and implementing robust frontend architectures for complex web applications.'
 						subTitleB=''
 						subTextB=''
 						subWidthA='100%'
@@ -163,6 +165,18 @@ import { Icon } from 'astro-icon/components';
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
 				</div>
+			</AboutInfoBlockLayout>
+
+			<Divider />
+
+			<AboutInfoBlockLayout
+				title='Get in Touch'
+				subTitleA="Let's collaborate"
+				subTextA="Interested in working together or have a project in mind? I'd love to hear from you!"
+				subTitleB=''
+				subTextB=''
+			>
+				<Button link='/contact' title='Contact Me' slot="subA" newTab={false}/>
 			</AboutInfoBlockLayout>
 
         </SectionLayout>
