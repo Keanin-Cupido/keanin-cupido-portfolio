@@ -1,18 +1,20 @@
 ---
+import Image from 'astro/components/Image.astro';
+import KeaninCupidoLogo from '../../public/logo.svg';
+
 interface Props {
     links?: string[];
-    linksNames?: string[];
 }
 
-const {links=["Home", "Projects", "About", "Contact"], linksNames=["/", "/projects", "/about", "/contact"]} = Astro.props;
+const { links=["Home", "Projects", "About", "Contact"] } = Astro.props as Props;
+const currentYear = new Date().getUTCFullYear();
 
-import Image from 'astro/components/Image.astro';
-
-const date = new Date();
-const currentYear = date.getUTCFullYear();
-
-// Images
-import KeaninCupidoLogo from '../../public/logo.svg';
+const socialLinks = [
+    { url: "https://github.com/Keanin-Cupido", icon: "fa-github", label: "github" },
+    { url: "#", icon: "fa-x-twitter", label: "twitter/x" },
+    { url: "#", icon: "fa-codepen", label: "codepen" },
+    { url: "#", icon: "fa-linkedin", label: "linkedin" }
+];
 ---
 <footer class="footer">
     <div class="circle_image">
@@ -31,11 +33,9 @@ import KeaninCupidoLogo from '../../public/logo.svg';
 
     <ul class="links">
         {
-            links.map((link, key) => (
+            links.map(link => (
                 <li>
-                    <a href={linksNames[key]}>
-                        {link}
-                    </a>
+                    <a href={`/${link.toLowerCase()}`}>{link === "" ? "Home" : link}</a>
                 </li>
             ))
         }
@@ -45,22 +45,11 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         <p class="copyright">Copyright © {currentYear} Keanin Cupido</p>
         <p>|</p>
         <div class="socials">
-            <a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer" aria-label="github">
-                <!-- Github -->
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="twitter/x">
-                <!-- Twitter -->
-                <i class="fa-brands fa-x-twitter"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="codepen">
-                <!-- CodePen -->
-                <i class="fa-brands fa-codepen"></i>
-            </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer" aria-label="linkedin">
-                <!-- LinkedIn -->
-                <i class="fa-brands fa-linkedin"></i>            
-            </a>
+            {socialLinks.map(({ url, icon, label }) => (
+                <a href={url} target="_blank" rel="noopener noreferrer" aria-label={label}>
+                    <i class={`fa-brands ${icon}`}></i>
+                </a>
+            ))}
         </div>
     </div>
 </footer>
@@ -76,98 +65,84 @@ import KeaninCupidoLogo from '../../public/logo.svg';
         margin: 0 auto;
         padding: 5em 0em;
         text-align: center;
-    }
-    .footer .circle_image {
-        transition: all 0.2s ease;
-    }
-    .footer .circle_image:hover {
-        opacity: 0.5;
-        transform: scale(0.99);
-    }
-    .footer .footer_summary {
-        font-size: 0.9rem;
-        color: rgb(var(--very-light-blue));
-        width: 100%;
-        max-width: 300px;
-    }
-    .footer .footer_summary .link {
-        transition: all 0.2s ease;
-    }
-    .footer .footer_summary .link:hover {
-        color: white;
-    }
-    .footer .links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5em;
-        font-size: 0.9rem;
-    }
-    .footer .links li {
-        transition: all 0.2s ease;
-    }
-    .footer .links li:hover {
-        transform: translateY(-2px);
-        color: rgb(var(--very-light-blue));
-    }
-    .footer .bottom {
-        margin-top: 2em;
-    }
-    .footer .bottom {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 1em;
-    }
-    .footer .bottom p {
-        font-size: 0.9rem;
-        color: rgba(var(--very-light-blue), 0.7);
-    }
-    .footer .bottom .socials {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5em;
-    }
-    .footer .bottom i {
-        font-size: 0.9rem;
-        color: rgba(var(--very-light-blue), 0.7);
-        transition: all 2ms ease;
-    }
-    .footer .bottom i:hover {
-        color: rgba(var(--very-light-blue), 1);
+
+        .circle_image {
+            transition: all 0.2s ease;
+        }
+        .circle_image:hover {
+            opacity: 0.5;
+            transform: scale(0.99);
+        }
+        .footer_summary {
+            font-size: 0.9rem;
+            color: rgb(var(--very-light-blue));
+            width: 100%;
+            max-width: 300px;
+        }
+        .footer_summary .link {
+            transition: all 0.2s ease;
+        }
+        .footer_summary .link:hover {
+            color: white;
+        }
+        .links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5em;
+            font-size: 0.9rem;
+        }
+        .links li {
+            transition: all 0.2s ease;
+        }
+        .links li:hover {
+            transform: translateY(-2px);
+            color: rgb(var(--very-light-blue));
+        }
+        .bottom {
+            margin-top: 2em;
+        }
+        .bottom {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+        }
+        .bottom p {
+            font-size: 0.9rem;
+            color: rgba(var(--very-light-blue), 0.7);
+        }
+        .bottom .socials {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+        }
+        .bottom i {
+            font-size: 0.9rem;
+            color: rgba(var(--very-light-blue), 0.7);
+            transition: all 0.2s ease;
+        }
+        .bottom i:hover {
+            color: rgba(var(--very-light-blue), 1);
+        }
     }
 
     /* === Media Queries === */
-	@media (0px <= width <= 320px) {
+	@media (width <= 375px) {
         .footer {
             width: 90%;
-        }
-        .footer .links {
-            flex-direction: column;
-            gap: 1em;
-        }
-        .footer .bottom {
-            flex-direction: column;
-            gap: 1em;
-        }
-    }
-
-    /* <= 375px */
-    @media (321px <= width <= 375px) {
-        .footer {
-            width: 90%;
-        }
-        .footer .links {
-            flex-direction: column;
-            gap: 1em;
-        }
-        .footer .bottom {
-            flex-direction: column;
-            gap: 1em;
+            .links {
+                flex-direction: column;
+                gap: 1em;
+            }
+            .bottom {
+                flex-direction: column;
+                gap: 1em;
+            }
         }
     }
 </style>

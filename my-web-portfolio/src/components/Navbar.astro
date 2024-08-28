@@ -5,12 +5,10 @@ import { Icon } from 'astro-icon/components';
 
 interface Props {
     links?: string[];
-    linksNames?: string[];
 }
 
 const {
     links=["", "Projects", "About"], 
-    linksNames=["/", "/projects", "/about"]
 } = Astro.props as Props;
 
 const mobileLinks = [
@@ -56,12 +54,6 @@ const pathName = Astro.url.pathname;
     </div>
     <ul class="links">
         {
-            // links.map((link, key) => (
-            //     <li class=`${Astro.url.pathname === link.toLowerCase()} ? 'highlighted_page' : ''}`>
-            //         <a href={linksNames[key]}>{link === "" ? "Home" : link}</a>
-            //     </li>
-            // ))
-
             links.map(link => (
                 <li class=`${pathName.split('/')[1] == link.toLowerCase() || pathName == "" ? 'highlighted_page' : ''}`>
                     <a href={`/${link.toLowerCase()}`}>{link === "" ? "Home" : link}</a>
@@ -83,26 +75,26 @@ const pathName = Astro.url.pathname;
         <button id="openBtn" type="button" class="btn-mobile-menu text-[2rem]">
             <Icon class="icon hover:opacity-60" name=`system-uicons:drag` />
         </button>
+        <nav class="mobile-menu-slide" id="mobile-menu-slide">
+            <button id="closeBtn" type="button" class="btn-mobile-menu text-[3rem]">
+                <Icon class="icon  hover:opacity-60" name=`system-uicons:close` />
+            </button>
+            <div class="mobile-links">
+                <ul>
+                    {
+                        mobileLinks.map(link => {
+                            return (
+                                <li>
+                                    <a href={link.link} data-name={link.dataName} id={link.dataName}>{link.name}</a>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
+        </nav>
     </div>
 
-    <nav class="mobile-menu-slide" id="mobile-menu-slide">
-        <button id="closeBtn" type="button" class="btn-mobile-menu text-[3rem]">
-            <Icon class="icon  hover:opacity-60" name=`system-uicons:close` />
-        </button>
-        <div class="mobile-links">
-            <ul>
-                {
-                    mobileLinks.map(link => {
-                        return (
-                            <li>
-                                <a href={link.link} data-name={link.dataName} id={link.dataName}>{link.name}</a>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </div>
-    </nav>
 </nav>
 
 <style>
@@ -121,8 +113,54 @@ const pathName = Astro.url.pathname;
         padding: 1em 2.25em;
         position: relative;
         z-index: 100;
+        
+        .links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5em;
+            font-size: 0.75rem;
+
+            li {
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            
+            li.highlighted_page {
+                font-weight: 600;
+                color: rgb(var(--light-blue-navbar));
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: all 0.2s ease;
+                &:not(.highlighted_page) {
+                    transition: all 0.2s ease;
+                    &:hover {
+                        transform: translateY(-2px);
+                        color: rgb(var(--very-light-blue));
+                    }
+                }
+                &:after {
+                        content: "";
+                        display: inline-block;
+                        width: 50px;
+                        height: 2px;
+                        background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
+                        position: absolute;
+                        bottom: -0.563em;
+                }
+            }
+        }
 
         /* Mobile */
+        .mobile-menu {
+            display: none;
+        }
+
         .mobile-menu-slide {
             position: fixed;
             width: 100vw;
@@ -181,49 +219,6 @@ const pathName = Astro.url.pathname;
                 opacity: 0.5;
                 transform: scale(0.99);
             }
-        }
-    }
-    .navbar .links {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 2.5em;
-        font-size: 0.75rem;
-        & li.highlighted_page {
-            font-weight: 600;
-            color: rgb(var(--light-blue-navbar));
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            transition: all 0.2s ease;
-            &:hover {
-                opacity: 0.8;
-            }
-            &:not(.highlighted_page) {
-                transition: all 0.2s ease;
-                &:hover {
-                    transform: translateY(-2px);
-                    color: rgb(var(--very-light-blue));
-                }
-            }
-            &:after {
-                    content: "";
-                    display: inline-block;
-                    width: 50px;
-                    height: 2px;
-                    background: linear-gradient(90deg, rgba(100, 170, 255, 0) 0%, rgba(100, 170, 255, 0.8) 50%, rgba(100, 170, 255, 0) 100%);
-                    position: absolute;
-                    bottom: -0.563em;
-            }
-        }
-    }
-    /* ===== Mobile Menu ===== */
-    .navbar {
-        .mobile-menu {
-            display: none;
         }
     }
 

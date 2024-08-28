@@ -20,8 +20,6 @@ const { title } = Astro.props;
 
 const navLinks = ["", "Projects", "About"];
 const footerLinks = [...navLinks, "Contact"];
-const navLinkNames = ['/', '/projects', '/about'];
-const footerLinkNames = [...navLinkNames, '/contact'];
 ---
 
 <!doctype html>
@@ -30,7 +28,7 @@ const footerLinkNames = [...navLinkNames, '/contact'];
 	<body>
 		<Image class="line line-topright" src={lineTopRight} alt="" width={286} height={270} loading="eager" />
 
-		<Navbar links={navLinks} linksNames={navLinkNames}/>
+		<Navbar links={navLinks}/>
 		
 		<Image class="line line-center1" src={lineCenter1} alt="" width={1556} height={388} loading="eager" />
 		<Image class="line line-center2" src={lineCenter2} alt="" width={1492} height={153} loading="eager" />
@@ -40,7 +38,7 @@ const footerLinkNames = [...navLinkNames, '/contact'];
 
 		<slot />
 
-		<Footer links={footerLinks} linksNames={footerLinkNames}/>	
+		<Footer links={footerLinks}/>	
 	</body>
 </html>
 
