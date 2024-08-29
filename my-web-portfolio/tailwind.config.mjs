@@ -3,9 +3,11 @@ export default {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
     theme: {
         extend: {
+            colors: {
+                borderTopColor: "rgba(47, 179, 255, 0.25)",
+            },
             screens: {
                 xsm: "425px",
-                // => @media (min-width: 425px) { ... }
             },
             keyframes: {
                 wave: {

@@ -1,4 +1,7 @@
 ---
+import { Icon } from 'astro-icon/components';
+import Button from './Button.astro';
+
 interface Props {
     icon?: string;
     name?: string;
@@ -11,16 +14,10 @@ const {
     name="React.js",
     description="A popular JavaScript library for building user interfaces, known for its component-based architecture and efficient rendering with a virtual DOM.",
     btnInfo=["Learn More", "https://react.dev/", true, true]
-} = Astro.props;
-
-import { Icon } from 'astro-icon/components';
-import Button from './Button.astro';
-
-const bgLG = 'linear-gradient(180deg, rgba(59,148,255, 0.1) 0%, rgba(59,148,255,0) 100%)'
-
+} = Astro.props as Props;
 ---
 
-<article class="card_techstack">
+<article class="card_techstack w-full max-w-[225px] h-[316px] flex flex-col items-start gap-4 content-between py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
     <Icon class="icon" name=`devicon:${icon}` />
     <h4 class="name">{name}</h4>
     <p class="description">{description}</p>
@@ -32,20 +29,6 @@ const bgLG = 'linear-gradient(180deg, rgba(59,148,255, 0.1) 0%, rgba(59,148,255,
 
 <style>
     .card_techstack {
-        width: 100%;
-        max-width: 225px;
-        height: 316px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1em;
-        justify-content: space-between;
-        padding: 1.75em 1.5em;
-        border-radius: 15px;
-        border-top: 1px solid rgba(47, 179, 255, 0.25);
-        position: relative;
-        transition: all 0.2s ease-in-out;
-
         &:hover {
             transform: scale(1.025);
             & .icon {

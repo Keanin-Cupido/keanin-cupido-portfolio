@@ -65,7 +65,7 @@ const pathName = Astro.url.pathname;
         <Button 
             title="Contact"
             link="/contact"
-            primary
+            variant='primary'
             newTab={false}
         />
     </div>
@@ -101,9 +101,8 @@ const pathName = Astro.url.pathname;
     .navbar {
         width: 100%;
         max-width: 1000px;
-        max-height: 85px;
+        height: 85px;
         display: flex;
-        flex-direction: row;
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
@@ -113,6 +112,7 @@ const pathName = Astro.url.pathname;
         padding: 1em 2.25em;
         position: relative;
         z-index: 100;
+        transition: all 0.3s ease;
         
         .links {
             display: flex;
@@ -163,21 +163,18 @@ const pathName = Astro.url.pathname;
 
         .mobile-menu-slide {
             position: fixed;
-            width: 100vw;
-            height: 0%;
+            inset: 0;
+            width: 100%;
+            height: 0;
             background-color: rgb(0, 32, 72);
-            padding: 0em;
             color: white;
             font-size: 3rem;
             overflow: hidden;
-            top: 0;
-            left: 0;
             z-index: 101;
-            line-height: 1em;
+            line-height: 1;
             will-change: transform;
             transition: all 0.6s ease;
-            padding-left: 42px;
-            padding-right: 52px;
+            padding: 0 52px 0 42px;
             letter-spacing: -0.04em;
 
             .mobile-links {

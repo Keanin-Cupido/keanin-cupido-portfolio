@@ -1,41 +1,52 @@
 ---
+interface Props {
+  className?: string;
+}
 
+const { className = '' } = Astro.props;
 ---
 
-<div class="divider"></div>
+<div class={`divider ${className}`}></div>
 
 <style>
-    .divider {
-        display: block;
-        width: 95%;
-        max-width: 1000px;
-        margin: 7.75em auto;
-        height: 3px;
-        background: linear-gradient(90deg, rgba(59, 148, 255, 0) 0%, rgba(48, 120, 207, 1) 50%, rgba(59, 148, 255, 0) 100%);
-    }
+  .divider {
+    --divider-width: 95%;
+    --divider-max-width: 1000px;
+    --divider-height: 3px;
+    --divider-margin: 7.75em auto;
+    --divider-color-start: rgba(59, 148, 255, 0);
+    --divider-color-middle: rgba(48, 120, 207, 1);
 
-    @media (0px <= width <= 320px) {
-        .divider {
-            width: 80%;
-            height: 1px;
-        }
+    display: block;
+    width: var(--divider-width);
+    max-width: var(--divider-max-width);
+    margin: var(--divider-margin);
+    height: var(--divider-height);
+    background: linear-gradient(
+      90deg,
+      var(--divider-color-start) 0%,
+      var(--divider-color-middle) 50%,
+      var(--divider-color-start) 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .divider {
+      --divider-width: 90%;
+      --divider-height: 2px;
     }
-    @media (321px <= width <= 375px) {
-        .divider {
-            width: 80%;
-            height: 1px;
-        }
+  }
+
+  @media (max-width: 425px) {
+    .divider {
+      --divider-width: 85%;
     }
-    @media (376px <= width <= 425px) {
-        .divider {
-            width: 85%;
-            height: 2px;
-        }
+  }
+
+  @media (max-width: 375px) {
+    .divider {
+      --divider-width: 80%;
+      --divider-height: 1px;
     }
-    @media (426px <= width <= 768px) {
-        .divider {
-            width: 90%;
-            height: 2px;
-        }
-    }
+  }
 </style>

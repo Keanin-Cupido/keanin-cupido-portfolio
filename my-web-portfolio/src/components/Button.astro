@@ -2,29 +2,46 @@
 interface Props {
     title?: string;
     link?: string;
-    primary?: boolean;
+    variant?: 'primary' | 'accent';
     newTab?: boolean;
+    className?: string;
 }
 
-const {title="Button", link="#", primary=true, newTab=true} = Astro.props;
+const {
+    title = "Button",
+    link,
+    variant = 'primary',
+    newTab = false,
+    className = '',
+} = Astro.props;
+
+const Element = link ? 'a' : 'button';
 
 ---
 
-<button type="button" class=`btn ${primary ? 'btn--primary' : 'btn--accent'}`>
-    <a href={link} target=`${newTab ? '_blank' : '_self'}` rel="noopener noreferrer">
-        {title}
-    </a>
-</button>
+<Element
+    href={link}
+    target={newTab ? '_blank' : undefined}
+    rel={newTab ? "noopener noreferrer" : undefined}
+    class:list={[
+        'btn',
+        `btn--${variant}`,
+        className
+    ]}
+>
+    {title}
+</Element>
 
 <style>
     .btn {
-        color: black;
-        background-color: white;
+        display: inline-block;
+        border: none;
         border-radius: 17.5px;
         padding: 0.65em 2.75em;
         font-size: 0.75rem;
         letter-spacing: 0.5px;
-        z-index: 1;
+        text-decoration: none;
+        cursor: pointer;
         transition: all 0.2s ease;
     }
     .btn--accent {
@@ -34,14 +51,11 @@ const {title="Button", link="#", primary=true, newTab=true} = Astro.props;
     }
     .btn--accent:hover {
         background-color: rgba(var(--light-blue), 0.5);
-        color: white;
     }
     .btn--primary {
         color: white;
         background-color: rgb(var(--light-blue));
         font-weight: 600;
-        text-align: center;
-        transition: all 0.2s ease;
     }
     .btn--primary:hover {
         background-color: rgba(var(--light-blue), 0.7);

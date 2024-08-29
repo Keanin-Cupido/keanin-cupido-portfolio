@@ -43,8 +43,15 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
 <article class="card-project-sm group relative flex h-full w-full flex-col overflow-hidden rounded-2xl bg-[#4778b71a] shadow-sm hover:shadow-none hover:scale-105 transition">
     <!-- Image -->
     <div class="aspect-h-3 aspect-w-4 overflow-hidden bg-dark-950 transition-opacity group-hover:opacity-75">
-        <a href=`/projects/${id}` class="block h-full w-full object-cover object-center">
-            <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading={loadingType} />
+        <a href={`/projects/${id}`} class="block h-full w-full">
+            <Image 
+                src={images[projectImgName]()} 
+                alt={projectImgAlt} 
+                width={projectImgW} 
+                height={projectImgH} 
+                loading={loadingType as "eager" | "lazy" | undefined}
+                class="w-full h-full object-cover object-center"
+            />
         </a>
     </div>
 
