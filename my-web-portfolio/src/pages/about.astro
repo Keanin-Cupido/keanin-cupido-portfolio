@@ -12,7 +12,7 @@ import { Icon } from 'astro-icon/components';
     <main class="main--about">
         <SectionLayout 
 			heading="About" 
-			subheading="I'm a passionate web dev with a deep love for React and various frontend technologies. I thrive on creating dynamic, user-friendly web experiences, and I'm always exploring the latest tools and techniques to bring innovative ideas to life. Whether it's building responsive UI or optimizing performance, I’m committed to delivering top digital solutions that meet your needs."
+			subheading="I'm a passionate web dev with a deep love for React and various frontend technologies. I thrive on creating dynamic, user-friendly web experiences, and I'm always exploring the latest tools and techniques to bring innovative ideas to life. Whether it's building responsive UI or optimizing performance, I'm committed to delivering top digital solutions that meet your needs."
 		>
 			<div class="image-container w-full h-[200px] bg-[rgb(var(--light-blue))] rounded-xl flex items-center justify-center opacity-85">
 				<Image src={'/logo.svg'} alt={'Keanin Cupido'} width={175} height={175} loading="eager" />
@@ -24,11 +24,8 @@ import { Icon } from 'astro-icon/components';
 				title=''
 				subTitleA='My Story'
 				subTextA="From my early days tinkering with HTML to now crafting complex web applications, my journey in web development has been driven by curiosity and a desire to create. I've honed my skills through various projects and continuous learning, always striving to stay ahead in this fast-paced field."
-
-
 				subTitleB='My Journey'
 				subTextB="Starting as a self-taught developer, I've grown through hands-on experience, formal education, and collaboration with talented peers. Each project has been a stepping stone, allowing me to refine my skills and expand my technological toolkit."
-
 			/>
 
 			<Divider />
@@ -72,7 +69,7 @@ import { Icon } from 'astro-icon/components';
 				subTitleB=''
 				subTextB=''
 			>
-				<div class="w-full grid grid-cols-3 gap-8">
+				<div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 					<AboutInfoBlockLayout
 						title=' '
 						subTitleA="React Development"
@@ -133,33 +130,33 @@ import { Icon } from 'astro-icon/components';
 				subTitleB=''
 				subTextB=''
 			>
-				<div class="w-full grid grid-cols-4 gap-8">
-					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+				<div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-8">
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:facebook-box'/>
 						<p>Facebook</p>
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
-					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:twitter-box'/>
 						<p>Twitter/X</p>
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
-					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:linkedin-box'/>
 						<p>LinkedIn</p>
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
-					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:instagram'/>
 						<p>Instagram</p>
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
-					<a href="https://github.com/Keanin-Cupido" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+					<a href="https://github.com/Keanin-Cupido" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:github'/>
 						<p>Github</p>
 						<Icon name='mdi:arrow-top-right'/>
 					</a>
-					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+					<a href="/#" class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 						<Icon name='mdi:codepen'/>
 						<p>Codepen</p>
 						<Icon name='mdi:arrow-top-right'/>

@@ -3,36 +3,38 @@ import { Icon } from "astro-icon/components";
 
 ---
 
-<form class="form" name="contact_form" id="contact_form">
+<form class="w-full max-w-2xl mx-auto p-8 flex flex-col items-center justify-center gap-8 rounded-2xl border-t border-[rgba(47,179,255,0.25)] bg-[rgba(var(--very-light-blue),0.015)] hover:bg-[rgba(var(--very-light-blue),0.05)] transition-all duration-300" name="contact_form" id="contact_form">
     <!-- Top -->
-    <div class="top">
-        <div class="input">
-            <label for="name">Name</label>
-            <input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required autocomplete="name" />
+    <div class="w-full flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-1/2 flex flex-col gap-4">
+            <label for="name" class="text-lg text-left">Name</label>
+            <input type="text" maxlength="256" name="name" id="name" placeholder="Jane Doe" required autocomplete="name" class="w-full bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)]" />
         </div>
-        <div class="input">
-            <label for="email">Email</label>
-            <input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required autocomplete="email" />
+        <div class="w-full md:w-1/2 flex flex-col gap-4">
+            <label for="email" class="text-lg text-left">Email</label>
+            <input type="email" maxlength="256" name="email" id="email" placeholder="What's your email?" required autocomplete="email" class="w-full bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)]" />
         </div>
     </div>
     <!-- Middle -->
-    <div class="middle">
-        <div class="input">
-            <label for="phone">Phone</label>
-            <input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required autocomplete="phone" />
+    <div class="w-full flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-1/2 flex flex-col gap-4">
+            <label for="phone" class="text-lg text-left">Phone</label>
+            <input type="number" maxlength="256" name="phone" id="phone" placeholder="What's your phone number?" required autocomplete="phone" class="w-full bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none" />
         </div>
-        <div class="input">
-            <label for="subject">Subject</label>
-            <input type="text" maxlength="256" name="subject" id="subject" placeholder="How can I help?" required />
+        <div class="w-full md:w-1/2 flex flex-col gap-4">
+            <label for="subject" class="text-lg text-left">Subject</label>
+            <input type="text" maxlength="256" name="subject" id="subject" placeholder="How can I help?" required class="w-full bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)]" />
         </div>				
     </div>
     <!-- Bottom -->
-    <div class="bottom">
-        <div class="input">
-            <label for="subject">Message</label>
-            <textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required />
+    <div class="w-full flex flex-col gap-8">
+        <div class="w-full flex flex-col gap-4">
+            <label for="message" class="text-lg text-left">Message</label>
+            <textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required class="w-full h-32 bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)] resize-none" />
         </div>	
-        <button type="submit" name="submit" id="submit">Send Message <Icon name="mdi:arrow-top-right" /></button>
+        <button type="submit" name="submit" id="submit" class="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+            Send Message <Icon name="mdi:arrow-top-right" class="w-5 h-5" />
+        </button>
     </div>
 </form>
 

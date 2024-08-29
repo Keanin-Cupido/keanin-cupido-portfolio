@@ -103,15 +103,15 @@ const socialProfiles = [
 				subTitleB=''
 				subTextB=''
 			>
-				<div class="w-full grid grid-cols-4 gap-8">
+				<div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-8">
 
 					{
 						socialProfiles.map(social => {
 							return (
-								<a href={social.profileLink} class="icon-container flex gap-2 items-center justify-start text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
+								<a href={social.profileLink} class="icon-container flex gap-2 items-center justify-start text-base sm:text-lg hover:opacity-70" target='_blank' rel='noopener noreferrer'>
 									<Icon name={social.iconName}/>
-									<p>{social.name}</p>
-									<Icon name='mdi:arrow-top-right'/>
+									<p class="sm:inline">{social.name}</p>
+									<Icon name='mdi:arrow-top-right' class="hidden sm:inline"/>
 								</a>
 							)
 						})

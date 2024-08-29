@@ -21,17 +21,17 @@ const {
 ---
 
 <article class="w-full flex flex-col gap-[2.5em] items-start justify-start leading-relaxed">
-    <h3 class=`${title.length === 0 ? 'hidden' : ''} font-black text-[1.75rem] tracking-wide` aria-label="title">{title.length > 0 ? title : null}</h3>
+    <h3 class={`${title.length === 0 ? 'hidden' : ''} font-black text-[1.5rem] md:text-[1.75rem] tracking-wide text-left`} aria-label="title">{title.length > 0 ? title : null}</h3>
 
-    <div class=`${subTitleA.length === 0 && subTitleB.length === 0 ? 'hidden' : ''} w-full flex items-start justify-start gap-[1rem]`>
-        <div class=`${subTitleA.length === 0 ? 'hidden' : ''} w-full max-w-[${subWidthA}] flex flex-col gap-4 items-start justify-start`>
-            <h4 class=`${title === "" ? 'text-[2rem] font-medium' : 'text-[1.5rem]'}` aria-label="subtitle-a">{subTitleA.length > 0 ? subTitleA : null}</h4>
-            <p class="text-[1.225rem] text-gray-400">{subTextA.length > 0 ? subTextA : null}</p>
+    <div class={`${subTitleA.length === 0 && subTitleB.length === 0 ? 'hidden' : ''} w-full flex flex-col md:flex-row items-start justify-start gap-[2rem] md:gap-[1rem]`}>
+        <div class={`${subTitleA.length === 0 ? 'hidden' : ''} w-full md:max-w-[${subWidthA}] flex flex-col gap-4 items-start justify-start`}>
+            <h4 class={`${title === "" ? 'text-[1.75rem] md:text-[2rem] font-medium' : 'text-[1.25rem] md:text-[1.5rem]'} text-left`} aria-label="subtitle-a">{subTitleA.length > 0 ? subTitleA : null}</h4>
+            <p class="text-[1rem] md:text-[1.225rem] text-gray-400 text-left">{subTextA.length > 0 ? subTextA : null}</p>
             <slot name="subA" />
         </div>
-        <div class=`${subTitleB.length === 0 ? 'hidden' : ''} w-full max-w-[${subWidthB}] flex flex-col gap-4 items-start justify-start`>
-            <h4 class=`${title === "" ? 'text-[2rem] font-medium' : 'text-[1.5rem]'}` aria-label="subtitle-b">{subTitleB.length > 0 ? subTitleB : null}</h4>
-            <p class="text-[1.225rem] text-gray-400">{subTextB.length > 0 ? subTextB : null}</p>
+        <div class={`${subTitleB.length === 0 ? 'hidden' : ''} w-full md:max-w-[${subWidthB}] flex flex-col gap-4 items-start justify-start`}>
+            <h4 class={`${title === "" ? 'text-[1.75rem] md:text-[2rem] font-medium' : 'text-[1.25rem] md:text-[1.5rem]'} text-left`} aria-label="subtitle-b">{subTitleB.length > 0 ? subTitleB : null}</h4>
+            <p class="text-[1rem] md:text-[1.225rem] text-gray-400 text-left">{subTextB.length > 0 ? subTextB : null}</p>
             <slot name="subB" />
         </div>
     </div>
