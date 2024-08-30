@@ -17,10 +17,10 @@ const {
 } = Astro.props as Props;
 ---
 
-<article class="card_techstack w-full max-w-[225px] h-[316px] flex flex-col items-start gap-4 content-between py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
+<article class="card_techstack w-full max-w-[225px] h-full flex flex-col items-start gap-4 py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
     <Icon class="icon" name=`devicon:${icon}` />
     <h4 class="name">{name}</h4>
-    <p class="description">{description}</p>
+    <p class="description flex-grow">{description.length > 150 ? description.slice(0, 147) + '...' : description}</p>
     <Button 
         title={btnInfo[0] as string}
         link={btnInfo[1] as string}

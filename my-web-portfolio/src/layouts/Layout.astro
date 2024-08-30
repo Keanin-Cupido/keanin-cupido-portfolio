@@ -181,4 +181,42 @@ const footerLinks = [...navLinks, "Contact"];
 
 	.line-middle-left { left: 0; }
 	.line-middle-right { right: 0; }
+
+	/* lenis scroll */
+	html.lenis, html.lenis body {
+	height: auto;
+	}
+
+	.lenis.lenis-smooth {
+	scroll-behavior: auto !important;
+	}
+
+	.lenis.lenis-smooth [data-lenis-prevent] {
+	overscroll-behavior: contain;
+	}
+
+	.lenis.lenis-stopped {
+	overflow: hidden;
+	}
+
+	.lenis.lenis-smooth iframe {
+	pointer-events: none;
+	}
 </style>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const lenis = new Lenis();
+		lenis.on("scroll", ScrollTrigger.update);
+
+		gsap.ticker.add((time) => {
+			lenis.raf(time * 1000);
+		})
+
+		gsap.ticker.lagSmoothing(0);
+	})
+</script>
