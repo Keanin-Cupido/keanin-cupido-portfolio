@@ -17,11 +17,12 @@ const {
 } = Astro.props as Props;
 ---
 
-<article class="card_techstack w-full max-w-[225px] h-full flex flex-col items-start gap-4 py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
+<article class="card_techstack w-full max-w-[225px] h-full flex flex-col items-start gap-8 py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
     <Icon class="icon" name=`devicon:${icon}` />
     <h4 class="name">{name}</h4>
-    <p class="description flex-grow">{description.length > 150 ? description.slice(0, 147) + '...' : description}</p>
-    <Button 
+    <p class="description flex-grow">{description.length > 100 ? description.slice(0, 97) + '...' : description}</p>
+    <Button
+        variant='accent'
         title={btnInfo[0] as string}
         link={btnInfo[1] as string}
     />
@@ -57,7 +58,7 @@ const {
     .card_techstack > .icon {
         z-index: 1;
         transition: all 0.2s ease-in;
-        font-size: 2em;
+        font-size: 2.25em;
     }
     .card_techstack .name {
         font-size: 1.25rem;
@@ -65,7 +66,7 @@ const {
     }
     .card_techstack .description {
         width: 100%;
-        font-size: 0.7rem;
+        font-size: 1rem;
         font-weight: 300;
         text-align: left;
         color: rgba(255, 255, 255, 0.7);

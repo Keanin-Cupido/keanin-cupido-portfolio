@@ -5,8 +5,8 @@ import Divider from "./Divider.astro"
 import TechFilterButton from "./TechFilterButton.astro"
 ---
 
-<div class="filter_nav-container py-8">
-    <nav class="filter_nav py-8 px-4 flex-col sm:flex-row">
+<div class="w-full filter_nav-container py-8">
+    <nav class="w-full filter_nav py-8 px-4 flex-col sm:flex-row">
         <ul class="links w-full grid gap-8 grid-cols-2 xsm:grid-cols-4 md:grid-cols-8">
             <TechFilterButton tech="html5" name="HTML5" />
             <TechFilterButton tech="react" name="React.js" />
@@ -31,7 +31,6 @@ import TechFilterButton from "./TechFilterButton.astro"
 <style>
     .filter_nav-container {
         width: 100%;
-        max-width: 1000px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -57,7 +56,6 @@ import TechFilterButton from "./TechFilterButton.astro"
         }
         & > hr.divider {
             width: 100%;
-            max-width: 1000px;
             height: 1px;
             padding: 0em 1.5em;
             border: none;

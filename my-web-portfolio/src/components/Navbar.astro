@@ -47,8 +47,8 @@ const pathName = Astro.url.pathname;
                 loading="eager"
                 src={KeaninCupidoLogo}
                 alt={"logo"}
-                width={25}
-                height={25}
+                width={32}
+                height={32}
             />
         </a>
     </div>
@@ -100,15 +100,14 @@ const pathName = Astro.url.pathname;
 <style>
     .navbar {
         width: 100%;
-        max-width: 1000px;
         height: 85px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
-        background-color: rgba(59, 148, 255, 0.015);
-        box-shadow: inset -15px -20px 70px -22px rgba(59, 148, 255, 0.075);
-        border-radius: 50px;
+        background-color: rgba(59, 148, 255, 0.05);
+        /* box-shadow: inset -15px -20px 70px -22px rgba(59, 148, 255, 0.075); */
+        border-radius: 8px;
         padding: 1em 2.25em;
         position: relative;
         z-index: 100;
@@ -120,7 +119,7 @@ const pathName = Astro.url.pathname;
             align-items: center;
             justify-content: center;
             gap: 2.5em;
-            font-size: 0.75rem;
+            font-size: 1rem;
 
             li {
                 &:hover {

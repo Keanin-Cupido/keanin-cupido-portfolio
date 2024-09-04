@@ -25,19 +25,11 @@ const footerLinks = [...navLinks, "Contact"];
 <!doctype html>
 <html lang="en">
 	<Head {title} />
-	<body data-barba="wrapper">
-		<Image class="line line-topright" src={lineTopRight} alt="" width={286} height={270} loading="eager" />
-
-		<Navbar links={navLinks}/>
-		
-		<Image class="line line-center1" src={lineCenter1} alt="" width={1556} height={388} loading="eager" />
-		<Image class="line line-center2" src={lineCenter2} alt="" width={1492} height={153} loading="eager" />
-		<Image class="line line-middle-left" src={lineMiddleLeft} alt="" width={132} height={608} loading="eager" />
-		<Image class="line line-middle-right" src={lineMiddleRight} alt="" width={218} height={280} loading="eager" />
-		<Image class="line line-bottom1" src={lineBottom1} alt="" width={1492} height={153} loading="lazy" />
-
+	<body>
+		<div class="px-8 lg:px-16">
+			<Navbar links={navLinks}/>
+		</div>
 		<slot />
-
 		<Footer links={footerLinks}/>	
 	</body>
 </html>
@@ -143,44 +135,17 @@ const footerLinks = [...navLinks, "Contact"];
 	}
 	body {
 		width: 100%;
+		max-width: 1400px;
+		margin: 0 auto;
 		min-height: 100vh;
 		padding: 2.25em 0;
 		position: relative;
 		font: 400 1rem/1.5 "Poppins", sans-serif;
 		color: hsl(180, 0%, 95%);
-		background: rgb(var(--very-dark-blue)) var(--bg-blue-gradient);
+		/* background: rgb(var(--very-dark-blue)) var(--bg-blue-gradient); */
+		background: hsl(214, 75%, 10%);
 		overflow-x: hidden; 
 	}
-
-	/* Background Lines */
-	.line {
-		position: absolute;
-		z-index: -1;
-	}
-
-	.line-topright {
-		top: 0;
-		right: 0;
-		z-index: 0;
-	}
-
-	.line-center1,
-	.line-center2,
-	.line-bottom1 {
-		width: 100%;
-	}
-
-	.line-center1 { top: 14em; }
-	.line-center2 { top: 21.5em; }
-	.line-bottom1 { bottom: 14em; }
-
-	.line-middle-left,
-	.line-middle-right {
-		height: 90%;
-	}
-
-	.line-middle-left { left: 0; }
-	.line-middle-right { right: 0; }
 
 	/* lenis scroll */
 	html.lenis, html.lenis body {

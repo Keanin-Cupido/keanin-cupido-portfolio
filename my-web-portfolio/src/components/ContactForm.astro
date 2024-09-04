@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 
 ---
 
-<form class="w-full max-w-2xl mx-auto p-8 flex flex-col items-center justify-center gap-8 rounded-2xl border-t border-[rgba(47,179,255,0.25)] bg-[rgba(var(--very-light-blue),0.015)] hover:bg-[rgba(var(--very-light-blue),0.05)] transition-all duration-300" name="contact_form" id="contact_form">
+<form class="w-full mx-auto p-8 flex flex-col items-center justify-center gap-8 rounded-2xl border-t border-[rgba(47,179,255,0.25)] bg-[rgba(var(--very-light-blue),0.015)] hover:bg-[rgba(var(--very-light-blue),0.05)] transition-all duration-300" name="contact_form" id="contact_form">
     <!-- Top -->
     <div class="w-full flex flex-col md:flex-row gap-8">
         <div class="w-full md:w-1/2 flex flex-col gap-4">
@@ -32,7 +32,7 @@ import { Icon } from "astro-icon/components";
             <label for="message" class="text-lg text-left">Message</label>
             <textarea name="message" maxlength="5000" id="message" placeholder="Hi there! I would like to get in touch with you to inquiry about a project." required class="w-full h-32 bg-transparent border-b-2 border-[rgba(var(--very-light-blue),0.075)] p-2 outline-none transition-all duration-300 focus:border-[rgba(var(--very-light-blue),0.2)] resize-none" />
         </div>	
-        <button type="submit" name="submit" id="submit" class="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
+        <button type="submit" name="submit" id="submit" class="w-full max-w-lg flex self-center items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300">
             Send Message <Icon name="mdi:arrow-top-right" class="w-5 h-5" />
         </button>
     </div>

@@ -1,0 +1,91 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Icon } from 'astro-icon/components';
+import Image from 'astro/components/Image.astro';
+import Button from './Button.astro';
+
+interface Props {
+    id?: number;
+    title?: string;
+    summary?: string;
+    techStack?: string[];
+    projectImgName?: string;
+    projectImgAlt?: string;
+    projectImgW?: number;
+    projectImgH?: number;
+    githubLink?: string;
+    liveLink?: string;
+    projectInfo?: string;
+    featured?: boolean;
+    projectsPage?: boolean;
+    left?: boolean;
+}
+
+const {
+    id=0,
+    title="Content Writing Website", 
+    summary="Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Gorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis.",
+    techStack=["react", "supabase", "tailwindcss"],
+    projectImgName="/src/assets/projectImages/default.jpg",
+    projectImgAlt="project",
+    projectImgW=475,
+    projectImgH=156,
+    githubLink="https://github.com/Keanin-Cupido",
+    liveLink="https://github.com/Keanin-Cupido",
+    featured=true,
+    projectsPage=true,
+    left=true,
+} = Astro.props as Props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/projectImages/*.{jpeg,jpg,png,gif}');
+if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist in glob: "/src/assets/projectImages/*.{jpeg,jpg,png,gif}"`);
+---
+
+<article class=`w-full max-w-[1400px] mx-auto h-full flex ${left ? '' : 'flex-row-reverse'} items-center justify-between gap-4 min-h-[400px] p-12 bg-dark-blue bg-[rgb(var(--very-dark-blue-lightest))]`>
+    <!-- Left / Right -->
+    <div class=`h-[100vh] max-h-[356px] flex flex-col justify-between ${left ? 'items-start' : 'items-end'} w-[40%]`>
+        <div class="project_tech_container">
+            <p>Website</p>
+            <hr class="mb-2" />
+            {
+                techStack.map(tech => (
+                    <span class="text-white inline-flex h-8 w-8 items-center justify-center cursor-default text-xl" aria-label=`${tech}`>
+                        <Icon class="icon" name=`devicon:${tech}` />
+                    </span>
+                ))
+            }
+        </div>
+        <div class="project_desc_container">
+            <div class=`flex flex-col ${left ? 'items-start justify-start' : 'items-end justify-end'} gap-4`>
+                <a href=`/projects/${id}` class=`flex flex-row w-full ${left ? 'items-center justify-start' : 'items-end justify-end'} gap-2`>
+                    <h4 class="text-3xl font-black leading-snug text-dark-50 transition-colors hover:text-indigo-400">{title}</h4>
+                </a>
+
+                <p class=`text-base opacity-85 ${left ? 'text-start' : 'text-end'}`>{summary}</p>
+                <Button
+                    title='More Info'
+                    link={`/projects/${id}`}
+                    variant='primary'
+                    newTab={false}
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Left / Right -->
+     <div class=`w-[60%] flex ${left ? 'items-end justify-end' : 'items-start justify-start'}`>
+         <div class="image">
+            <a href={`/projects/${id}`} class="block h-full w-full">
+                <!-- <Image src={images[projectImgName]()} alt={projectImgAlt} width={projectImgW} height={projectImgH} loading="lazy" /> -->
+                <Image 
+                src={images[projectImgName]()} 
+                alt={projectImgAlt} 
+                width={projectImgW} 
+                height={projectImgH} 
+                loading={"lazy"}
+                class="w-full h-full object-cover object-center bg-dark-950 transition-opacity hover:opacity-75"
+            />
+            </a>
+        </div>
+     </div>
+</article>

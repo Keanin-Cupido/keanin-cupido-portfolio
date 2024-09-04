@@ -13,6 +13,7 @@ const projectsData = [
         liveLink: "https://github.com/Keanin-Cupido",
         featured: true,
         projectsPage: true,
+        left: true,
     },
     {
         id: 1,
@@ -28,6 +29,7 @@ const projectsData = [
         liveLink: "https://github.com/Keanin-Cupido",
         featured: true,
         projectsPage: true,
+        left: false,
     },
     {
         id: 2,
@@ -43,6 +45,23 @@ const projectsData = [
         liveLink: "https://github.com/Keanin-Cupido",
         featured: false,
         projectsPage: true,
+        left: true,
+    },
+    {
+        id: 3,
+        title: "Portfolio Website",
+        summary:
+            "A personal portfolio website showcasing my projects, skills, and experience. It includes sections for featured work, about me, and contact information.",
+        techStack: ["react", "tailwindcss", "astro"],
+        projectImgName: "/src/assets/projectImages/default.jpg",
+        projectImgAlt: "Portfolio Website",
+        projectImgW: 475,
+        projectImgH: 156,
+        githubLink: "https://github.com/Keanin-Cupido",
+        liveLink: "https://github.com/Keanin-Cupido",
+        featured: false,
+        projectsPage: true,
+        left: false,
     },
 ];
 

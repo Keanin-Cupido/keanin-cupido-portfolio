@@ -16,11 +16,12 @@ import logo from '../../public/logo.svg';
 // Data
 import projectsData from '../data/projectsData';
 import ContactForm from '../components/ContactForm.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
 
 ---
 
 <Layout title="Keanin Cupido - Web Dev Portfolio">
-	<main class="main--home min-h-screen">
+	<main class="main--home min-h-screen px-8 lg:px-16">
 		<header class="header" transition:animate="fade">
 
 			<Image src={logo} alt={"logo"} width={65} height={65} class="mb-6 animate-waving-hand" loading="eager" />
@@ -74,7 +75,7 @@ import ContactForm from '../components/ContactForm.astro';
 		 	{
 				projectsData.map(project => {
 					return (project.featured === true
-						? <CardProject 
+						? <FeaturedProject 
 							title={project.title} 
 							summary={project.summary}
 							techStack={project.techStack}
@@ -85,6 +86,7 @@ import ContactForm from '../components/ContactForm.astro';
 							githubLink={project.githubLink}
 							liveLink={project.liveLink}
 							featured={project.featured}
+							left={project.left}
 						  /> 
 						: null
 					)
@@ -100,6 +102,9 @@ import ContactForm from '../components/ContactForm.astro';
 			heading='About Me'
 			subheading=''
 		>
+			<div class="image-container w-full h-[300px] bg-[rgb(var(--light-blue))] rounded-xl flex items-center justify-center opacity-85">
+				<Image src={'/logo.svg'} alt={'Keanin Cupido'} width={175} height={175} loading="eager" />
+			</div>
 		 	<div class="about_me_section">
 				<p>I'm a web developer specializing in frontend technologies with strong skills in <b>React</b> and <b>JavaScript</b>. I focus on creating intuitive, responsive websites and staying updated with the latest web development trends and best practices.
 				I also have a keen interest in mobile app development using <b>React Native</b>. This enables me to create versatile mobile applications alongside my web projects, bridging the gap between web and mobile experiences.
@@ -151,7 +156,6 @@ import ContactForm from '../components/ContactForm.astro';
 <style>
 	.main--home {
 		width: 100%;
-		max-width: 1000px;
 		margin: 4.25em auto;
 	}
 	.main--home .header {
@@ -253,13 +257,13 @@ import ContactForm from '../components/ContactForm.astro';
 		flex-wrap: wrap;
 		flex-direction: row;
 		align-items: flex-start;
-		justify-content: space-between;
-		row-gap: 1em;
+		justify-content: flex-start;
+		gap: 1em;
 	}
 	/* Contact */
 	.main--home .contact-container {
 		width: 100%;
-		max-width: 1000px;
+		/* max-width: 1000px; */
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
@@ -370,6 +374,7 @@ import ContactForm from '../components/ContactForm.astro';
 				gap: 2em;
 				& > button {
 					text-align: left;
+					width: 100%;
 					display: flex;
 					flex-direction: row;
 					align-items: center;
