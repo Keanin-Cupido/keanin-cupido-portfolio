@@ -9,20 +9,20 @@ import FAQ from '../components/FAQ.astro';
 
 const FAQsData = [
 	{
-		question: "Are you open for freelance/contract work?",
-		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tortor velit morbi integer sed orci, suspendisse quis. Turpis quis id eget feugiat."
+		question: "Are you currently open to new job opportunities?",
+		answer: "Yes, I'm actively seeking new challenges in frontend development, particularly roles that involve React and modern web technologies."
 	},
 	{
-		question: "Are you currently looking for full-time opportunities?",
-		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tortor velit morbi integer sed orci, suspendisse quis. Turpis quis id eget feugiat."
+		question: "What type of roles are you interested in?",
+		answer: "I'm primarily interested in frontend developer positions, but I'm also open to full-stack roles that have a strong frontend focus."
 	},
 	{
-		question: "Are you open for guest-posts or article collaborations?",
-		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tortor velit morbi integer sed orci, suspendisse quis. Turpis quis id eget feugiat."
+		question: "Are you open to relocation or remote work?",
+		answer: "I'm open to both local and remote opportunities. For the right position, I'm also willing to consider relocation."
 	},
 	{
-		question: "Are you open for video collaborations?",
-		answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et tortor velit morbi integer sed orci, suspendisse quis. Turpis quis id eget feugiat."
+		question: "What's your preferred way to be contacted by recruiters?",
+		answer: "The best way to reach me is via email or LinkedIn. I typically respond within 24-48 hours."
 	},
 ]
 const socialProfiles = [
@@ -39,7 +39,7 @@ const socialProfiles = [
 	{
 		iconName: "mdi:linkedin-box",
 		name: "LinkedIn",
-		profileLink: "/#"
+		profileLink: "https://www.linkedin.com/in/your-linkedin-profile" // Update with your actual LinkedIn profile
 	},
 	{
 		iconName: "mdi:instagram",
@@ -59,11 +59,11 @@ const socialProfiles = [
 ]
 ---
 
-<Layout title="Keanin Cupido - Contact">
+<Layout title="Contact">
     <main class="main--contact px-8 lg:px-16">
         <SectionLayout 
 			heading="Contact" 
-			subheading="Ready to bring your web project to life? I’m here to help! With a passion for React and a strong foundation in various frontend technologies, I’m eager to collaborate and create something amazing together. Whether you have a question, need a consultation, or want to discuss a new idea, feel free to reach out."
+			subheading="Thank you for your interest in my profile. As a passionate frontend developer with expertise in React and various modern web technologies, I'm excited about new opportunities to contribute to innovative projects. Whether you're a recruiter looking to fill a position or a potential collaborator, I'm eager to connect!"
 		>
 			<div class="contact-container">
 				<span class="email">
@@ -97,11 +97,9 @@ const socialProfiles = [
 
 		<div class="px-8">
 			<AboutInfoBlockLayout
-				title='My Social Profiles'
-				subTitleA=""
-				subTextA=''
-				subTitleB=''
-				subTextB=''
+				title='Professional Profiles'
+				subTitleA="Let's Connect"
+				subTextA='Feel free to reach out or check my professional profiles for more information about my work and experience.'
 			>
 				<div class="w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-8">
 

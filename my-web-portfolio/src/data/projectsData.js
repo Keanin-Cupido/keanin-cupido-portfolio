@@ -59,9 +59,9 @@ const projectsData = [
         projectImgH: 156,
         githubLink: "https://github.com/Keanin-Cupido",
         liveLink: "https://github.com/Keanin-Cupido",
-        featured: false,
+        featured: true,
         projectsPage: true,
-        left: false,
+        left: true,
     },
 ];
 

@@ -4,14 +4,6 @@ import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Head from './Head.astro';
 
-// Images
-import lineTopRight from '../../public/line_topright.svg';
-import lineCenter1 from '../../public/line_center1.svg';
-import lineCenter2 from '../../public/line_center2.svg';
-import lineMiddleLeft from '../../public/line_middle_left.svg';
-import lineMiddleRight from '../../public/line_middle_right.svg';
-import lineBottom1 from '../../public/line_bottom1.svg';
-
 interface Props {
 	title: string;
 }
@@ -24,7 +16,7 @@ const footerLinks = [...navLinks, "Contact"];
 
 <!doctype html>
 <html lang="en">
-	<Head {title} />
+	<Head title={`Keanin Cupido - ${title} | Frontend Developer`} />
 	<body>
 		<div class="px-8 lg:px-16">
 			<Navbar links={navLinks}/>

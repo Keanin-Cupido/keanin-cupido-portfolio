@@ -51,11 +51,72 @@ const projectInfoSections = [
     { title: 'Project Execution', content: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
     { title: 'Results', content: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' },
 ];
+
+const keyAchievements = [
+    { metric: '50%', description: 'Increase in page load speed' },
+    { metric: '30%', description: 'Boost in user engagement' },
+    { metric: '99%', description: 'Accessibility score' },
+];
+
+const technicalChallenges = [
+    { challenge: 'Complex state management', solution: 'Implemented Redux for centralized state control' },
+    { challenge: 'Slow initial page load', solution: 'Utilized code splitting and lazy loading techniques' },
+];
+
+const codeSnippet = `
+function optimizeImage(img) {
+  return new Promise((resolve) => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    canvas.toBlob(resolve, 'image/webp', 0.7);
+  });
+}
+`;
+
+const responsiveDesigns = [
+    { size: 'Mobile', imageUrl: '/assets/projectImages/default.jpg' },
+    { size: 'Tablet', imageUrl: '/assets/projectImages/default.jpg' },
+    { size: 'Desktop', imageUrl: '/assets/projectImages/default.jpg' },
+];
+
+const performanceOptimizations = [
+    'Implemented lazy loading for images and components',
+    'Utilized code splitting to reduce initial bundle size',
+    'Optimized assets using compression techniques',
+];
+
+const versionControlInfo = {
+    system: 'Git',
+    workflow: 'GitHub Flow',
+    collaborationTools: ['GitHub Projects', 'Pull Requests', 'Code Reviews'],
+};
+
+const testingApproach = [
+    { type: 'Unit Tests', tool: 'Jest', coverage: '85%' },
+    { type: 'Integration Tests', tool: 'React Testing Library', coverage: '70%' },
+    { type: 'End-to-End Tests', tool: 'Cypress', coverage: '60%' },
+];
+
+const accessibilityFeatures = [
+    'Implemented ARIA labels for improved screen reader support',
+    'Ensured proper color contrast ratios',
+    'Added keyboard navigation support',
+];
+
+const futureImprovements = [
+    'Implement server-side rendering for improved SEO',
+    'Add internationalization support',
+    'Integrate PWA features for offline capabilities',
+];
+
 ---
 
-<main class="w-full mx-auto my-20 px-8 lg:px-16" transition:animate="fade">
-    <header class="flex flex-col gap-8">
-        <div class="flex justify-between items-center">
+<main class="w-full flex flex-col items-start justify-start gap-4 mx-auto my-20 px-8 lg:px-16" transition:animate="fade">
+    <header class="w-full flex flex-col gap-8">
+        <div class="w-full flex justify-between items-center">
             <!-- <div class="max-w-24">
                 <Image src={logoImage()} alt="Logo" width={64} height={64} loading="eager" class="rounded-lg" />
             </div> -->
@@ -67,15 +128,15 @@ const projectInfoSections = [
             />
         </div>
 
-        <div class="mt-8 flex flex-col gap-4">
+        <div class="w-full mt-8 flex flex-col gap-4">
             <div class="flex gap-4 text-4xl">
                 {techStack.map(tech => <Icon name={`devicon:${tech}`} />)}
             </div>
             <h2 class="text-4xl font-semibold">{title}</h2>
-            <p class="text-base font-light opacity-60 max-w-lg">{summary}</p>
+            <p class="text-base font-light opacity-60 max-w-2xl">{summary}</p>
         </div>
 
-        <div class="flex flex-col sm:flex-row justify-between gap-4 sm:gap-8">
+        <div class="w-full flex flex-col sm:flex-row justify-between gap-4 sm:gap-8">
             <InfoSnippet title='Project Type' info="Marketing" />
             <InfoSnippet title='Date' info="Jan 2021 - Feb 2021" />
             <InfoSnippet title='Services' info="Website Marketing Strategy" />
@@ -85,15 +146,117 @@ const projectInfoSections = [
 
     <Divider />
 
-    <div class="flex flex-col items-start justify-start gap-8">
+    <div class="w-full flex flex-col items-start justify-start gap-8">
         {projectInfoSections.map(({ title, content }) => (
             <section class="mt-8 tracking-wide flex flex-col items-start justify-start gap-4">
                 <h3 class="text-3xl font-semibold">{title}</h3>
-                <p class="opacity-90 max-w-2xl">{content}</p>
+                <p class="opacity-90 max-w-5xl">{content}</p>
             </section>
         ))}
     </div>
 
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Key Achievements</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {keyAchievements.map(({ metric, description }) => (
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <p class="text-2xl font-bold">{metric}</p>
+                    <p class="text-sm">{description}</p>
+                </div>
+            ))}
+        </div>
+    </section>
 
-    <section class="other"></section>
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Technical Challenges and Solutions</h3>
+        <ul class="list-disc pl-5">
+            {technicalChallenges.map(({ challenge, solution }) => (
+                <li class="mb-2">
+                    <strong>{challenge}:</strong> {solution}
+                </li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Code Snippet Showcase</h3>
+        <pre class="bg-gray-800 p-4 pl-8 rounded-lg overflow-x-auto">
+            <code class="language-javascript">{codeSnippet}</code>
+        </pre>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Responsive Design</h3>
+        <div class="flex flex-wrap justify-around">
+            {responsiveDesigns.map(({ size, imageUrl }) => (
+                <div class="text-center mb-4">
+                    <img src={imageUrl} alt={`${size} design`} class="max-w-xs mx-auto mb-2" />
+                    <p>{size}</p>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Performance Optimizations</h3>
+        <ul class="list-disc pl-5">
+            {performanceOptimizations.map((optimization) => (
+                <li class="mb-2">{optimization}</li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Version Control and Collaboration</h3>
+        <p><strong>Version Control System:</strong> {versionControlInfo.system}</p>
+        <p><strong>Workflow:</strong> {versionControlInfo.workflow}</p>
+        <p><strong>Collaboration Tools:</strong></p>
+        <ul class="list-disc pl-5">
+            {versionControlInfo.collaborationTools.map((tool) => (
+                <li>{tool}</li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Testing and Quality Assurance</h3>
+        <table class="w-full border-collapse border border-gray-300">
+            <thead>
+                <tr class="bg-gray-800">
+                    <th class="border border-gray-300 p-2">Test Type</th>
+                    <th class="border border-gray-300 p-2">Tool</th>
+                    <th class="border border-gray-300 p-2">Coverage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {testingApproach.map(({ type, tool, coverage }) => (
+                    <tr>
+                        <td class="border border-gray-300 p-2">{type}</td>
+                        <td class="border border-gray-300 p-2">{tool}</td>
+                        <td class="border border-gray-300 p-2">{coverage}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Accessibility Considerations</h3>
+        <ul class="list-disc pl-5">
+            {accessibilityFeatures.map((feature) => (
+                <li class="mb-2">{feature}</li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="w-full mt-20">
+        <h3 class="text-3xl font-semibold mb-4">Future Improvements</h3>
+        <ul class="list-disc pl-5">
+            {futureImprovements.map((improvement) => (
+                <li class="mb-2">{improvement}</li>
+            ))}
+        </ul>
+    </section>
+
+    <section class="w-full other"></section>
 </main>

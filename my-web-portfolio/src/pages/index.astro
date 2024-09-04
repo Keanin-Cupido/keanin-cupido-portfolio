@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Divider from '../components/Divider.astro';
 import SectionLayout from '../layouts/SectionLayout.astro';
-import CardProject from '../components/CardProject.astro';
 import Image from 'astro/components/Image.astro';
 import Button from '../components/Button.astro';
 import CardTechStack from '../components/CardTechStack.astro';
@@ -20,7 +19,7 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 
 ---
 
-<Layout title="Keanin Cupido - Web Dev Portfolio">
+<Layout title="Home">
 	<main class="main--home min-h-screen px-8 lg:px-16">
 		<header class="header" transition:animate="fade">
 
@@ -40,7 +39,7 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 				WEB DEVELOPER
 			</h2>
 			<p class="header_summary">A <b>web developer</b> creating elegant, <b>user-friendly</b> websites. Explore <a href="/projects" class="link"><u>my work</u></a> and discover how I turn ideas into seamless online experiences. </p>
-			<div class="socials">
+			<div class="socials mb-8">
 				<a href="https://github.com/Keanin-Cupido" target="_blank" rel="noopener noreferrer" aria-label="github">
 					<Icon name="mdi:github" />
 				</a>
@@ -54,16 +53,42 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 					<Icon name="mdi:linkedin" />           
 				</a>
 			</div>
+
+			<!-- Add a call-to-action button -->
+			<Button title="View My Projects" link="/projects" variant='primary' newTab={false}/>
 		</header>
 
-		<!-- <Divider /> -->
+		<Divider />
 
-		<!-- About Summary -->
-		 <section class="about_summary">
-			<p>As a web developer specializing in <u>frontend technologies</u>, I excel in creating dynamic and engaging user interfaces. My expertise in <u>React</u> and deep understanding of <u>JavaScript</u> allow me to build responsive and efficient applications.</p>
-
-			<p>I am passionate about crafting seamless user experiences and constantly staying updated with the latest trends and best practices in frontend development.</p>
-		 </section>
+		<!-- Key Skills Section -->
+		<SectionLayout
+			heading='Key Skills'
+			subheading='Core competencies that make me stand out as a web developer'
+		>
+			<div class="w-full skills-grid">
+				<div class="skill-item">
+					<Icon name="mdi:react" />
+					<h3>React & React Native</h3>
+					<p>Expert in building responsive web and mobile applications</p>
+				</div>
+				<div class="skill-item">
+					<Icon name="mdi:language-javascript" />
+					<h3>JavaScript & TypeScript</h3>
+					<p>Strong foundation in modern JavaScript and TypeScript development</p>
+				</div>
+				<div class="skill-item">
+					<Icon name="mdi:responsive" />
+					<h3>Responsive Design</h3>
+					<p>Creating seamless experiences across all devices</p>
+				</div>
+				<div class="skill-item">
+					<Icon name="mdi:responsive" />
+					<h3>Responsive Design</h3>
+					<p>Creating seamless experiences across all devices</p>
+				</div>
+				<!-- Add more skill items as needed -->
+			</div>
+		</SectionLayout>
 
 		<Divider />
 
@@ -100,10 +125,10 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 		<!-- About Me -->
 		<SectionLayout
 			heading='About Me'
-			subheading=''
+			subheading='A passionate web developer with a strong academic background and diverse skill set'
 		>
 			<div class="image-container w-full h-[300px] bg-[rgb(var(--light-blue))] rounded-xl flex items-center justify-center opacity-85">
-				<Image src={'/logo.svg'} alt={'Keanin Cupido'} width={175} height={175} loading="eager" />
+				<Image src={'/logo.svg'} alt={'Keanin Cupido'} width={175} height={175} loading="lazy" />
 			</div>
 		 	<div class="about_me_section">
 				<p>I'm a web developer specializing in frontend technologies with strong skills in <b>React</b> and <b>JavaScript</b>. I focus on creating intuitive, responsive websites and staying updated with the latest web development trends and best practices.
@@ -111,6 +136,14 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 				</p>
 				<p>I studied computer science at the University of the Western Cape, where I completed modules in <b>Human-Computer Interaction</b>, <b>Data Structures and Algorithms</b>, <b>Databases</b>, and <b>Software Engineering</b>. Additionally, I have experience with languages like <b>Python</b> and <b>Java</b>, and I am currently learning the <b>Rust</b> programming language.</p>
 			</div>
+
+			<!-- Add a section highlighting education and relevant coursework -->
+			<div class="w-full education-section">
+				<h3>Education</h3>
+				<p><strong>University of the Western Cape</strong> - Computer Science</p>
+				<p>Relevant Coursework: Human-Computer Interaction, Data Structures and Algorithms, Databases, Software Engineering</p>
+			</div>
+			
 			<Button title="Download CV" link="/" variant='primary' newTab={false}/>
 		</SectionLayout>
 
@@ -605,4 +638,52 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 		}
     }
 
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2em;
+		margin-top: 2em;
+	}
+
+	.skill-item {
+		text-align: center;
+		padding: 1.5em;
+		background-color: rgba(var(--very-light-blue), 0.05);
+		border-radius: 10px;
+		transition: all 0.3s ease;
+	}
+
+	.skill-item:hover {
+		background-color: rgba(var(--very-light-blue), 0.1);
+		transform: translateY(-5px);
+	}
+
+	.skill-item [astro-icon] {
+		font-size: 3em;
+		margin-bottom: 0.5em;
+	}
+
+	.skill-item h3 {
+		font-size: 1.2em;
+		margin-bottom: 0.5em;
+	}
+
+	.skill-item p {
+		font-size: 0.9em;
+		color: rgb(var(--very-light-blue));
+	}
+
+	.education-section {
+		margin-top: 2em;
+		padding: 1.5em;
+		background-color: rgba(var(--very-light-blue), 0.05);
+		border-radius: 10px;
+	}
+
+	.education-section h3 {
+		font-size: 1.2em;
+		margin-bottom: 0.5em;
+	}
+
+	/* Add responsive styles for new sections */
 </style>

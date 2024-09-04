@@ -6,7 +6,16 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  integrations: [tailwind(), icon()],
-  adapter: vercel()
+    output: "server",
+    integrations: [tailwind(), icon()],
+    adapter: vercel(),
+    image: {
+        service: {
+            entrypoint: "astro/assets/services/sharp",
+            config: {
+                // Clear cache on every build
+                cacheDir: false,
+            },
+        },
+    },
 });
