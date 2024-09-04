@@ -7,6 +7,9 @@ import Button from '../components/Button.astro';
 import CardTechStack from '../components/CardTechStack.astro';
 import techStack from '../data/techStack';
 import { Icon } from 'astro-icon/components';
+import ContactForm from '../components/ContactForm.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import FeaturedProjectCard from '../components/FeaturedProjectCard.astro';
 
 // Images
 import frontendLogo from '../../public/frontend.svg';
@@ -14,8 +17,6 @@ import logo from '../../public/logo.svg';
 
 // Data
 import projectsData from '../data/projectsData';
-import ContactForm from '../components/ContactForm.astro';
-import FeaturedProject from '../components/FeaturedProject.astro';
 
 ---
 
@@ -117,6 +118,35 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 					)
 				})
 			}
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<FeaturedProjectCard 
+					id={1}
+					title="E-commerce Platform"
+					summary="A modern e-commerce platform built with React and Node.js, featuring a responsive design and seamless payment integration."
+					techStack={["react", "nodejs", "mongodb"]}
+					projectImgName="/src/assets/projectImages/default.jpg"
+					projectImgAlt="E-commerce Platform Screenshot"
+					projectImgW={1200}
+					projectImgH={630}
+					githubLink="https://github.com/username/ecommerce-project"
+					liveLink="https://ecommerce-project.com"
+					featured={true}
+				/>
+
+				<FeaturedProjectCard 
+					id={2}
+					title="Task Management App"
+					summary="A productivity-focused task management application built with React Native, offering cross-platform functionality and real-time updates."
+					techStack={["react", "firebase", "redux"]}
+					projectImgName="/src/assets/projectImages/default.jpg"
+					projectImgAlt="Task Management App Screenshot"
+					projectImgW={1200}
+					projectImgH={630}
+					githubLink="https://github.com/username/task-management-app"
+					liveLink="https://taskmanagementapp.com"
+					featured={true}
+				/>
+			</div>
 			<Button title="View More" link="/projects" variant='primary' newTab={false}/>
 		 </SectionLayout>
 
@@ -138,10 +168,29 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 			</div>
 
 			<!-- Add a section highlighting education and relevant coursework -->
-			<div class="w-full education-section">
-				<h3>Education</h3>
-				<p><strong>University of the Western Cape</strong> - Computer Science</p>
-				<p>Relevant Coursework: Human-Computer Interaction, Data Structures and Algorithms, Databases, Software Engineering</p>
+			<div class="w-full mt-4 p-6 bg-[rgba(var(--very-light-blue),0.05)] rounded-lg">
+				<h3 class="text-xl font-semibold mb-2">Education</h3>
+				<p class="mb-1"><strong class="font-medium">University of the Western Cape</strong> - Computer Science</p>
+				<p class="text-sm text-gray-300">Relevant Coursework: Human-Computer Interaction, Data Structures and Algorithms, Databases, Software Engineering</p>
+			</div>
+
+			<!-- Add a section highlighting skills and expertise -->
+			<div class="w-full mt-2 p-6 bg-[rgba(var(--very-light-blue),0.05)] rounded-lg">
+				<h3 class="text-xl font-semibold mb-2">Skills & Expertise</h3>
+				<p  class="mb-1"><strong class="font-medium">Frontend Development: </strong><span class="text-sm text-gray-300">React, JavaScript, HTML, CSS, Sass</span></p>
+				<p  class="mb-1"><strong class="font-medium">Mobile Development: </strong><span class="text-sm text-gray-300">React Native</span></p>
+				<p><strong class="font-medium">Other Languages: </strong><span class="text-sm text-gray-300">Python, Java, Rust (learning)</span></p>
+			</div>
+
+			<!-- Add a section for professional development and certifications -->
+			<div class="w-full mt-2 p-6 bg-[rgba(var(--very-light-blue),0.05)] rounded-lg">
+				<h3 class="text-xl font-semibold mb-4">Professional Development & Certifications</h3>
+				<ul class="list-disc list-inside space-y-2">
+					<li>Completed Advanced React and Redux course on Udemy, enhancing frontend development skills</li>
+					<li>Obtained AWS Certified Developer - Associate certification, demonstrating cloud computing expertise</li>
+					<li>Participated in Google's "Mobile Web Specialist" nanodegree program, focusing on progressive web apps</li>
+					<li>Regular attendee at local tech meetups and conferences, staying current with industry trends</li>
+				</ul>
 			</div>
 			
 			<Button title="Download CV" link="/" variant='primary' newTab={false}/>
@@ -672,18 +721,4 @@ import FeaturedProject from '../components/FeaturedProject.astro';
 		font-size: 0.9em;
 		color: rgb(var(--very-light-blue));
 	}
-
-	.education-section {
-		margin-top: 2em;
-		padding: 1.5em;
-		background-color: rgba(var(--very-light-blue), 0.05);
-		border-radius: 10px;
-	}
-
-	.education-section h3 {
-		font-size: 1.2em;
-		margin-bottom: 0.5em;
-	}
-
-	/* Add responsive styles for new sections */
 </style>

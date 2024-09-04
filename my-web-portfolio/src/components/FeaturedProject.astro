@@ -74,7 +74,7 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
 
     <!-- Image Section -->
      <div class={`w-full lg:w-[60%] flex ${left ? 'items-end justify-end' : 'items-start justify-start'} mt-8 lg:mt-0`}>
-         <div class="image w-full">
+         <div class="image w-full relative">
             <a href={`/projects/${id}`} class="block h-full w-full">
                 <Image 
                 src={images[projectImgName]()} 
@@ -83,7 +83,8 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
                 height={projectImgH} 
                 loading={"lazy"}
                 class="w-full h-auto object-cover object-center bg-dark-950 transition-opacity hover:opacity-75"
-            />
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-75 transition-opacity hover:opacity-40"></div>
             </a>
         </div>
      </div>
