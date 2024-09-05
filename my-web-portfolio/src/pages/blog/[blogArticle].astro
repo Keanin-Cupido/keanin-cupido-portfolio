@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SectionLayout from '../../layouts/SectionLayout.astro';
+const dummyData = {
+    title: "My Awesome Blog Post",
+    date: "2023-07-15"
+};
+---
+
+<Layout title={dummyData.title}>
+    <main class="w-full max-w-[1400px] my-[4.25em] mx-auto px-8 lg:px-16">
+        <a href={Astro.request.headers.get('referer') || '/blog'} class="inline-block mb-4 text-blue-100 text-lg hover:underline">&larr; Back</a>
+        <SectionLayout 
+            heading={dummyData.title}
+            subheading={`Published on ${new Date(dummyData.date).toLocaleDateString()}`}
+        >
+            <p>This is the content of my awesome blog post. It's just dummy data for now!</p>
+        </SectionLayout>
+    </main>
+</Layout>
+

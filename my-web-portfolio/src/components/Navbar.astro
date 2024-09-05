@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-    links=["", "Projects", "About"], 
+    links=["", "Projects", "Blog", "About"], 
 } = Astro.props as Props;
 
 const mobileLinks = [
@@ -21,6 +21,11 @@ const mobileLinks = [
         dataName: "mobile-link",
         link: "/projects",
         name: "Projects"
+    },
+    {
+        dataName: "mobile-link",
+        link: "/blog",
+        name: "Blog"
     },
     {
         dataName: "mobile-link",

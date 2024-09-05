@@ -1,5 +1,4 @@
 ---
-import Image from 'astro/components/Image.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import Head from './Head.astro';
@@ -10,7 +9,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-const navLinks = ["", "Projects", "About"];
+const navLinks = ["", "Projects", "Blog", "About"];
 const footerLinks = [...navLinks, "Contact"];
 ---
 

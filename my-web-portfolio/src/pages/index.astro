@@ -10,6 +10,8 @@ import { Icon } from 'astro-icon/components';
 import ContactForm from '../components/ContactForm.astro';
 import FeaturedProject from '../components/FeaturedProject.astro';
 import FeaturedProjectCard from '../components/FeaturedProjectCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import blogPosts from '../data/blogPosts';
 
 // Images
 import frontendLogo from '../../public/frontend.svg';
@@ -149,6 +151,29 @@ import projectsData from '../data/projectsData';
 			</div>
 			<Button title="View More" link="/projects" variant='primary' newTab={false}/>
 		 </SectionLayout>
+
+		<Divider />
+
+		<!-- Featured Blog Posts -->
+		<SectionLayout
+			heading='Featured Articles'
+			subheading='Explore my latest thoughts and insights on web development, technology trends, and more.'
+		>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+				{blogPosts.slice(0, 3).map(post => (
+					<BlogCard 
+						title={post.title}
+						excerpt={post.excerpt}
+						date={post.date}
+						slug={post.slug}
+						image={post.image}
+					/>
+				))}
+			</div>
+			<div class="mt-8 text-center">
+				<Button title="Read More Articles" link="/blog" variant='primary' newTab={false}/>
+			</div>
+		</SectionLayout>
 
 		<Divider />
 

@@ -1,0 +1,26 @@
+---
+export interface Props {
+	title: string;
+	excerpt: string;
+	date: string;
+	slug: string;
+	image: string;
+}
+
+const { title, excerpt, date, slug, image } = Astro.props;
+---
+
+<div class="blog-card bg-[rgba(var(--very-light-blue),0.05)] overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 group">
+	<div class="relative">
+		<img src={image} alt={title} class="w-full h-48 object-cover" />
+		<div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-75 transition-opacity group-hover:opacity-40"></div>
+	</div>
+	<div class="p-4">
+		<a href={`/blog/${slug}`} class="block">
+			<h3 class="text-xl font-semibold mb-2 hover:text-blue-400 transition-colors">{title}</h3>
+		</a>
+		<span class="inline-block text-sm text-gray-300 mb-2 px-2 py-1 bg-[rgba(var(--very-light-blue),0.1)] rounded">{date}</span>
+		<p class="text-gray-400 mb-4">{excerpt.length > 100 ? excerpt.slice(0, 97) + '...' : excerpt}</p>
+		<a href={`/blog/${slug}`} class="text-blue-400 hover:text-blue-300">Read more</a>
+	</div>
+</div>

@@ -17,58 +17,9 @@ const {
 } = Astro.props as Props;
 ---
 
-<article class="card_techstack w-full max-w-[225px] h-full flex flex-col items-start gap-8 py-[1.75em] px-[1.5em] rounded-[15px] border-t-[1px] border-solid border-t-borderTopColor relative transition-[all 0.2s ease-in-out]">
-    <Icon class="icon" name=`devicon:${icon}` />
-    <h4 class="name">{name}</h4>
-    <p class="description flex-grow">{description.length > 100 ? description.slice(0, 97) + '...' : description}</p>
-    <Button
-        variant='accent'
-        title={btnInfo[0] as string}
-        link={btnInfo[1] as string}
-    />
-</article>
-
-<style>
-    .card_techstack {
-        &:hover {
-            transform: scale(1.025);
-            & .icon {
-                transform: scale(1.2);
-            }
-            &::before {
-                height: 250px;
-                background: rgb(59,148,255);
-                background: linear-gradient(180deg, rgba(59,148,255, 0.15) 0%, rgba(59,148,255,0) 100%);    
-            }
-        }
-    }
-    .card_techstack::before {
-        content: "";
-        display: inline-block;
-        width: 225px;
-        height: 150px;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        border-radius: 15px;
-        transition: all 0.3s ease-in-out;
-        background: rgb(59,148,255);
-        background: linear-gradient(180deg, rgba(59,148,255, 0.1) 0%, rgba(59,148,255,0) 100%);    
-    }
-    .card_techstack > .icon {
-        z-index: 1;
-        transition: all 0.2s ease-in;
-        font-size: 2.25em;
-    }
-    .card_techstack .name {
-        font-size: 1.25rem;
-        font-weight: 600;
-    }
-    .card_techstack .description {
-        width: 100%;
-        font-size: 1rem;
-        font-weight: 300;
-        text-align: left;
-        color: rgba(255, 255, 255, 0.7);
-    }
-</style>
+<a href={btnInfo[1] as string} target={btnInfo[2] ? "_blank" : "_self"} rel={btnInfo[2] ? "noopener noreferrer" : ""} class="card_techstack w-full max-w-[225px] h-[350px] flex flex-col items-stretch gap-8 py-7 px-6 rounded-[15px] border-t border-solid border-t-borderTopColor relative transition-all duration-200 ease-in-out hover:scale-105">
+    <Icon class="icon z-10 text-4xl transition-all duration-200 ease-in hover:scale-120" name={`devicon:${icon}`} />
+    <h4 class="text-xl font-semibold">{name}</h4>
+    <p class="w-full text-base font-light text-left text-white/70 flex-1">{description.length > 100 ? description.slice(0, 97) + '...' : description}</p>
+    <div class="absolute top-0 left-0 w-full h-full rounded-[15px] transition-all duration-300 ease-in-out bg-gradient-to-b from-[rgba(59,148,255,0.1)] to-transparent hover:from-[rgba(59,148,255,0.15)]"></div>
+</a>

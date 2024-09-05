@@ -1,21 +1,22 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-
 import vercel from "@astrojs/vercel/serverless";
+
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "server",
-    integrations: [tailwind(), icon()],
-    adapter: vercel(),
-    image: {
-        service: {
-            entrypoint: "astro/assets/services/sharp",
-            config: {
-                // Clear cache on every build
-                cacheDir: false,
-            },
-        },
-    },
+  output: "server",
+  integrations: [tailwind(), icon(), mdx()],
+  adapter: vercel(),
+  image: {
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        // Clear cache on every build
+        cacheDir: false
+      }
+    }
+  }
 });

@@ -55,24 +55,26 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
     <div class="absolute inset-0 bg-[#040b14] z-10 transition-opacity duration-300 group-hover:opacity-60"></div>
 
     <!-- Content Grid -->
-    <div class="relative z-20 w-full h-full p-8 grid grid-cols-3 grid-rows-2 gap-4 text-white">
-        <!-- Title -->
-        <div class="col-span-2 max-w-[80%]">
-            <h3 class="text-2xl font-bold mb-2">{title}</h3>
-            <p class="text-base opacity-85">{summary}</p>
-        </div>
+    <div class="relative z-20 w-full h-full p-8 flex flex-col text-white">
+        <div class="flex-grow grid grid-cols-3 gap-4">
+            <!-- Title -->
+            <div class="col-span-2 max-w-[80%]">
+                <h3 class="text-2xl font-bold mb-2">{title}</h3>
+                <p class="text-base opacity-85">{summary}</p>
+            </div>
 
-        <!-- Tech Stack -->
-        <div class="row-start-1 col-start-3 flex flex-wrap justify-end gap-2">
-            {techStack.map(tech => (
-                <span class="text-white inline-flex h-8 w-8 items-center justify-center cursor-default text-xl" aria-label={`${tech}`}>
-                    <Icon class="icon" name={`devicon:${tech}`} />
-                </span>
-            ))}
+            <!-- Tech Stack -->
+            <div class="col-start-3 flex flex-wrap justify-end gap-2">
+                {techStack.map(tech => (
+                    <span class="text-white inline-flex h-8 w-8 items-center justify-center cursor-default text-xl" aria-label={`${tech}`}>
+                        <Icon class="icon" name={`devicon:${tech}`} />
+                    </span>
+                ))}
+            </div>
         </div>
 
         <!-- Buttons -->
-        <div class="col-span-3 self-end flex justify-between items-center">
+        <div class="mt-auto flex justify-between items-center">
             <Button
                 title='More Info'
                 link={`/projects/${id}`}

@@ -41,9 +41,28 @@ const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/project
 if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist in glob: "/src/assets/projectImages/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<article class={`w-full max-w-[1400px] mx-auto h-full flex flex-col lg:flex-row ${left ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center justify-between gap-16 min-h-[400px] p-4 sm:p-8 lg:p-12 bg-dark-blue bg-[rgb(var(--very-dark-blue-lightest))]`}>
+<article class="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-stretch justify-between gap-16 min-h-[400px] p-4 sm:p-8 lg:p-12 bg-dark-blue bg-[rgb(var(--very-dark-blue-lightest))]">
+    {!left && (
+        <!-- Image Section -->
+        <div class="w-full lg:w-[60%] flex items-center justify-center">
+            <div class="image w-full h-full relative">
+                <a href={`/projects/${id}`} class="block h-full w-full">
+                    <Image 
+                    src={images[projectImgName]()} 
+                    alt={projectImgAlt} 
+                    width={projectImgW} 
+                    height={projectImgH} 
+                    loading={"lazy"}
+                    class="w-full h-full object-cover object-center bg-dark-950 transition-opacity hover:opacity-75"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-75 transition-opacity hover:opacity-40"></div>
+                </a>
+            </div>
+        </div>
+    )}
+
     <!-- Content Section -->
-    <div class={`w-full lg:w-[40%] flex flex-col justify-between ${left ? 'items-start' : 'items-end'} h-auto lg:h-[100vh] max-h-[356px]`}>
+    <div class={`w-full lg:w-[40%] flex flex-col justify-between ${left ? 'items-start' : 'items-end'}`}>
         <div class="project_tech_container w-full flex flex-wrap gap-2 mb-4">
             <p class="w-full">Website</p>
             <hr class="w-full mb-2" />
@@ -55,37 +74,41 @@ if (!images[projectImgName]) throw new Error(`"${projectImgName}" does not exist
                 ))
             }
         </div>
-        <div class="project_desc_container w-full">
+        <div class="project_desc_container w-full flex-grow flex flex-col justify-center">
             <div class={`flex flex-col ${left ? 'items-start justify-start' : 'items-end justify-end'} gap-4`}>
                 <a href={`/projects/${id}`} class={`flex flex-row w-full ${left ? 'items-center justify-start' : 'items-end justify-end'} gap-2`}>
                     <h4 class="text-2xl sm:text-3xl font-black leading-snug text-dark-50 transition-colors hover:text-indigo-400">{title}</h4>
                 </a>
 
                 <p class={`text-sm sm:text-base opacity-85 ${left ? 'text-start' : 'text-end'}`}>{summary}</p>
-                <Button
-                    title='More Info'
-                    link={`/projects/${id}`}
-                    variant='primary'
-                    newTab={false}
-                />
             </div>
+        </div>
+        <div class="mt-4">
+            <Button
+                title='More Info'
+                link={`/projects/${id}`}
+                variant='primary'
+                newTab={false}
+            />
         </div>
     </div>
 
-    <!-- Image Section -->
-     <div class={`w-full lg:w-[60%] flex ${left ? 'items-end justify-end' : 'items-start justify-start'} mt-8 lg:mt-0`}>
-         <div class="image w-full relative">
-            <a href={`/projects/${id}`} class="block h-full w-full">
-                <Image 
-                src={images[projectImgName]()} 
-                alt={projectImgAlt} 
-                width={projectImgW} 
-                height={projectImgH} 
-                loading={"lazy"}
-                class="w-full h-auto object-cover object-center bg-dark-950 transition-opacity hover:opacity-75"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-75 transition-opacity hover:opacity-40"></div>
-            </a>
+    {left && (
+        <!-- Image Section -->
+        <div class="w-full lg:w-[60%] flex items-center justify-center">
+            <div class="image w-full h-full relative">
+                <a href={`/projects/${id}`} class="block h-full w-full">
+                    <Image 
+                    src={images[projectImgName]()} 
+                    alt={projectImgAlt} 
+                    width={projectImgW} 
+                    height={projectImgH} 
+                    loading={"lazy"}
+                    class="w-full h-full object-cover object-center bg-dark-950 transition-opacity hover:opacity-75"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-blue-900 to-transparent opacity-75 transition-opacity hover:opacity-40"></div>
+                </a>
+            </div>
         </div>
-     </div>
+    )}
 </article>

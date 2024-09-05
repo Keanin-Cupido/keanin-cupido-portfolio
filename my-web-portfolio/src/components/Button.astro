@@ -29,20 +29,51 @@ const Element = link ? 'a' : 'button';
         className
     ]}
 >
-    {title}
+    <span>{title}</span>
 </Element>
 
 <style>
     .btn {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         border: none;
         border-radius: 8px;
-        padding: 0.75em 1.5em;
+        padding: 0.75em 2.5em;
         font-size: 1rem;
         letter-spacing: 1px;
         text-decoration: none;
         cursor: pointer;
         transition: all 0.2s ease;
+    }
+    .btn--primary {
+        color: white;
+        background-color: rgb(var(--light-blue));
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+    }
+    .btn--primary span {
+        display: inline-block;
+        transition: transform 0.2s ease;
+    }
+    .btn--primary::after {
+        content: '➜';
+        position: absolute;
+        right: -30px;
+        opacity: 0;
+        transition: all 0.2s ease;
+    }
+    .btn--primary:hover span {
+        transform: translateX(-15px);
+    }
+    .btn--primary:hover::after {
+        right: 1em;
+        opacity: 1;
+    }
+    .btn--primary:hover {
+        background-color: rgba(var(--light-blue), 0.7);
+        box-shadow: 0 0 15px rgba(var(--light-blue), 0.15);
     }
     .btn--accent {
         background: none;
@@ -50,14 +81,7 @@ const Element = link ? 'a' : 'button';
         color: white;
     }
     .btn--accent:hover {
-        background-color: rgba(var(--light-blue), 0.5);
-    }
-    .btn--primary {
-        color: white;
-        background-color: rgb(var(--light-blue));
-        font-weight: 600;
-    }
-    .btn--primary:hover {
-        background-color: rgba(var(--light-blue), 0.7);
+        background-color: rgba(var(--light-blue), 0.25);
+        box-shadow: 0 0 15px rgba(var(--light-blue), 0.25);
     }
 </style>
