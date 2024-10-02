@@ -1,0 +1,91 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@0..200,0..24&display=swap');
+@font-face {
+	font-family: 'Wosker'; /* Name of the font */
+	src: url('/public/fonts/Wosker.woff2') format('woff2'); /* Adjust the path */
+	font-weight: normal; /* Specify the font weight */
+	font-style: normal; /* Specify the font style */
+}
+@font-face {
+	font-family: 'Headston'; /* Name of the font */
+	src: url('/public/fonts/Headston.woff2') format('woff2'); /* Adjust the path */
+	font-weight: normal; /* Specify the font weight */
+	font-style: normal; /* Specify the font style */
+}
+
+:root {
+	line-height: 1.25;
+	letter-spacing: 0.05em;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
+	overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+	width: 0.25rem;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: hsla(219, 78%, 53%, 0.75);
+	border-radius: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+	background-color: #070b2d;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+	html {
+		scrollbar-width: thin;
+		scrollbar-color: #2b6ce5 #070b2d;
+	}
+}
+
+.nabla-logo-k {
+	font-family: Nabla, sans-serif;
+	font-size: 2rem;
+	filter: hue-rotate(170deg);
+	transition: all 0.3s ease;
+	&:hover {
+		padding: 0 0.15em 0 0;
+	}
+}
+.nabla-logo-c {
+	font-family: Nabla, sans-serif;
+	font-size: 2rem;
+	filter: hue-rotate(170deg);
+	transition: all 0.3s ease;
+	&:hover {
+		padding: 0 0 0 0.15em;
+	}
+}
+
+.nabla {
+	font-family: Nabla, sans-serif;
+	font-size: 2.5rem;
+	filter: hue-rotate(170deg);
+	transition: all 0.3s ease;
+	position: relative;
+
+	&:hover {
+		filter: hue-rotate(220deg);
+		cursor: default;
+		padding: 0 0.25em;
+	}
+}
