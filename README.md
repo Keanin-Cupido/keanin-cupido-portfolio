@@ -1,2 +1,2 @@
-# astro-my-web-portfolio
+# my-web-portfolio
 My web portfolio to showcase my projects.
