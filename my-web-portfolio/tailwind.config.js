@@ -4,7 +4,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'primary-bg': '#0a1042', // Text color for dark-on-light designs
+				'primary-bg': '#02030d', // Text color for dark-on-light designs
+				// 'primary-bg': '#0a1042', // Text color for dark-on-light designs
 				'secondary-bg': '#FEFEFD', // Background for dark-on-light designs
 				'main-identity': '#2B6CE5', // Main identity color
 				'main-identity-light': '#6393ed',

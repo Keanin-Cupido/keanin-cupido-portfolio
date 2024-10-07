@@ -5,13 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@0..200,0..24&display=swap');
 @font-face {
 	font-family: 'Wosker'; /* Name of the font */
-	src: url('/public/fonts/Wosker.woff2') format('woff2'); /* Adjust the path */
+	src: url('/fonts/Wosker.woff2') format('woff2'); /* Adjust the path */
 	font-weight: normal; /* Specify the font weight */
 	font-style: normal; /* Specify the font style */
 }
 @font-face {
 	font-family: 'Headston'; /* Name of the font */
-	src: url('/public/fonts/Headston.woff2') format('woff2'); /* Adjust the path */
+	src: url('/fonts/Headston.woff2') format('woff2'); /* Adjust the path */
 	font-weight: normal; /* Specify the font weight */
 	font-style: normal; /* Specify the font style */
 }
